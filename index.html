@@ -374,6 +374,45 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
 .stag.vis>*:nth-child(8){animation:fadeUp .6s .54s forwards}
 
 /* ══ UTILS ═══════════════════════════════════════════ */
+/* ── Character art, gallery & lightbox ── */
+.charcard-img img{object-position:50% 22%}
+.hero-art-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.cm-hero{margin:-34px -34px 22px;height:340px;border-radius:24px 24px 0 0;overflow:hidden;position:relative;background:var(--surf)}
+.cm-hero img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.cm-hero::after{content:'';position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,var(--card))}
+.cm-gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.cm-gal button{aspect-ratio:3/4;border-radius:8px;overflow:hidden;border:1px solid var(--b1);background:var(--surf);position:relative}
+.cm-gal img{width:100%;height:100%;object-fit:cover;transition:transform .3s var(--E)}
+.cm-gal button:hover img{transform:scale(1.07)}
+#char-modal .modal-box{max-height:92vh;overflow-y:auto}
+.gal-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
+.gal-chip{padding:7px 14px;border-radius:var(--r100);border:1px solid var(--b1);background:var(--surf);color:var(--txt2);font-family:var(--F4);font-size:.72rem;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:.2s}
+.gal-chip:hover{color:var(--txt);border-color:rgba(255,111,0,.4)}
+.gal-chip.on{background:var(--goldglow);color:var(--gold);border-color:rgba(255,111,0,.5)}
+.gal-grid{columns:4 220px;column-gap:14px}
+.gal-item{break-inside:avoid;margin-bottom:14px;border-radius:var(--r12);overflow:hidden;border:1px solid var(--b0);background:var(--card);cursor:pointer;position:relative;display:block;width:100%;text-align:left;transition:transform .3s var(--E),box-shadow .3s}
+.gal-item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.6),0 0 24px rgba(255,111,0,.12)}
+.gal-item img{width:100%;display:block}
+.gal-cap{padding:9px 12px;font-family:var(--F4);font-size:.72rem;font-weight:700;color:var(--txt2)}
+.mature img{filter:blur(22px) brightness(.5)}
+.mature-tag{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;font-family:var(--F4);font-weight:700;font-size:.75rem;text-align:center;padding:12px;pointer-events:none}
+.mature-tag b{font-family:var(--F2);font-size:1rem;color:var(--red)}
+.cover-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;-webkit-overflow-scrolling:touch}
+.cover-rail::-webkit-scrollbar{height:6px}.cover-rail::-webkit-scrollbar-thumb{background:rgba(255,111,0,.3);border-radius:6px}
+.cover-rail .gal-item{flex:0 0 clamp(150px,22vw,210px);margin:0;scroll-snap-align:start}
+.cover-rail .gal-item img{aspect-ratio:9/14;object-fit:cover}
+.uni-banner{position:relative;border-radius:var(--r24);overflow:hidden;border:1px solid rgba(255,111,0,.2);min-height:clamp(220px,34vw,380px);display:flex;align-items:flex-end}
+.uni-banner>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.uni-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,12,16,.92),rgba(11,12,16,.15) 60%);z-index:1}
+.uni-banner>div{position:relative;z-index:2;padding:clamp(18px,3vw,34px);width:100%}
+#lightbox{position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:56px 12px 20px}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:calc(100vh - 120px);object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.8)}
+#lb-cap{margin-top:12px;font-family:var(--F4);font-weight:700;font-size:.85rem;color:var(--txt2);text-align:center}
+.lb-btn{position:absolute;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--b1);color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lb-btn:hover{background:rgba(255,111,0,.25)}
+#lb-x{top:10px;right:12px}#lb-prev{left:10px;top:50%}#lb-next{right:10px;top:50%}
+@media(max-width:640px){.cm-hero{height:260px}.gal-grid{columns:2 140px;column-gap:10px}.gal-item{margin-bottom:10px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv,.rvl,.rvr,.stag>*{opacity:1!important;transform:none!important}}
 </style>
 </head>
@@ -474,17 +513,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
           <div class="cring"></div>
           <div class="cglow"></div>
           <div class="char-art">
-            <!-- Ashoka Chakra SVG watermark -->
-            <svg viewBox="0 0 220 220" style="position:absolute;width:75%;opacity:.07;" fill="none">
-              <circle cx="110" cy="110" r="100" stroke="#FF6F00" stroke-width="2"/>
-              <circle cx="110" cy="110" r="10" fill="#FF6F00"/>
-              <g stroke="#FF6F00" stroke-width="1.2" id="chakra-spokes"></g>
-            </svg>
-            <div style="text-align:center;z-index:2;padding:28px;">
-              <div style="font-family:var(--F1);font-size:8rem;line-height:.88;background:linear-gradient(180deg,#FF6F00 0%,#FFB300 40%,rgba(255,111,0,.15) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">TI</div>
-              <div style="font-family:var(--F2);font-size:.68rem;letter-spacing:.28em;color:rgba(255,111,0,.55);text-transform:uppercase;margin-top:8px;">The Indian</div>
-              <div style="margin-top:18px;font-size:.56rem;color:rgba(255,255,255,.1);font-family:var(--F4);letter-spacing:.14em;text-transform:uppercase;">Upload Hero Art in Dashboard</div>
-            </div>
+            <img class="hero-art-img" src="assets/art/the-indian-cover.jpg" alt="The Indian — Vol. 1 #1 cover" fetchpriority="high">
           </div>
           <div class="ctag" style="top:12%;right:-16px;">⚡ SUPER STRENGTH</div>
           <div class="ctag ctag-c" style="bottom:28%;left:-20px;">🛡 BHARAT SHIELD</div>
@@ -594,6 +623,33 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
 
 <div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
 
+<!-- Universe Banner & Covers -->
+<section class="sec">
+  <div class="wrap">
+    <div class="uni-banner rv">
+      <img src="assets/art/rex-fire-logo.jpg" alt="Rex Comicsverse" loading="lazy">
+      <div class="fbetween fwrap gap16" style="align-items:flex-end;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">One Universe · Many Legends</div>
+          <h2 class="t-sec">Enter The <span class="t-gold">Rex Comicsverse</span></h2>
+          <p class="t-sub t-dim" style="max-width:520px;margin-top:8px;">The Indian, Mr. Steel, Janwar, Maya, Mr. Entity, Ariham, Dangara and more — created &amp; imagined by Sajjad Raja.</p>
+        </div>
+        <button class="btn btn-gold btn-lg" onclick="goTo('characters')">Meet Everyone →</button>
+      </div>
+    </div>
+    <div class="fbetween fwrap gap16" style="margin:44px 0 18px;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Cover Gallery</div>
+        <h2 class="t-sec">Latest <span class="t-gold">Covers</span></h2>
+      </div>
+      <button class="btn btn-outline" onclick="goTo('characters');setTimeout(()=>document.getElementById('gallery')?.scrollIntoView({behavior:'smooth'}),60)">Full Gallery →</button>
+    </div>
+    <div class="cover-rail" id="covers-home"></div>
+  </div>
+</section>
+
+<div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
+
 <!-- Characters Preview -->
 <section class="sec">
   <div class="wrap">
@@ -670,6 +726,11 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
   <div class="sdiv"></div>
   <section class="sec">
     <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:10px;">Rex Comicsverse</div>
+      <h2 class="t-sec" style="margin-bottom:18px;">All <span class="t-gold">Series</span></h2>
+      <div class="cover-rail" id="covers-series" style="margin-bottom:48px;"></div>
+      <div class="eyebrow" style="margin-bottom:10px;">The Indian</div>
+      <h2 class="t-sec" style="margin-bottom:18px;">Episodes</h2>
       <div class="g4 stag" id="eps-grid-series"></div>
     </div>
   </section>
@@ -735,14 +796,22 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
   <section style="padding:clamp(60px,8vw,100px) 0 50px;background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;overflow:hidden;">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,111,0,.07),transparent);pointer-events:none;"></div>
     <div class="wrap tc" style="position:relative;">
-      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">The Indian Universe</div>
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">The Rex Comicsverse</div>
       <h1 class="t-hero">Meet The <span class="t-gold">Characters</span></h1>
-      <p class="t-sub t-dim" style="max-width:480px;margin:14px auto 0;">Heroes, allies, and villains that populate the world of The Indian.</p>
+      <p class="t-sub t-dim" style="max-width:480px;margin:14px auto 0;">Heroes, anti-heroes, gods and monsters of the Rex Comicsverse. Tap a character to see their full profile and art.</p>
     </div>
   </section>
   <section class="sec">
     <div class="wrap">
       <div class="g3 stag" id="chars-full"></div>
+    </div>
+  </section>
+  <section class="sec" id="gallery" style="background:var(--bg2);">
+    <div class="wrap">
+      <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Art &amp; Covers</div>
+      <h2 class="t-sec tc" style="margin-bottom:22px;">The <span class="t-gold">Gallery</span></h2>
+      <div class="gal-chips" id="gal-chips"></div>
+      <div class="gal-grid" id="gal-grid"></div>
     </div>
   </section>
   <!-- Expanded character modal -->
@@ -1107,6 +1176,15 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
   </div>
 </div>
 
+<!-- Art lightbox -->
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lb-btn" id="lb-x" onclick="closeLightbox()" aria-label="Close">✕</button>
+  <button class="lb-btn" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous">‹</button>
+  <button class="lb-btn" id="lb-next" onclick="lbStep(1)" aria-label="Next">›</button>
+  <img id="lb-img" alt="">
+  <div id="lb-cap"></div>
+</div>
+
 <!-- Toast container -->
 <div id="toasts"></div>
 
@@ -1139,12 +1217,58 @@ const CHARACTERS = [
    desc:'Born in Varanasi, chosen by Bharat Mata to wield the ancient Bharat Shield. Former army officer and social activist.',
    bio:'Arjun Bharatveer grew up watching injustice unfold around him in the ghats of Varanasi. A decorated army officer who quit to fight corruption from within, he was chosen by Bharat Mata herself when he discovered an ancient relic by the Ganga. His transformation into The Indian was as painful as it was magnificent. He now wields the Bharat Shield — a divine artifact capable of deflecting anything — and channels the Dharma Flame through his hands. But his greatest weapon is his conviction.',
    powers:['Bharat Shield','Dharma Flame','Superhuman Strength','Divine Intuition','Supersonic Flight','Regeneration'],
-   first:'Episode 1'},
-  {id:'maya',       name:'Maya Sharma',  realName:'Dr. Maya Sharma',  role:'Ally / Tech',    align:'ally',    accent:'#00FFFF',
-   desc:'Brilliant ISRO scientist. Creator of the AI systems inside the Dharma Suit. Tactical genius.',
-   bio:'Dr. Maya Sharma is arguably the most intelligent person in the Rex Comicsverse universe. A child prodigy who joined ISRO at 19, she built India\'s first quantum communication satellite at 24. When she discovered that the Shadow Syndicate was harvesting her research, she defected and found Arjun. She designed the Dharma Suit\'s AI, its propulsion systems, and its defensive matrix. Behind her cool analytical exterior burns a fierce patriotism that rivals The Indian himself.',
-   powers:['Genius Intellect','Hacking & Cyber Warfare','Dharma Suit Design','Strategic Analysis','Pilot'],
-   first:'Episode 3'},
+   first:'The Indian Vol. 1 #1',
+   img:'the-indian-cover'},
+  {id:'mr-steel',     name:'Mr. Steel',        realName:'Classified',               role:'Armored Hero',     align:'hero',      accent:'#4FC3F7', img:'mr-steel-armor',
+   desc:'An armored genius powered by the Hex Cosmic Power Source. "When genius combines with intelligence."',
+   bio:'Encased in hexagonal battle armor and powered by the Hex Cosmic Power Source in his belt — "the buckle that could kill a galaxy" — Mr. Steel rises from a city of ruin to deliver justice. An AI companion tracks his combat efficiency while shoulder rocket pods, twin miniguns and jet boosters carry him from burning city streets all the way into orbit. His most persistent enemy is a living shadow that keeps returning from the dark.',
+   powers:['Hex Cosmic Power Source','Hex Battle Armor','Rocket Pods','Twin Miniguns','Jet Flight','AI Combat Assist'],
+   first:'Mr. Steel Vol. 1 #1 — City of Ruin'},
+  {id:'janwar',       name:'Janwar',           realName:'The Jungle King',          role:'Jungle Protector', align:'anti-hero', accent:'#FFD54F', img:'janwar-warrior',
+   desc:'Cruel to the wicked, merciful to the innocent. The ancient protector of Naga Forest.',
+   bio:'When the modern world invades the ancient jungle, the protector rises. Janwar is a grey-skinned, golden-eyed warrior who guards Naga Forest with a glowing blade and a strength far older than law. Every strike is calculated, every motion fatal — yet to the innocent he is always there. As soldiers push deeper into the jungle, something far more dangerous awakens beneath the earth, and the battle for Naga Forest begins.',
+   powers:['Superhuman Strength','Glowing Blade','Predator Senses','Jungle Mastery','Near-Invulnerability'],
+   first:'Janwar: Rise of the Jungle King (Coming Soon)'},
+  {id:'maya',         name:'Maya',             realName:'The Daughter of Djinn',    role:'Mystic Hero',      align:'hero',      accent:'#B388FF', img:'maya-cover',
+   desc:'Born of djinn blood — when her eyes burn violet, the desert itself answers her call.',
+   bio:'Maya carries the blood of the djinn. When her power awakens her eyes blaze violet, smoke curls from her gaze, and the parched earth cracks open beneath her hand. Wrapped in green and bound by golden bracers, she walks between the human world and a far older one.',
+   powers:['Djinn Magic','Earth-Shattering Force','Violet Sight','Smoke Manifestation'],
+   first:'Maya: The Daughter of Djinn'},
+  {id:'mr-entity',    name:'Mr. Entity',       realName:'God of Ghost',             role:'God of Ghost',     align:'anti-hero', accent:'#FF3D00', img:'mr-entity-cover',
+   desc:'A horned inferno of smoke and magma with eyes of blue spirit-fire. The horror unleashed.',
+   bio:'Rising from rivers of lava with horns of cracked obsidian and eyes of cold blue spirit-fire, Mr. Entity is the God of Ghost — lord of the restless dead. Wherever he walks, spirits follow. His arrival marks the moment the horror is unleashed on the Rex Comicsverse.',
+   powers:['Ghost Command','Hellfire','Smoke Form','Terror Aura'],
+   first:'The Mr. Entity Vol. 1 #1'},
+  {id:'ariham',       name:'Ariham',           realName:'The Ancient Force',        role:'Ancient Warrior',  align:'hero',      accent:'#FFB300', img:'ariham-cover',
+   desc:'A golden, rune-marked warrior returning from a forgotten prehistoric age.',
+   bio:'Ariham rises from ruined temples and fossil-strewn valleys where winged beasts still circle. His golden skin is carved with glowing runes, and his lion-hilted rune blade crackles with crimson lightning — the power of an ancient force returning to a world that forgot it.',
+   powers:['Rune Magic','Rune Blade','Ancient Strength','Crimson Lightning'],
+   first:'Ariham: Rise of an Ancient Force'},
+  {id:'dangara',      name:'Dangara',          realName:'The Giant',                role:'Giant',            align:'anti-hero', accent:'#26A69A', img:'dangara-cover',
+   desc:'A rune-scarred colossus who tears through cities with a stone war hammer.',
+   bio:'Dangara is a towering teal-skinned giant, his body split by burning red runes and wreathed in violet energy. He hurls buses like pebbles and splits highways with a single blow of his rune-carved hammer. Whether that rage can ever be turned toward good is a question the city may not survive long enough to answer.',
+   powers:['Colossal Strength','Rune Hammer','Rage Surge','Unbreakable Body'],
+   first:'Dangara: The Giant'},
+  {id:'the-shadow',   name:'The Shadow',       realName:'Unknown',                  role:'Villain',          align:'villain',   accent:'#7C4DFF', img:'shadow-explosion',
+   desc:'A living silhouette of black smoke and violet eyes — Mr. Steel\'s recurring nemesis.',
+   bio:'A being of living shadow that trails smoke and violet light, it watches the city from gothic rooftops. It has faced Mr. Steel before — "You\'ve grown... Mr. Steel." — and even in defeat it warns: "This... isn\'t... the end..."',
+   powers:['Shadow Form','Violet Energy','Smoke Dispersal','Night Stalking'],
+   first:'Mr. Steel'},
+  {id:'scavenger',    name:'The Scavenger',    realName:'Unknown',                  role:'Wildcard',         align:'anti-hero', accent:'#76FF03', img:'scavenger-post-credits',
+   desc:'A masked drifter who hunts relics in the wreckage of dead worlds.',
+   bio:'Masked, cloaked and picking through the debris fields of shattered planets, The Scavenger has found a crystal shard humming with power — and with it, proof that "Raja\'s creation isn\'t the only one." His discovery sets the stage for Mr. Steel #10: The Void Protocol.',
+   powers:['Relic Hunting','Void Navigation','Survival Gear','Tactical Cunning'],
+   first:'Mr. Steel — Post-Credits Scene'},
+  {id:'cosmic-being', name:'The Cosmic Being', realName:'Unknown',                  role:'Cosmic Entity',    align:'cosmic',    accent:'#90CAF9', img:'cosmic-being',
+   desc:'A crystal titan whose body holds entire galaxies.',
+   bio:'Its faceted crystal body is a window onto the universe — galaxies spin inside its limbs and orbit its open hand, and black-hole eyes crown its head. Where it stands, reality itself bends.',
+   powers:['Galaxy Manipulation','Cosmic Awareness','Crystal Body','Gravity Control'],
+   first:'Coming Soon'},
+  {id:'stone-giant',  name:'The Stone Giant',  realName:'Unknown',                  role:'Ancient Guardian', align:'mystery',   accent:'#BCAAA4', img:'stone-giant',
+   desc:'A colossal statue in an abandoned ruin — that may not be a statue at all.',
+   bio:'Deep inside an abandoned cave ruin stands a colossal stone figure, fanged and horned, crafted far too finely to be real. "Doesn\'t it feel alive?" Some stones should stay untouched — but destiny has something else in store.',
+   powers:['Stone Body','Titanic Strength','Unknown Awakening'],
+   first:'Coming Soon'},
   {id:'kalinga',    name:'Kalinga',      realName:'Unknown',           role:'Primary Villain',align:'villain', accent:'#FF3D00',
    desc:'Ruthless leader of the Shadow Syndicate. Claims divine right to rule. Seeks to plunge India into chaos.',
    bio:'Kalinga\'s true identity remains unknown. He appeared 10 years ago, built the Shadow Syndicate from a network of corrupt politicians, arms dealers, and ancient cultists, and positioned himself as the new emperor of a dark India. He claims to be the reincarnation of an ancient conqueror and wields shadow energy that can nullify light and hope alike. His philosophical conviction — that India\'s greatness can only be restored through destruction — makes him The Indian\'s most dangerous opposite.',
@@ -1164,8 +1288,40 @@ const CHARACTERS = [
    desc:"Kalinga's enforcer. Every wound he sustains spawns a clone. Near-impossible to defeat.",
    bio:'Raktabija is Kalinga\'s most feared weapon. Derived from ancient genetic experiments that spliced human DNA with mythological records of the demon Raktabija, he regenerates from every wound by spawning fully-formed copies of himself. The Indian\'s first encounter with him ended in a near-death experience. Defeating Raktabija will require understanding the original myth — and the only one who knows the solution is Devi.',
    powers:['Infinite Clone Regeneration','Shadow Absorption','Enhanced Durability','Berserker Strength'],
-   first:'Episode 11'},
+   first:'Episode 11'}
 ];
+
+/* Character art & covers — files live in assets/art/<k>.jpg (+ <k>-sm.jpg thumbnail) */
+const ART = [
+  {k:'the-indian-cover',          t:'The Indian · Vol. 1 #1',                  c:['the-indian'],                 type:'cover'},
+  {k:'clash-of-era',              t:'Clash of Era',                            c:['the-indian','mr-steel','janwar'], type:'cover'},
+  {k:'heroes-of-rex-comicsverse', t:'The Heroes of Rex Comicsverse',           c:['the-indian','mr-steel','mr-entity','janwar','stone-giant'], type:'poster'},
+  {k:'mr-steel-city-of-ruin',     t:'Mr. Steel Vol. 1 #1 · City of Ruin',      c:['mr-steel'],                   type:'cover'},
+  {k:'mr-steel-city-of-ruin-hex', t:'Mr. Steel Vol. 1 #1 · City of Ruin (Variant)', c:['mr-steel'],              type:'cover'},
+  {k:'mr-steel-rise-of-a-legend', t:'Mr. Steel · Rise of a Legend',            c:['mr-steel'],                   type:'cover'},
+  {k:'mr-steel-hex-cosmic-power', t:'Mr. Steel · The Hex Cosmic Power Source', c:['mr-steel'],                   type:'cover'},
+  {k:'mr-steel-issue-8-cover',    t:'Mr. Steel #8 · Into the Desert',          c:['mr-steel'],                   type:'cover'},
+  {k:'mr-steel-issue-8-title',    t:'Mr. Steel #8 · The Buckle That Could Kill a Galaxy', c:['mr-steel'],        type:'cover'},
+  {k:'mr-steel-space',            t:'Mr. Steel · Into Orbit',                  c:['mr-steel'],                   type:'art'},
+  {k:'mr-steel-armor',            t:'Mr. Steel · Armor',                       c:['mr-steel'],                   type:'art'},
+  {k:'mr-steel-page-14',          t:'Mr. Steel · Page 14',                     c:['mr-steel','the-shadow'],      type:'page'},
+  {k:'mr-steel-page-15',          t:'Mr. Steel · Page 15',                     c:['mr-steel','the-shadow'],      type:'page'},
+  {k:'scavenger-post-credits',    t:'Post-Credits · The Scavenger',            c:['scavenger','mr-steel'],       type:'page'},
+  {k:'shadow-explosion',          t:'The Shadow',                              c:['the-shadow'],                 type:'art'},
+  {k:'shadow-rooftop',            t:'The Shadow · Rooftop',                    c:['the-shadow'],                 type:'art'},
+  {k:'janwar-coming-soon',        t:'Janwar · Rise of the Jungle King',        c:['janwar'],                     type:'cover'},
+  {k:'janwar-page',               t:'Janwar · The Predator Returns',           c:['janwar'],                     type:'page'},
+  {k:'janwar-warrior',            t:'Janwar',                                  c:['janwar'],                     type:'art'},
+  {k:'janwar-punishment',         t:'Janwar · No Escape',                      c:['janwar'],                     type:'page', mature:true},
+  {k:'maya-cover',                t:'Maya · The Daughter of Djinn',            c:['maya'],                       type:'cover'},
+  {k:'mr-entity-cover',           t:'The Mr. Entity Vol. 1 #1 · God of Ghost', c:['mr-entity'],                  type:'cover'},
+  {k:'ariham-cover',              t:'Ariham · Rise of an Ancient Force',       c:['ariham'],                     type:'cover'},
+  {k:'dangara-cover',             t:'Dangara · The Giant',                     c:['dangara'],                    type:'cover'},
+  {k:'cosmic-being',              t:'The Cosmic Being',                        c:['cosmic-being'],               type:'art'},
+  {k:'stone-giant',               t:'The Stone Giant',                         c:['stone-giant'],                type:'page'},
+];
+/* One headline cover per series, used on Home and Series pages */
+const SERIES_COVERS = ['the-indian-cover','mr-steel-city-of-ruin','clash-of-era','janwar-coming-soon','maya-cover','mr-entity-cover','ariham-cover','dangara-cover','mr-steel-rise-of-a-legend','mr-steel-issue-8-cover'];
 
 const PANELS = [
   {t:'narration',c:'The ancient city of Varanasi at dusk. Ghats crowded, temple bells echoing across the sacred Ganga. Smoke from thousands of diyas rises into a burning sky.'},
@@ -1486,12 +1642,14 @@ function price(usd) { return S.currency==='INR'?`₹${Math.round(usd*84)}`:`$${u
 /* ── HOME PAGE ──────────────────────────────────────────── */
 function renderHomePage() {
   renderEpsGrid('eps-grid-home', EPISODES.slice(-4).reverse());
-  renderCharsGrid('chars-home', CHARACTERS.slice(0,3));
+  renderCharsGrid('chars-home', CHARACTERS.slice(0,6));
+  renderCoverRail('covers-home', SERIES_COVERS);
 }
 
 /* ── SERIES PAGE ────────────────────────────────────────── */
 function renderSeriesPage() {
   renderEpsGrid('eps-grid-series', EPISODES);
+  renderCoverRail('covers-series', SERIES_COVERS);
 }
 
 /* ── EPISODE CARD ───────────────────────────────────────── */
@@ -1529,6 +1687,7 @@ function openEpisode(id) {
 /* ── CHARACTERS PAGE ────────────────────────────────────── */
 function renderCharactersPage() {
   renderCharsGrid('chars-full', CHARACTERS);
+  renderGallery(S.galFilter || 'all');
 }
 function renderCharsGrid(id, chars) {
   const el = document.getElementById(id);
@@ -1540,11 +1699,12 @@ function charCardHTML(c) {
   return `
   <div class="charcard rv" style="border-top:3px solid ${c.accent};" onclick="openCharModal('${c.id}')">
     <div class="charcard-img">
+      ${c.img ? `<img src="${artSrc(c.img,true)}" alt="${esc(c.name)}" loading="lazy">` : `
       <div class="charcard-ph" style="background:linear-gradient(160deg,#141824,#0B0C10);">
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,${c.accent}22,transparent);"></div>
         <div style="font-family:var(--F1);font-size:5rem;line-height:1;color:${c.accent};opacity:.14;position:relative;">${c.name.split(' ').map(w=>w[0]).join('')}</div>
         <div style="font-size:.52rem;color:rgba(255,255,255,.09);letter-spacing:.18em;text-transform:uppercase;font-family:var(--F4);position:relative;">Character Art</div>
-      </div>
+      </div>`}
     </div>
     <div class="charcard-body">
       <div class="char-role" style="color:${rc};">${esc(c.role)} · <span style="color:var(--muted);">${esc(c.align)}</span></div>
@@ -1558,8 +1718,11 @@ function openCharModal(id) {
   const c = CHARACTERS.find(x=>x.id===id);
   if (!c) return;
   const rc = c.align==='hero'?'var(--gold)':c.align==='villain'?'var(--red)':'var(--cyan)';
+  const gal = artFor(c.id);
+  document.getElementById('char-modal-inner').style.position = 'relative';
   document.getElementById('char-modal-inner').innerHTML = `
-    <button class="modal-x" onclick="closeCharModal()">✕</button>
+    ${c.img ? `<div class="cm-hero"><img src="${artSrc(c.img)}" alt="${esc(c.name)}"></div>` : ''}
+    <button class="modal-x" onclick="closeCharModal()" style="${c.img?'position:absolute;top:14px;right:14px;z-index:2;background:rgba(0,0,0,.55);':''}">✕</button>
     <div style="margin-bottom:20px;">
       <span class="badge ${c.align==='hero'?'bg':c.align==='villain'?'br':'bc'} mb8">${c.role}</span>
       <h2 style="font-family:var(--F1);font-size:2.5rem;letter-spacing:.05em;margin-bottom:4px;">${esc(c.name)}</h2>
@@ -1567,10 +1730,72 @@ function openCharModal(id) {
     </div>
     <p style="font-size:.86rem;color:var(--txt2);line-height:1.8;margin-bottom:18px;">${esc(c.bio)}</p>
     <div><div style="font-family:var(--F2);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${rc};margin-bottom:9px;">Abilities</div><div class="ptags">${c.powers.map(p=>`<span class="ptag" style="cursor:default;">${esc(p)}</span>`).join('')}</div></div>
+    ${gal.length ? `<div style="margin-top:22px;"><div style="font-family:var(--F2);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${rc};margin-bottom:9px;">Gallery · ${gal.length}</div>
+      <div class="cm-gal">${gal.map((a,i)=>`<button class="${a.mature?'mature':''}" onclick="openLightbox(${i},'${c.id}')" aria-label="${esc(a.t)}"><img src="${artSrc(a.k,true)}" alt="" loading="lazy">${a.mature?'<span class="mature-tag">18+</span>':''}</button>`).join('')}</div></div>` : ''}
   `;
   openModal('char-modal');
 }
 function closeCharModal() { closeModal('char-modal'); }
+
+/* ── ART GALLERY & LIGHTBOX ─────────────────────────────── */
+const artSrc = (k, sm) => `assets/art/${k}${sm?'-sm':''}.jpg`;
+const artFor = id => id==='all' ? ART : ART.filter(a => a.c.includes(id));
+function galItemHTML(a, i, listKey) {
+  return `<button class="gal-item ${a.mature?'mature':''}" onclick="openLightbox(${i},'${listKey}')">
+    <img src="${artSrc(a.k,true)}" alt="${esc(a.t)}" loading="lazy">
+    ${a.mature?'<span class="mature-tag"><b>18+</b>Graphic content<br>Tap to view</span>':''}
+    <div class="gal-cap">${esc(a.t)}</div>
+  </button>`;
+}
+function renderCoverRail(id, keys) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = keys.map((k,i) => galItemHTML(ART.find(a=>a.k===k), i, 'covers')).join('');
+}
+function renderGallery(filter) {
+  S.galFilter = filter;
+  const chips = document.getElementById('gal-chips'), grid = document.getElementById('gal-grid');
+  if (!chips || !grid) return;
+  const withArt = CHARACTERS.filter(c => ART.some(a => a.c.includes(c.id)));
+  chips.innerHTML = [{id:'all',name:'All'}, ...withArt].map(c =>
+    `<button class="gal-chip ${c.id===filter?'on':''}" onclick="renderGallery('${c.id}')">${esc(c.name)}</button>`).join('');
+  grid.innerHTML = artFor(filter).map((a,i) => galItemHTML(a, i, filter)).join('');
+}
+const LB = {list:[], i:0};
+function openLightbox(i, listKey) {
+  LB.list = listKey==='covers' ? SERIES_COVERS.map(k=>ART.find(a=>a.k===k)) : artFor(listKey);
+  LB.i = i;
+  showLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function showLightbox() {
+  const a = LB.list[LB.i];
+  if (!a) return;
+  const img = document.getElementById('lb-img');
+  img.src = artSrc(a.k); img.alt = a.t;
+  document.getElementById('lb-cap').textContent = `${a.t}  ·  ${LB.i+1} / ${LB.list.length}`;
+}
+function lbStep(d) { LB.i = (LB.i + d + LB.list.length) % LB.list.length; showLightbox(); }
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  if (!document.querySelector('.modal-bg.open')) document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox')?.classList.contains('open')) return;
+  if (e.key==='ArrowLeft') lbStep(-1);
+  if (e.key==='ArrowRight') lbStep(1);
+  if (e.key==='Escape') { e.stopImmediatePropagation(); closeLightbox(); }
+}, true);
+(() => { // swipe between images on phones
+  let x0 = null;
+  document.addEventListener('touchstart', e => { if (e.target.id==='lb-img') x0 = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', e => {
+    if (x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) lbStep(dx < 0 ? 1 : -1);
+  }, {passive:true});
+})();
 
 /* ── SUPPORT PAGE ───────────────────────────────────────── */
 function renderSupportPage() {
