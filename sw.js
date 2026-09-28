@@ -1,6 +1,7 @@
 // Rex Comicsverse Service Worker — Offline Support
-const CACHE = 'rex-v1';
-const FILES = ['/', '/index.html', '/setup-guide.html', '/manifest.json'];
+const CACHE = 'rex-v2';
+// Relative paths so this works under the /rexcomicsverse/ GitHub Pages path
+const FILES = ['./', './index.html', './setup-guide.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
@@ -17,6 +18,6 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(r => r || fetch(e.request))
-      .catch(() => caches.match('/index.html'))
+      .catch(() => caches.match('./index.html'))
   );
 });
