@@ -21,7 +21,8 @@ android {
         versionName "1.0.${buildNumber}"
 
         resValue 'string', 'hostName', twaHost
-        resValue 'string', 'launchUrl', twaLaunchUrl
+        // ?app= tells the site it runs inside the app and which version, so it can offer updates (app-update.js)
+        resValue 'string', 'launchUrl', "${twaLaunchUrl}?app=1.0.${buildNumber}"
         resValue 'string', 'assetStatements',
             "[{ \"relation\": [\"delegate_permission/common.handle_all_urls\"], \"target\": {\"namespace\": \"web\", \"site\": \"https://${twaHost}\"}}]"
         resValue 'string', 'providerAuthority', 'com.rexcomicsverse.app.fileprovider'

@@ -9,6 +9,7 @@
 <meta property="og:description" content="India's greatest patriot superhero comic. Free to read. New episodes weekly.">
 <meta name="theme-color" content="#FF6F00">
 <link rel="manifest" href="manifest.json">
+<script src="app-update.js" defer></script>
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -413,6 +414,11 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
 .lb-btn:hover{background:rgba(255,111,0,.25)}
 #lb-x{top:10px;right:12px}#lb-prev{left:10px;top:50%}#lb-next{right:10px;top:50%}
 @media(max-width:640px){.cm-hero{height:260px}.gal-grid{columns:2 140px;column-gap:10px}.gal-item{margin-bottom:10px}}
+/* ── App update bar (shown only inside the Android app) ── */
+#app-update-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:3500;display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;padding:12px 14px;border-radius:var(--r16);background:var(--glass);border:1px solid rgba(255,111,0,.45);box-shadow:0 18px 50px rgba(0,0,0,.7),var(--gg);backdrop-filter:blur(12px);font-family:var(--F4);font-weight:700;font-size:.82rem}
+#app-update-bar button{color:var(--txt2);padding:4px 8px;font-size:1rem}
+.in-app #hero-app-btn,.in-app #app-banner-strip{display:none!important}
+#app-version{margin-left:10px;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv,.rvl,.rvr,.stag>*{opacity:1!important;transform:none!important}}
 </style>
 </head>
@@ -1146,7 +1152,7 @@ footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
       </div>
     </div>
     <div class="f-bottom">
-      <span>© 2024 Rex Comicsverse. All rights reserved. Made with ❤️ in India.</span>
+      <span>© 2024 Rex Comicsverse. All rights reserved. Made with ❤️ in India.<span id="app-version"></span></span>
       <div class="frow gap16"><a style="cursor:pointer;transition:.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">Privacy</a><a style="cursor:pointer;transition:.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">Terms</a></div>
     </div>
   </div>
@@ -1617,11 +1623,9 @@ function detectDevice() {
   if (banner) banner.style.display='block';
 }
 function handleAppDownload() {
-  const url = /Chrome/.test(navigator.userAgent)
-    ? 'https://play.google.com/store/apps/details?id=com.rexcomicsverse'
-    : '#';
-  toast('Android app coming to Play Store! Sign up for beta access.','i');
-  // window.open(url, '_blank');
+  // Always the newest APK from GitHub releases (see app-update.js)
+  window.open(window.RexUpdates?.APK_URL || 'https://github.com/rexraja89-oss/rexcomicsverse/releases/latest', '_blank', 'noopener');
+  toast('Downloading the Rex Comicsverse app… open the file to install.','i');
 }
 
 /* ── CURRENCY ───────────────────────────────────────────── */

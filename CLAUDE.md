@@ -41,3 +41,14 @@ Main site: index.html | Guide: setup-guide.html
 - manifest.json = PWA/Android app config
 - sw.js = offline support
 - setup.sh = auto deployment script
+
+## Android app and updates (same process as XARVIS)
+Rex isn't an Android developer: explain in plain language, do the work yourself, and say exactly what to test on the phone after installing.
+
+- The app is `android-app/`: a Trusted Web Activity (package `com.rexcomicsverse.app`) that opens the live site full-screen. Site changes (characters, art, episodes) reach app users without a new APK; build a new APK only when `android-app/` changes.
+- `.github/workflows/android-apk.yml` runs on pushes touching `android-app/`, `tests/`, `app-update.js` or the workflow. It runs the unit tests (`node --test tests/*.test.js`), builds the APK and checks its signature. A green run is the build check (no Android SDK in the sandbox).
+- Versions: versionCode = GitHub run number, versionName = `1.0.<run>`. Builds on `main` are published as release `v1.0.<run>` (marked latest) with `RexComicsverse-v1.0.<run>.apk`, `RexComicsverse.apk` and `assetlinks.json`. **Always-newest link: https://github.com/rexraja89-oss/rexcomicsverse/releases/latest/download/RexComicsverse.apk** (the site's "Get Android App" buttons use it).
+- In-app updates (`app-update.js`, like XARVIS's `update/Updates.kt`): the app opens the site with `?app=<versionName>`; the page then checks GitHub's latest release on open, when it comes back to the screen and every 30 min, and shows an **UPDATE TO vX** bar that downloads the new APK in Chrome (download, Open, Update). The footer shows `App v1.0.<run>`. When a fix "doesn't work", first check that version.
+- Signing: every build uses one permanent key from the **KEYSTORE_BASE64** (base64 keystore, alias `rexcomics`) and **KEYSTORE_PASSWORD** repo secrets. CI fails if it doesn't match `.github/signing-cert-sha256.txt`. Without the secrets CI signs with a throwaway key and refuses to publish on main, because such an APK can't update installed apps ("App not installed"). Never commit the keystore; Rex adds the secrets himself.
+- Full-screen without the URL bar needs `assetlinks.json` at https://rexraja89-oss.github.io/.well-known/assetlinks.json (repo `rexraja89-oss.github.io`, plus `.nojekyll`).
+- Service worker (`sw.js`): images cache-first (offline), everything else network-first so updates show immediately. Bump `CACHE` when changing precached files.

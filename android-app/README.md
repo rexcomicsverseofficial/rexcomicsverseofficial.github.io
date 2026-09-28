@@ -6,7 +6,9 @@ the website full-screen in Chrome, so site updates show up in the app instantly.
 
 - Package name: `com.rexcomicsverse.app`
 - Built automatically by `.github/workflows/android-apk.yml` on every push that touches `android-app/`
-- Download the APK from the repo's **Releases** page (`rex-comicsverse.apk`)
+- Versions are `1.0.<build number>`; every build on `main` becomes release `v1.0.<n>`
+- Newest APK, always: https://github.com/rexraja89-oss/rexcomicsverse/releases/latest/download/RexComicsverse.apk
+- Installed apps check for new versions by themselves and show an **UPDATE TO vX** bar (`app-update.js`)
 
 ## One-time setup: signing key secrets
 
@@ -21,7 +23,8 @@ Add these under **Settings → Secrets and variables → Actions → New reposit
 Keep the `.keystore` file and password somewhere safe. If you lose them, you can never
 update the app on the Play Store. Never commit them to git.
 
-Until the secrets are added, CI signs with a throwaway key (the build log shows a warning).
+Until the secrets are added, CI signs with a throwaway key (the build log shows a warning) and does not publish a release.
+CI checks every build against the fingerprint in `.github/signing-cert-sha256.txt`.
 
 ## Remove the browser address bar (Digital Asset Links)
 
