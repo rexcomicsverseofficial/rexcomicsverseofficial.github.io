@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rex Comicsverse — The Indian · India's Greatest Superhero</title>
+<meta name="description" content="Rex Comicsverse — Home of The Indian, a Great Indian Patriot Superhero. Read free, support the creator, join the universe.">
+<meta property="og:title" content="Rex Comicsverse — The Indian">
+<meta property="og:description" content="India's greatest patriot superhero comic. Free to read. New episodes weekly.">
+<meta name="theme-color" content="#FF6F00">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════════════ */
+:root{
+  --bg:#0B0C10; --bg2:#0E1019; --surf:#141824; --card:#181E2E;
+  --glass:rgba(20,24,36,.88);
+  --gold:#FF6F00; --goldb:#FF9100; --goldglow:rgba(255,111,0,.18);
+  --cyan:#00FFFF; --cyanglow:rgba(0,255,255,.15);
+  --red:#FF3D00; --redglow:rgba(255,61,0,.18);
+  --green:#00E676; --greenglow:rgba(0,230,118,.14);
+  --txt:#EEF2FF; --txt2:#9AA5BE; --muted:#4A5568;
+  --b0:rgba(255,255,255,.05); --b1:rgba(255,255,255,.1);
+  --gg:0 0 22px rgba(255,111,0,.55),0 0 55px rgba(255,111,0,.2);
+  --cg:0 0 22px rgba(0,255,255,.55),0 0 55px rgba(0,255,255,.2);
+  --rg:0 0 22px rgba(255,61,0,.55),0 0 55px rgba(255,61,0,.2);
+  --r4:4px; --r8:8px; --r12:12px; --r16:16px; --r24:24px; --r100:100px;
+  --nav:66px; --max:1320px;
+  --F1:'Bebas Neue',sans-serif;
+  --F2:'Orbitron',sans-serif;
+  --F3:'Rajdhani',sans-serif;
+  --F4:'Exo 2',sans-serif;
+  --E:cubic-bezier(.4,0,.2,1);
+  --ES:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--txt);font-family:var(--F4);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse 90% 50% at 50% -5%,rgba(255,111,0,.06) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 75%,rgba(0,255,255,.04) 0%,transparent 50%)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+::selection{background:var(--gold);color:#000}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+
+/* ══ LAYOUT ══════════════════════════════════════════ */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.sec{padding:clamp(60px,8vw,110px) 0}
+.sec-sm{padding:clamp(40px,5vw,70px) 0}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.flex{display:flex}.frow{display:flex;align-items:center}
+.fbetween{display:flex;align-items:center;justify-content:space-between}
+.fcenter{display:flex;align-items:center;justify-content:center}
+.fwrap{flex-wrap:wrap}
+.gap8{gap:8px}.gap12{gap:12px}.gap16{gap:16px}.gap24{gap:24px}
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt48{margin-top:48px}
+.mb8{margin-bottom:8px}.mb16{margin-bottom:16px}.mb24{margin-bottom:24px}.mb32{margin-bottom:32px}.mb48{margin-bottom:48px}
+.tc{text-align:center}.w100{width:100%}.hidden{display:none!important}.rel{position:relative}.oh{overflow:hidden}
+
+/* ══ TYPE ════════════════════════════════════════════ */
+.t-display{font-family:var(--F1);font-size:clamp(3.5rem,9vw,8.5rem);line-height:.9;letter-spacing:.04em;text-transform:uppercase}
+.t-hero{font-family:var(--F1);font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:.05em;text-transform:uppercase}
+.t-sec{font-family:var(--F2);font-size:clamp(1.2rem,2.5vw,1.85rem);font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.t-sub{font-family:var(--F3);font-size:clamp(.95rem,1.4vw,1.08rem);font-weight:500;line-height:1.8}
+.eyebrow{font-family:var(--F4);font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:26px;height:1px;background:var(--gold)}
+.t-gold{background:linear-gradient(135deg,#FF6F00,#FFB300,#FF6F00);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+.t-cyan{color:var(--cyan);text-shadow:0 0 20px rgba(0,255,255,.5)}
+.t-grad{background:linear-gradient(90deg,#FF6F00,#00FFFF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.t-dim{color:var(--txt2)}.t-muted{color:var(--muted)}
+
+/* ══ CARD ════════════════════════════════════════════ */
+.card{background:var(--glass);border:1px solid var(--b0);border-radius:var(--r16);backdrop-filter:blur(20px);
+  transition:transform .3s var(--E),border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,111,0,.3);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(255,111,0,.12)}
+.card-p{padding:clamp(20px,3vw,30px)}
+
+/* ══ BUTTONS ════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:var(--r8);
+  font-family:var(--F2);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  position:relative;overflow:hidden;transition:transform .15s,box-shadow .3s}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);opacity:0;transition:opacity .15s}
+.btn:hover::after{opacity:1}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:linear-gradient(135deg,#FF6F00,#FF9100);color:#000;box-shadow:0 4px 20px rgba(255,111,0,.35)}
+.btn-gold:hover{box-shadow:var(--gg),0 8px 28px rgba(255,111,0,.45);transform:translateY(-2px)}
+.btn-cyan{background:linear-gradient(135deg,#00FFFF,#00BCD4);color:#000;box-shadow:0 4px 20px rgba(0,255,255,.3)}
+.btn-cyan:hover{box-shadow:var(--cg);transform:translateY(-2px)}
+.btn-red{background:linear-gradient(135deg,#FF3D00,#FF6D00);color:#fff;box-shadow:0 4px 20px rgba(255,61,0,.35)}
+.btn-red:hover{box-shadow:var(--rg),0 0 0 2px rgba(0,255,255,.35);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--txt);border:1px solid var(--b1)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);box-shadow:var(--gg)}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--txt2);border:1px solid var(--b0)}
+.btn-ghost:hover{background:rgba(255,111,0,.1);border-color:rgba(255,111,0,.3);color:var(--txt)}
+.btn-lg{padding:15px 40px;font-size:.8rem}
+.btn-sm{padding:7px 16px;font-size:.65rem}
+.btn-full{width:100%;justify-content:center}
+
+/* ══ BADGE ═══════════════════════════════════════════ */
+.badge{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:var(--r100);
+  font-family:var(--F4);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.bg{background:var(--goldglow);color:var(--gold);border:1px solid rgba(255,111,0,.3)}
+.bc{background:var(--cyanglow);color:var(--cyan);border:1px solid rgba(0,255,255,.25)}
+.br{background:var(--redglow);color:var(--red);border:1px solid rgba(255,61,0,.3)}
+.bgr{background:var(--greenglow);color:var(--green);border:1px solid rgba(0,230,118,.3)}
+.bnew{background:var(--red);color:#fff;animation:pulseb 2s infinite}
+
+/* ══ FORM ════════════════════════════════════════════ */
+.flbl{display:block;margin-bottom:7px;font-family:var(--F2);font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--txt2)}
+.finp{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b0);border-radius:var(--r8);padding:11px 15px;color:var(--txt);font-family:var(--F4);font-size:.95rem;transition:.15s}
+.finp:focus{outline:none;border-color:var(--gold);background:rgba(255,111,0,.05);box-shadow:0 0 0 3px rgba(255,111,0,.1)}
+.finp::placeholder{color:var(--muted)}
+textarea.finp{resize:vertical;min-height:110px}
+select.finp{appearance:none;cursor:pointer}
+.fgrp{margin-bottom:18px}
+
+/* ══ NAV ═════════════════════════════════════════════ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav);display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+#nav.scrolled{background:rgba(11,12,16,.96);border-bottom:1px solid var(--b0);backdrop-filter:blur(24px);box-shadow:0 4px 28px rgba(0,0,0,.5)}
+.nav-in{max-width:var(--max);width:100%;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:11px;cursor:pointer}
+.logo-mark{width:40px;height:40px;border-radius:9px;background:linear-gradient(135deg,#FF6F00,#FF9100);display:flex;align-items:center;justify-content:center;font-family:var(--F1);font-size:1.4rem;color:#000;box-shadow:var(--gg);overflow:hidden;transition:.3s;flex-shrink:0}
+.logo-mark img{width:100%;height:100%;object-fit:cover}
+.logo-txt{font-family:var(--F1);font-size:1.3rem;letter-spacing:.1em;background:linear-gradient(135deg,#FF6F00,#EEF2FF 60%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nl{padding:7px 13px;font-family:var(--F2);font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--txt2);border-radius:var(--r8);cursor:pointer;transition:.15s;position:relative}
+.nl::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--gold);border-radius:1px;transition:width .3s var(--E)}
+.nl:hover,.nl.active{color:var(--txt);background:rgba(255,111,0,.07)}
+.nl:hover::after,.nl.active::after{width:55%}
+.nav-r{display:flex;align-items:center;gap:10px}
+.nav-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:#000;cursor:pointer;border:2px solid var(--b0);transition:.15s;overflow:hidden}
+.nav-av:hover{border-color:var(--gold);box-shadow:var(--gg)}
+.nav-av img{width:100%;height:100%;object-fit:cover}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;background:rgba(11,12,16,.98);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transform:translateX(100%);transition:transform .5s var(--E);backdrop-filter:blur(24px)}
+.mnav.open{transform:translateX(0)}
+.mnav .nl{font-size:1.3rem;padding:12px 24px}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+
+/* ══ HERO ════════════════════════════════════════════ */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:var(--nav)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 110% 80% at 65% 50%,rgba(255,111,0,.1) 0%,transparent 55%),
+  radial-gradient(ellipse 70% 60% at 10% 80%,rgba(0,255,255,.06) 0%,transparent 50%),
+  linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,111,0,.04) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,111,0,.04) 1px,transparent 1px);background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)}
+.hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.025) 3px,rgba(0,0,0,.025) 4px);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;min-height:calc(100vh - var(--nav));padding:60px 0}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;padding:40px 0}.hv{order:-1}}
+.hero-eyebrow{opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-t1{opacity:0;animation:fadeUp .8s .35s forwards}
+.hero-t2{opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-desc{opacity:0;animation:fadeUp .8s .65s forwards}
+.hero-cta{opacity:0;animation:fadeUp .8s .8s forwards}
+.hero-stats{opacity:0;animation:fadeUp .8s .95s forwards}
+.hv{opacity:0;animation:fadeRight 1s .4s forwards}
+.stat-v{font-family:var(--F2);font-size:1.8rem;font-weight:900;color:var(--gold)}
+.stat-l{font-size:.65rem;font-family:var(--F4);color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+/* Character frame */
+.cframe{position:relative;width:100%;max-width:520px;aspect-ratio:.72;margin:0 auto}
+.cglow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80%;height:60%;background:radial-gradient(ellipse at 50% 100%,rgba(255,111,0,.4),transparent 65%);filter:blur(30px)}
+.cring{position:absolute;border-radius:50%;border:1px solid rgba(255,111,0,.14);animation:spinR 24s linear infinite}
+.cring:nth-child(2){inset:-6%}
+.cring:nth-child(3){inset:-14%;animation-duration:36s;animation-direction:reverse;border-color:rgba(0,255,255,.08)}
+.ctag{position:absolute;background:rgba(18,24,36,.92);border:1px solid rgba(255,111,0,.3);border-radius:8px;padding:7px 13px;font-family:var(--F2);font-size:.58rem;font-weight:700;letter-spacing:.1em;color:var(--gold);white-space:nowrap;box-shadow:0 0 16px rgba(255,111,0,.18);animation:float 4s ease-in-out infinite}
+.ctag-c{border-color:rgba(0,255,255,.3);color:var(--cyan);animation-delay:1.5s}
+.ctag-r{border-color:rgba(255,61,0,.3);color:var(--red);animation-delay:.8s}
+/* Character art placeholder */
+.char-art{width:100%;height:100%;background:radial-gradient(ellipse at 50% 20%,rgba(255,111,0,.12),transparent 55%),linear-gradient(180deg,#141824,#0B0C10);border-radius:18px;border:1px solid rgba(255,111,0,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;position:relative}
+
+/* ══ SECTION DECOR ═══════════════════════════════════ */
+.sdiv{height:1px;background:linear-gradient(90deg,transparent,rgba(255,111,0,.25),transparent);margin:0}
+.sdiv-d{position:relative;height:1px;background:linear-gradient(90deg,transparent,rgba(255,111,0,.2),transparent)}
+.sdiv-d::before{content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--bg);padding:0 14px;color:var(--gold);font-size:.65rem}
+
+/* ══ COMIC CARD ══════════════════════════════════════ */
+.ccard{background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);overflow:hidden;cursor:pointer;transition:transform .3s var(--E),border-color .3s,box-shadow .3s}
+.ccard:hover{transform:translateY(-7px) scale(1.01);border-color:rgba(255,111,0,.3);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(255,111,0,.12)}
+.cthumb{position:relative;overflow:hidden;aspect-ratio:2/3;background:var(--surf)}
+.cthumb-ph{width:100%;height:100%;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(160deg,#141824,#0E1019)}
+.cthumb-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,12,16,.9) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:13px}
+.ccard:hover .cthumb-ov{opacity:1}
+.cbadges{position:absolute;top:9px;left:9px;display:flex;flex-direction:column;gap:4px}
+.cbody{padding:13px 15px}
+.c-sname{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;font-family:var(--F4)}
+.c-title{font-family:var(--F2);font-size:.88rem;font-weight:700;color:var(--txt);margin-bottom:7px}
+.c-meta{display:flex;align-items:center;justify-content:space-between;font-size:.7rem;font-family:var(--F4);color:var(--muted)}
+.c-rating{display:flex;align-items:center;gap:3px;color:var(--gold);font-weight:700}
+
+/* ══ CHARACTER CARD ══════════════════════════════════ */
+.charcard{background:var(--card);border:1px solid var(--b0);border-radius:var(--r16);overflow:hidden;cursor:pointer;transition:transform .3s var(--E),box-shadow .3s}
+.charcard:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 35px rgba(255,111,0,.14)}
+.charcard-img{overflow:hidden;aspect-ratio:3/4;background:var(--surf)}
+.charcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--E)}
+.charcard:hover .charcard-img img{transform:scale(1.05)}
+.charcard-ph{width:100%;height:100%;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.charcard-body{padding:16px 18px}
+.char-role{font-size:.65rem;font-family:var(--F4);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:5px}
+.char-name{font-family:var(--F2);font-size:.95rem;font-weight:800;margin-bottom:10px}
+.char-desc{font-size:.8rem;color:var(--txt2);line-height:1.7;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ptags{display:flex;flex-wrap:wrap;gap:5px}
+.ptag{padding:2px 8px;background:rgba(255,111,0,.08);border:1px solid rgba(255,111,0,.18);border-radius:var(--r100);font-size:.6rem;font-family:var(--F4);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--txt2);transition:.15s;cursor:default}
+.ptag:hover{background:rgba(255,111,0,.18);color:var(--gold)}
+
+/* ══ READER ══════════════════════════════════════════ */
+#reader-view{display:none;position:fixed;inset:0;z-index:2000;background:#000;overflow-y:auto}
+#reader-view.open{display:block}
+.reader-bar{position:sticky;top:0;z-index:200;background:rgba(11,12,16,.97);border-bottom:1px solid var(--b0);backdrop-filter:blur(16px);padding:8px 0 0}
+.reader-prog{height:3px;background:linear-gradient(90deg,#FF6F00,#00FFFF);transition:width .1s ease;box-shadow:0 0 8px rgba(255,111,0,.7)}
+.reader-bar-inner{max-width:860px;margin:0 auto;padding:0 20px 8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.panels-w{max-width:800px;margin:0 auto}
+.panel{position:relative;margin-bottom:3px;background:#08010e;overflow:hidden;border-bottom:1px solid rgba(255,111,0,.03)}
+.panel img{width:100%;display:block}
+.panel-ph{width:100%;aspect-ratio:16/9;background:linear-gradient(160deg,#121825,#080d14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden}
+.panel-ph::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,111,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,111,0,.02) 1px,transparent 1px);background-size:48px 48px}
+.panel-num{font-family:var(--F1);font-size:.8rem;letter-spacing:.3em;color:rgba(255,111,0,.1);text-transform:uppercase}
+.panel-txt{font-family:var(--F3);font-size:clamp(.9rem,2vw,1.12rem);color:rgba(255,255,255,.65);text-align:center;padding:0 24px;max-width:600px;line-height:1.85;position:relative;z-index:1}
+.panel-hint{font-size:.58rem;letter-spacing:.18em;color:rgba(255,255,255,.1);font-family:var(--F4);text-transform:uppercase}
+/* Floating controls */
+#rctrl{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;background:rgba(14,16,24,.96);border:1px solid rgba(255,111,0,.22);border-radius:var(--r100);padding:9px 16px;backdrop-filter:blur(24px);box-shadow:0 10px 40px rgba(0,0,0,.6),0 0 20px rgba(255,111,0,.1);z-index:300;transition:opacity .3s}
+#rctrl.hide{opacity:0;pointer-events:none}
+.ri{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--txt2);cursor:pointer;transition:.15s}
+.ri:hover{background:rgba(255,111,0,.12);color:var(--gold)}
+.rsep{width:1px;height:20px;background:rgba(255,255,255,.07)}
+.rpct{font-family:var(--F2);font-size:.64rem;font-weight:800;color:var(--gold);min-width:32px;text-align:center}
+#rbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#FF6F00,#00FFFF);z-index:2001;transition:width .1s ease;box-shadow:0 0 6px rgba(255,111,0,.7);width:0%}
+
+/* ══ DASHBOARD ═══════════════════════════════════════ */
+#dash-view{display:none}
+#dash-view.open{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - var(--nav))}
+@media(max-width:880px){#dash-view.open{grid-template-columns:1fr}.dsidebar{display:none!important}}
+.dsidebar{background:var(--surf);border-right:1px solid var(--b0);padding:22px 14px;overflow-y:auto}
+.ds-s{margin-bottom:22px}
+.ds-h{font-family:var(--F4);font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:0 9px;margin-bottom:6px}
+.ds-l{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:var(--r8);font-family:var(--F3);font-size:.88rem;font-weight:500;color:var(--txt2);cursor:pointer;transition:.15s}
+.ds-l:hover,.ds-l.active{background:rgba(255,111,0,.09);color:var(--txt)}
+.ds-l.active{color:var(--gold);border-left:2px solid var(--gold);padding-left:9px}
+.dmain{padding:clamp(20px,3vw,36px)}
+.dpanel{display:none}
+.dpanel.open{display:block}
+.dstat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:24px}
+@media(max-width:900px){.dstat-row{grid-template-columns:repeat(2,1fr)}}
+.dstat{background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);padding:17px 19px;transition:.3s}
+.dstat:hover{border-color:rgba(255,111,0,.3)}
+.dstat-v{font-family:var(--F2);font-size:1.55rem;font-weight:900;margin-bottom:4px}
+.dstat-l{font-size:.62rem;font-family:var(--F4);color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.dstat-c{font-size:.7rem;margin-top:7px;display:flex;align-items:center;gap:4px}
+.dtable{width:100%;border-collapse:collapse}
+.dtable th{text-align:left;padding:9px 13px;font-family:var(--F4);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--b0)}
+.dtable td{padding:11px 13px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.85rem}
+.dtable tr:hover td{background:rgba(255,255,255,.02)}
+.upzone{border:2px dashed var(--b1);border-radius:var(--r12);padding:40px 24px;text-align:center;cursor:pointer;transition:.25s;position:relative}
+.upzone:hover,.upzone.drag{border-color:var(--gold);background:rgba(255,111,0,.04)}
+.upzone input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.logo-prev{width:78px;height:78px;border-radius:12px;background:var(--card);border:2px solid var(--b1);overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:var(--F1);font-size:1.7rem;color:var(--gold);cursor:pointer;transition:.3s;position:relative}
+.logo-prev:hover{border-color:var(--gold);box-shadow:var(--gg)}
+.logo-prev img{width:100%;height:100%;object-fit:cover}
+.logo-prev input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.chart-w{background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);padding:18px;height:190px;display:flex;align-items:flex-end;gap:5px;overflow:hidden}
+.bar{flex:1;background:linear-gradient(to top,rgba(255,111,0,.6),rgba(255,111,0,.1));border-radius:4px 4px 0 0;min-height:6px;cursor:pointer;transition:background .15s,height .5s var(--ES);position:relative}
+.bar:hover{background:linear-gradient(to top,rgba(255,111,0,.9),rgba(255,111,0,.3))}
+.bar-tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:.58rem;font-family:var(--F4);color:var(--gold);white-space:nowrap;opacity:0;transition:.15s;pointer-events:none}
+.bar:hover .bar-tip{opacity:1}
+/* Revenue bar */
+.rev-bar-w{margin-bottom:11px}
+.rev-bar-t{display:flex;justify-content:space-between;margin-bottom:5px}
+.rev-bar-n{font-family:var(--F3);font-weight:600;font-size:.83rem}
+.rev-bar-v{font-size:.78rem;color:var(--txt2)}
+.rev-bar-bg{height:7px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.rev-bar-f{height:100%;border-radius:4px;transition:width .8s var(--ES)}
+
+/* ══ SUPPORT ═════════════════════════════════════════ */
+.tier{background:var(--card);border:1px solid var(--b0);border-radius:24px;padding:clamp(24px,4vw,40px);text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.tier:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 30px rgba(255,111,0,.12);border-color:rgba(255,111,0,.3)}
+.tier.feat{border-color:rgba(255,111,0,.35);background:linear-gradient(160deg,rgba(255,111,0,.06),var(--card));box-shadow:0 0 0 1px rgba(255,111,0,.25)}
+.tier.feat::before{content:'⭐ MOST POPULAR';position:absolute;top:0;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#FF6F00,#FF9100);color:#000;font-family:var(--F2);font-size:.58rem;font-weight:800;letter-spacing:.18em;padding:5px 16px;border-radius:0 0 var(--r8) var(--r8)}
+.tier-price{font-family:var(--F1);font-size:clamp(2.5rem,5vw,3.8rem);color:var(--gold);line-height:1;margin:14px 0 3px}
+.tier-period{font-size:.72rem;color:var(--muted);font-family:var(--F4)}
+.tier-feats{text-align:left;margin:22px 0;display:flex;flex-direction:column;gap:9px}
+.tier-feat{display:flex;align-items:center;gap:9px;font-family:var(--F3);font-size:.86rem;color:var(--txt2)}
+.feat-y{color:var(--green)}
+.feat-n{color:var(--muted)}
+.pay-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px;border-radius:var(--r8);font-family:var(--F2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:transform .2s,box-shadow .3s;cursor:pointer;border:1px solid var(--b1);background:var(--surf);color:var(--txt)}
+.pay-btn:hover{transform:translateY(-2px)}
+.pay-stripe:hover{background:rgba(99,91,255,.1);border-color:rgba(99,91,255,.6);box-shadow:0 0 20px rgba(99,91,255,.22)}
+.pay-rzp:hover{background:rgba(0,130,255,.1);border-color:rgba(0,130,255,.6);box-shadow:0 0 20px rgba(0,130,255,.22)}
+.pay-pat:hover{background:rgba(255,66,77,.1);border-color:rgba(255,66,77,.6);box-shadow:0 0 20px rgba(255,66,77,.22)}
+.pay-bmac:hover{background:rgba(255,211,0,.1);border-color:rgba(255,211,0,.5);box-shadow:0 0 20px rgba(255,211,0,.18)}
+
+/* ══ MODAL ═══════════════════════════════════════════ */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);z-index:3000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--card);border:1px solid var(--b1);border-radius:24px;padding:34px;width:100%;max-width:450px;box-shadow:0 40px 80px rgba(0,0,0,.8);transform:scale(.92) translateY(18px);transition:transform .3s var(--ES)}
+.modal-bg.open .modal-box{transform:scale(1) translateY(0)}
+.modal-x{float:right;font-size:1.1rem;color:var(--txt2);cursor:pointer;padding:4px 8px;border-radius:var(--r8);transition:color .15s}
+.modal-x:hover{color:var(--txt)}
+.auth-tabs{display:flex;gap:4px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px;margin-bottom:20px}
+.auth-tab{flex:1;padding:7px;border-radius:6px;font-family:var(--F2);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.2s;color:var(--muted)}
+.auth-tab.act{background:rgba(255,111,0,.15);color:var(--gold)}
+
+/* ══ TOAST ═══════════════════════════════════════════ */
+#toasts{position:fixed;top:75px;right:18px;z-index:9999;display:flex;flex-direction:column;gap:7px}
+.toast{background:var(--card);border:1px solid var(--b1);border-radius:var(--r8);padding:11px 16px;display:flex;align-items:center;gap:9px;font-family:var(--F4);font-size:.86rem;backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,.6);max-width:300px;animation:toastIn .3s var(--ES)}
+.toast.s{border-left:3px solid var(--green)}
+.toast.e{border-left:3px solid var(--red)}
+.toast.i{border-left:3px solid var(--cyan)}
+
+/* ══ NEWSLETTER ══════════════════════════════════════ */
+.nl-wrap{background:var(--glass);border:1px solid var(--b0);border-radius:24px;padding:clamp(38px,6vw,65px);text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(20px)}
+.nl-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(255,111,0,.05),transparent);pointer-events:none}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:24px auto 0;flex-wrap:wrap}
+.nl-form input{flex:1;min-width:180px}
+
+/* ══ FOOTER ══════════════════════════════════════════ */
+footer{background:var(--bg2);border-top:1px solid var(--b0);padding:52px 0 26px}
+.footer-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:38px}
+@media(max-width:768px){.footer-g{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-g{grid-template-columns:1fr}}
+.f-brand{font-family:var(--F1);font-size:1.75rem;letter-spacing:.08em}
+.f-tag{color:var(--muted);font-size:.86rem;line-height:1.75;margin:10px 0 16px}
+.f-social{display:flex;gap:8px}
+.f-soc{width:34px;height:34px;border-radius:var(--r8);background:var(--b0);border:1px solid var(--b0);display:flex;align-items:center;justify-content:center;font-size:.88rem;transition:.15s;cursor:pointer}
+.f-soc:hover{background:rgba(255,111,0,.1);border-color:rgba(255,111,0,.3);color:var(--gold);transform:translateY(-2px)}
+.f-heading{font-family:var(--F2);font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.f-links a{display:block;font-size:.84rem;color:var(--txt2);padding:3px 0;transition:.15s;cursor:pointer}
+.f-links a:hover{color:var(--txt);padding-left:5px}
+.f-bottom{border-top:1px solid var(--b0);padding-top:18px;display:flex;align-items:center;justify-content:space-between;font-size:.72rem;color:var(--muted);flex-wrap:wrap;gap:9px}
+
+/* ══ KEYFRAMES ═══════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:none}}
+@keyframes shimmer{to{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+@keyframes spinR{to{transform:rotate(360deg)}}
+@keyframes pulseG{0%,100%{box-shadow:0 0 10px rgba(255,111,0,.3)}50%{box-shadow:0 0 28px rgba(255,111,0,.7),0 0 55px rgba(255,111,0,.3)}}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 rgba(255,61,0,.4)}50%{box-shadow:0 0 0 5px rgba(255,61,0,0)}}
+@keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes particleDrift{0%{opacity:.7;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx,20px),var(--dy,-120px)) scale(.2)}}
+@keyframes reveal{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+
+/* ══ SCROLL REVEAL ═══════════════════════════════════ */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s var(--E),transform .7s var(--E)}
+.rv.vis{opacity:1;transform:none}
+.rvl{opacity:0;transform:translateX(-36px);transition:opacity .7s var(--E),transform .7s var(--E)}
+.rvl.vis{opacity:1;transform:none}
+.rvr{opacity:0;transform:translateX(36px);transition:opacity .7s var(--E),transform .7s var(--E)}
+.rvr.vis{opacity:1;transform:none}
+.stag>*{opacity:0;transform:translateY(22px)}
+.stag.vis>*:nth-child(1){animation:fadeUp .6s .05s forwards}
+.stag.vis>*:nth-child(2){animation:fadeUp .6s .12s forwards}
+.stag.vis>*:nth-child(3){animation:fadeUp .6s .19s forwards}
+.stag.vis>*:nth-child(4){animation:fadeUp .6s .26s forwards}
+.stag.vis>*:nth-child(5){animation:fadeUp .6s .33s forwards}
+.stag.vis>*:nth-child(6){animation:fadeUp .6s .40s forwards}
+.stag.vis>*:nth-child(7){animation:fadeUp .6s .47s forwards}
+.stag.vis>*:nth-child(8){animation:fadeUp .6s .54s forwards}
+
+/* ══ UTILS ═══════════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv,.rvl,.rvr,.stag>*{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ████  NAVBAR  ████ -->
+<nav id="nav">
+  <div class="nav-in">
+    <div class="nav-logo" onclick="goTo('home')">
+      <div class="logo-mark" id="logo-mark-nav">RC</div>
+      <span class="logo-txt">Rex Comicsverse</span>
+    </div>
+    <div class="nav-links">
+      <span class="nl active" onclick="goTo('home')" data-page="home">Home</span>
+      <span class="nl" onclick="goTo('series')" data-page="series">Series</span>
+      <span class="nl" onclick="goTo('reader')" data-page="reader">Read</span>
+      <span class="nl" onclick="goTo('characters')" data-page="characters">Characters</span>
+      <span class="nl" onclick="goTo('support')" data-page="support">Support</span>
+      <span class="nl" onclick="goTo('about')" data-page="about">About</span>
+      <span class="nl" onclick="goTo('contact')" data-page="contact">Contact</span>
+    </div>
+    <div class="nav-r">
+      <button class="btn btn-sm btn-gold" id="nav-signin" onclick="openAuth('login')">Sign In</button>
+      <div class="nav-av hidden" id="nav-av" onclick="handleAvatarClick()"></div>
+      <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mnav" id="mnav">
+  <span class="nl" onclick="goTo('home');toggleMobile()">Home</span>
+  <span class="nl" onclick="goTo('series');toggleMobile()">Series</span>
+  <span class="nl" onclick="goTo('reader');toggleMobile()">Read</span>
+  <span class="nl" onclick="goTo('characters');toggleMobile()">Characters</span>
+  <span class="nl" onclick="goTo('support');toggleMobile()">Support</span>
+  <span class="nl" onclick="goTo('about');toggleMobile()">About</span>
+  <span class="nl" onclick="goTo('contact');toggleMobile()">Contact</span>
+  <div class="frow gap12 mt32">
+    <button class="btn btn-outline" onclick="openAuth('login');toggleMobile()">Sign In</button>
+    <button class="btn btn-gold" onclick="openAuth('signup');toggleMobile()">Join Free</button>
+  </div>
+</div>
+
+<!-- ████  MAIN CONTENT  ████ -->
+<div id="main-pages">
+
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page-view">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
+  <div id="particles" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;"></div>
+  <div class="wrap" style="position:relative;z-index:2;width:100%;">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow hero-eyebrow" style="margin-bottom:20px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:var(--gg);display:inline-block;animation:dotPulse 2.5s infinite;"></span>
+          Rex Comicsverse · New Episode Live
+        </div>
+        <div class="hero-t1">
+          <div class="t-display"><span class="t-gold">The</span><br><span>Indian</span></div>
+          <div class="t-hero t-cyan" style="margin-top:6px;">A Great Indian Patriot</div>
+        </div>
+        <p class="t-sub t-dim hero-desc" style="margin:20px 0 30px;max-width:480px;">
+          Born from the sacred soil of Bharat, chosen by divine providence.
+          Armed with the indestructible <strong style="color:var(--txt);">Bharat Shield</strong>
+          and the blazing <strong style="color:var(--cyan);">Dharma Flame</strong> —
+          The Indian stands between his people and annihilation.
+        </p>
+        <div class="hero-cta frow fwrap gap12">
+          <button class="btn btn-gold btn-lg" onclick="goTo('reader')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Start Reading Free
+          </button>
+          <button class="btn btn-outline btn-lg" onclick="goTo('series')">All Episodes</button>
+          <button class="btn btn-red btn-lg" id="hero-app-btn" style="display:none;" onclick="handleAppDownload()">
+            📱 Get Android App
+          </button>
+        </div>
+        <div class="hero-stats frow gap24" style="margin-top:46px;">
+          <div><div class="stat-v" data-count="50000">0</div><div class="stat-l">Readers</div></div>
+          <div><div class="stat-v" data-count="24">0</div><div class="stat-l">Episodes</div></div>
+          <div><div class="stat-v" data-count="98" data-suffix="%">0</div><div class="stat-l">Rating</div></div>
+          <div><div class="stat-v" data-count="7">0</div><div class="stat-l">Countries</div></div>
+        </div>
+      </div>
+
+      <!-- Character visual -->
+      <div class="hv fcenter">
+        <div class="cframe">
+          <div class="cring"></div>
+          <div class="cring"></div>
+          <div class="cglow"></div>
+          <div class="char-art">
+            <!-- Ashoka Chakra SVG watermark -->
+            <svg viewBox="0 0 220 220" style="position:absolute;width:75%;opacity:.07;" fill="none">
+              <circle cx="110" cy="110" r="100" stroke="#FF6F00" stroke-width="2"/>
+              <circle cx="110" cy="110" r="10" fill="#FF6F00"/>
+              <g stroke="#FF6F00" stroke-width="1.2" id="chakra-spokes"></g>
+            </svg>
+            <div style="text-align:center;z-index:2;padding:28px;">
+              <div style="font-family:var(--F1);font-size:8rem;line-height:.88;background:linear-gradient(180deg,#FF6F00 0%,#FFB300 40%,rgba(255,111,0,.15) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">TI</div>
+              <div style="font-family:var(--F2);font-size:.68rem;letter-spacing:.28em;color:rgba(255,111,0,.55);text-transform:uppercase;margin-top:8px;">The Indian</div>
+              <div style="margin-top:18px;font-size:.56rem;color:rgba(255,255,255,.1);font-family:var(--F4);letter-spacing:.14em;text-transform:uppercase;">Upload Hero Art in Dashboard</div>
+            </div>
+          </div>
+          <div class="ctag" style="top:12%;right:-16px;">⚡ SUPER STRENGTH</div>
+          <div class="ctag ctag-c" style="bottom:28%;left:-20px;">🛡 BHARAT SHIELD</div>
+          <div class="ctag ctag-r" style="bottom:10%;right:4%;">🔥 DHARMA FLAME</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);text-align:center;opacity:0;animation:fadeUp 1s 1.8s forwards;">
+    <div style="font-size:.6rem;letter-spacing:.22em;color:rgba(255,255,255,.2);font-family:var(--F4);text-transform:uppercase;margin-bottom:7px;">Scroll</div>
+    <div style="width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,111,0,.5),transparent);margin:0 auto;animation:float 2s infinite;"></div>
+  </div>
+</section>
+
+<!-- Android Banner -->
+<div id="app-banner-strip" style="display:none;background:linear-gradient(135deg,rgba(255,61,0,.1),rgba(0,255,255,.05));border-bottom:1px solid rgba(255,61,0,.22);padding:10px 0;">
+  <div class="wrap fbetween fwrap gap12">
+    <div class="frow gap12">
+      <span style="font-size:1.6rem;">📱</span>
+      <div>
+        <div style="font-family:var(--F2);font-size:.75rem;font-weight:700;">Get the Rex Comicsverse Android App</div>
+        <div style="font-size:.68rem;color:var(--txt2);">Offline reading · Push alerts · Better experience</div>
+      </div>
+    </div>
+    <div class="frow gap8">
+      <button class="btn btn-red btn-sm" onclick="handleAppDownload()">📥 Download Free</button>
+      <button onclick="document.getElementById('app-banner-strip').style.display='none'" style="color:var(--txt2);font-size:.95rem;padding:4px 8px;">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- Latest Episodes -->
+<section class="sec">
+  <div class="wrap">
+    <div class="fbetween fwrap gap16 mb48">
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px;">Latest Episodes</div>
+        <h2 class="t-sec">Hot Off The <span class="t-gold">Press</span></h2>
+      </div>
+      <button class="btn btn-outline" onclick="goTo('series')">View All →</button>
+    </div>
+    <div class="g4 stag" id="eps-grid-home"></div>
+  </div>
+</section>
+
+<div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
+
+<!-- Series Spotlight -->
+<section class="sec" style="background:linear-gradient(180deg,var(--bg),var(--bg2),var(--bg));">
+  <div class="wrap">
+    <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Main Series</div>
+    <h2 class="t-sec tc mb48">The Indian — <span class="t-grad">Saga Overview</span></h2>
+    <div class="card rv">
+      <div class="card-p" style="overflow:hidden;position:relative;">
+        <div style="position:absolute;right:-80px;top:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,111,0,.05),transparent);pointer-events:none;"></div>
+        <div class="g2" style="align-items:center;">
+          <div>
+            <span class="badge bg mb16">🔥 Ongoing Series</span>
+            <h3 style="font-family:var(--F1);font-size:clamp(3rem,6vw,5.5rem);line-height:.9;letter-spacing:.04em;margin-bottom:10px;">
+              <span class="t-gold">The</span><br>Indian
+            </h3>
+            <div style="font-family:var(--F2);font-size:.8rem;letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;margin-bottom:16px;">A Great Indian Patriot Superhero</div>
+            <p class="t-sub t-dim" style="margin-bottom:22px;">Chosen by Bharat Mata, forged in sacrifice. The Indian battles ancient evils and modern corruption to protect the soul of civilization.</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px;">
+              <div style="text-align:center;padding:12px;background:rgba(255,111,0,.06);border-radius:10px;border:1px solid rgba(255,111,0,.14);">
+                <div style="font-family:var(--F2);font-size:1.4rem;font-weight:900;color:var(--gold);">24</div>
+                <div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-family:var(--F4);">Episodes</div>
+              </div>
+              <div style="text-align:center;padding:12px;background:rgba(0,255,255,.05);border-radius:10px;border:1px solid rgba(0,255,255,.12);">
+                <div style="font-family:var(--F2);font-size:1.4rem;font-weight:900;color:var(--cyan);">3</div>
+                <div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-family:var(--F4);">Arcs</div>
+              </div>
+              <div style="text-align:center;padding:12px;background:rgba(0,230,118,.05);border-radius:10px;border:1px solid rgba(0,230,118,.12);">
+                <div style="font-family:var(--F2);font-size:1.4rem;font-weight:900;color:var(--green);">50K+</div>
+                <div style="font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-family:var(--F4);">Readers</div>
+              </div>
+            </div>
+            <div class="frow gap12 fwrap">
+              <button class="btn btn-gold" onclick="goTo('reader')">Read Episode 1 →</button>
+              <button class="btn btn-ghost" onclick="goTo('series')">Full Series</button>
+            </div>
+          </div>
+          <!-- Story Arcs -->
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <div style="font-family:var(--F4);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Story Arcs</div>
+            <div class="arc-card" style="background:rgba(0,230,118,.05);border:1px solid rgba(0,230,118,.2);border-radius:12px;padding:15px;cursor:pointer;transition:.25s;" onmouseenter="this.style.background='rgba(0,230,118,.08)'" onmouseleave="this.style.background='rgba(0,230,118,.05)'" onclick="goTo('series')">
+              <div class="fbetween" style="margin-bottom:6px;"><span class="badge bgr">✓ Complete</span><span style="font-size:.68rem;color:var(--muted);">Ep 1–8</span></div>
+              <div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:4px;">Arc I: The Awakening</div>
+              <p style="font-size:.78rem;color:var(--txt2);">A young activist discovers his divine heritage and must embrace his destiny.</p>
+            </div>
+            <div class="arc-card" style="background:rgba(0,255,255,.04);border:1px solid rgba(0,255,255,.18);border-radius:12px;padding:15px;cursor:pointer;transition:.25s;" onmouseenter="this.style.background='rgba(0,255,255,.07)'" onmouseleave="this.style.background='rgba(0,255,255,.04)'" onclick="goTo('series')">
+              <div class="fbetween" style="margin-bottom:6px;"><span class="badge bc">Ongoing</span><span style="font-size:.68rem;color:var(--muted);">Ep 9–18</span></div>
+              <div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:4px;">Arc II: Shadow Syndicate</div>
+              <p style="font-size:.78rem;color:var(--txt2);">A global conspiracy targets India. The Indian faces his darkest challenge.</p>
+            </div>
+            <div class="arc-card" style="background:rgba(255,61,0,.03);border:1px solid rgba(255,61,0,.14);border-radius:12px;padding:15px;cursor:pointer;transition:.25s;" onmouseenter="this.style.background='rgba(255,61,0,.06)'" onmouseleave="this.style.background='rgba(255,61,0,.03)'" onclick="goTo('series')">
+              <div class="fbetween" style="margin-bottom:6px;"><span class="badge br">Coming Soon</span><span style="font-size:.68rem;color:var(--muted);">Ep 19+</span></div>
+              <div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:4px;">Arc III: Dharma War</div>
+              <p style="font-size:.78rem;color:var(--txt2);">Gods and machines collide. The final battle for civilization begins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
+
+<!-- Characters Preview -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Universe</div>
+    <h2 class="t-sec tc mb48">Meet The <span class="t-gold">Characters</span></h2>
+    <div class="g3 stag" id="chars-home"></div>
+    <div class="tc mt48">
+      <button class="btn btn-outline btn-lg" onclick="goTo('characters')">Explore All Characters →</button>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
+
+<!-- Features -->
+<section class="sec" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Why Rex Comicsverse</div>
+    <h2 class="t-sec tc mb48">Built For <span class="t-grad">Comic Lovers</span></h2>
+    <div class="g3 stag">
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(255,111,0,.4));">📱</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Mobile-First Reader</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">Webtoon vertical scroll. Android app with offline mode and push notifications.</p></div>
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(0,255,255,.4));">🇮🇳</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Made in India</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">Celebrating Bharat's mythology and spirit through world-class superhero storytelling.</p></div>
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(0,230,118,.4));">🔓</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Free to Read</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">Every episode free forever. Premium membership for bonus content and early access.</p></div>
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(255,111,0,.4));">💬</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Community</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">Like, comment, share. Join a global community of Indian superhero fans.</p></div>
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(0,255,255,.4));">📅</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Weekly Updates</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">New episode every week. Subscribe for email and push notification alerts.</p></div>
+      <div class="card card-p tc"><div style="font-size:2.6rem;margin-bottom:12px;filter:drop-shadow(0 0 12px rgba(255,61,0,.4));">💳</div><h3 style="font-family:var(--F2);font-size:.9rem;font-weight:800;margin-bottom:9px;letter-spacing:.06em;">Global Payments</h3><p style="font-size:.83rem;color:var(--txt2);line-height:1.75;">Stripe &amp; Razorpay. Pay in USD or INR. UPI, cards, net-banking all supported.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="sdiv-d" style="margin:0 clamp(16px,4vw,48px);"></div>
+
+<!-- Reviews -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Reader Reviews</div>
+    <h2 class="t-sec tc mb48">What Fans <span class="t-gold">Say</span></h2>
+    <div class="g3 stag">
+      <div class="card card-p"><div style="color:var(--gold);margin-bottom:11px;">★★★★★</div><p style="font-size:.88rem;color:var(--txt2);line-height:1.8;margin-bottom:15px;">"Finally an Indian superhero that feels powerful and authentic. The art is stunning. This is our Marvel moment!"</p><div class="frow gap10"><div style="width:33px;height:33px;border-radius:50%;background:linear-gradient(135deg,#FF6F00,#FF9100);fcenter;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#000;">A</div><div><div style="font-family:var(--F2);font-size:.72rem;font-weight:700;">Arjun M.</div><div style="font-size:.62rem;color:var(--muted);">Mumbai, India</div></div></div></div>
+      <div class="card card-p"><div style="color:var(--gold);margin-bottom:11px;">★★★★★</div><p style="font-size:.88rem;color:var(--txt2);line-height:1.8;margin-bottom:15px;">"The blend of Hindu mythology and modern action is unlike anything I've seen. Subscribed to Premium immediately!"</p><div class="frow gap10"><div style="width:33px;height:33px;border-radius:50%;background:linear-gradient(135deg,#00FFFF,#00BCD4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#000;">P</div><div><div style="font-family:var(--F2);font-size:.72rem;font-weight:700;">Priya S.</div><div style="font-size:.62rem;color:var(--muted);">San Francisco, USA</div></div></div></div>
+      <div class="card card-p"><div style="color:var(--gold);margin-bottom:11px;">★★★★★</div><p style="font-size:.88rem;color:var(--txt2);line-height:1.8;margin-bottom:15px;">"As an Indian-American without representation growing up, The Indian means everything. Absolutely brilliant!"</p><div class="frow gap10"><div style="width:33px;height:33px;border-radius:50%;background:linear-gradient(135deg,#00E676,#00BFA5);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:#000;">R</div><div><div style="font-family:var(--F2);font-size:.72rem;font-weight:700;">Rahul K.</div><div style="font-size:.62rem;color:var(--muted);">Toronto, Canada</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="sec-sm" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="nl-wrap rv">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">Stay Updated</div>
+      <h2 class="t-sec">Never Miss An <span class="t-gold">Episode</span></h2>
+      <p class="t-sub t-dim" style="max-width:420px;margin:12px auto 0;">New episode alerts, creator notes, exclusive fan content — straight to your inbox.</p>
+      <form class="nl-form" onsubmit="handleNewsletter(event)">
+        <input type="email" class="finp" placeholder="your@email.com" required>
+        <button type="submit" class="btn btn-gold">Subscribe Free</button>
+      </form>
+      <p style="margin-top:11px;font-size:.68rem;color:var(--muted);">No spam · Unsubscribe anytime · Join 50,000+ readers</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- /home -->
+
+<!-- ══════════ SERIES ══════════ -->
+<div id="page-series" class="page-view" style="display:none;padding-top:var(--nav);">
+  <section style="padding:clamp(60px,8vw,100px) 0 50px;background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,111,0,.07),transparent);pointer-events:none;"></div>
+    <div class="wrap tc" style="position:relative;">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">Comic Library</div>
+      <h1 class="t-hero">The Indian — <span class="t-gold">All Episodes</span></h1>
+      <p class="t-sub t-dim" style="max-width:480px;margin:14px auto 0;">24 episodes and growing. All free to read. New chapter every week.</p>
+    </div>
+  </section>
+  <div class="sdiv"></div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="g4 stag" id="eps-grid-series"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ READER ══════════ -->
+<div id="page-reader" class="page-view" style="display:none;padding-top:var(--nav);">
+  <div style="max-width:860px;margin:0 auto;padding:clamp(20px,3vw,36px);">
+    <div class="fbetween fwrap gap12 mb24">
+      <div>
+        <div style="font-size:.62rem;color:var(--gold);letter-spacing:.2em;font-family:var(--F4);text-transform:uppercase;" id="reader-arc-info">Arc 1 · Episode 01</div>
+        <h1 style="font-family:var(--F2);font-size:1.1rem;font-weight:800;" id="reader-ep-title">The Calling</h1>
+      </div>
+      <div class="frow gap8">
+        <button class="btn btn-sm btn-ghost" onclick="saveEp()" id="save-ep-btn" style="gap:5px;">🔖 Save</button>
+        <button class="btn btn-sm btn-outline" onclick="shareContent('The Indian — The Calling')">Share</button>
+      </div>
+    </div>
+  </div>
+  <!-- Progress bar at very top -->
+  <div id="rbar"></div>
+  <div class="panels-w" id="panels-container"></div>
+  <!-- Episode navigation -->
+  <div style="max-width:800px;margin:0 auto;padding:30px 20px 0;display:flex;gap:12px;border-top:1px solid var(--b0);">
+    <div id="prev-ep" style="flex:1;background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);padding:13px 17px;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:11px;" onmouseenter="this.style.borderColor='rgba(255,111,0,.3)'" onmouseleave="this.style.borderColor='var(--b0)'" onclick="navEp('prev')">
+      <span style="font-size:1.1rem;color:var(--muted);">←</span>
+      <div><div style="font-size:.6rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-family:var(--F4);">Previous</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;" id="prev-ep-title">—</div></div>
+    </div>
+    <div id="next-ep" style="flex:1;background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);padding:13px 17px;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:flex-end;gap:11px;text-align:right;" onmouseenter="this.style.borderColor='rgba(255,111,0,.3)'" onmouseleave="this.style.borderColor='var(--b0)'" onclick="navEp('next')">
+      <div><div style="font-size:.6rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-family:var(--F4);">Next</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;" id="next-ep-title">—</div></div>
+      <span style="font-size:1.1rem;color:var(--gold);">→</span>
+    </div>
+  </div>
+  <!-- Comments -->
+  <div style="max-width:800px;margin:0 auto;padding:36px 20px 100px;border-top:1px solid var(--b0);margin-top:28px;">
+    <h3 style="font-family:var(--F2);font-size:.95rem;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px;">💬 Reader Comments <span id="comment-count" style="font-size:.72rem;color:var(--muted);font-weight:400;"></span></h3>
+    <div class="frow gap12 mb24" style="align-items:flex-start;">
+      <div class="nav-av" id="comment-user-av" style="flex-shrink:0;width:36px;height:36px;font-size:.8rem;">?</div>
+      <div style="flex:1;">
+        <textarea class="finp" id="comment-input" placeholder="Share your thoughts on this episode…" rows="3"></textarea>
+        <button class="btn btn-gold btn-sm mt8" onclick="postComment()">Post Comment</button>
+      </div>
+    </div>
+    <div id="comments-list"></div>
+  </div>
+  <!-- Floating reader controls -->
+  <div id="rctrl">
+    <button class="ri" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Top">⬆</button>
+    <div class="rsep"></div>
+    <span class="rpct" id="rpct">0%</span>
+    <div class="rsep"></div>
+    <button class="ri" onclick="navEp('prev')" title="Prev episode">←</button>
+    <button class="ri" onclick="navEp('next')" title="Next episode">→</button>
+    <div class="rsep"></div>
+    <button class="ri" id="like-btn" onclick="toggleLike()" title="Like" style="font-size:.85rem;display:flex;align-items:center;gap:4px;width:auto;padding:0 6px;border-radius:var(--r100);">♥ <span id="like-count">3.2K</span></button>
+    <div class="rsep"></div>
+    <button class="ri" onclick="shareContent('The Indian')" title="Share">⬆️</button>
+  </div>
+</div>
+
+<!-- ══════════ CHARACTERS ══════════ -->
+<div id="page-characters" class="page-view" style="display:none;padding-top:var(--nav);">
+  <section style="padding:clamp(60px,8vw,100px) 0 50px;background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,111,0,.07),transparent);pointer-events:none;"></div>
+    <div class="wrap tc" style="position:relative;">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">The Indian Universe</div>
+      <h1 class="t-hero">Meet The <span class="t-gold">Characters</span></h1>
+      <p class="t-sub t-dim" style="max-width:480px;margin:14px auto 0;">Heroes, allies, and villains that populate the world of The Indian.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="g3 stag" id="chars-full"></div>
+    </div>
+  </section>
+  <!-- Expanded character modal -->
+  <div id="char-modal" class="modal-bg" onclick="if(event.target===this)closeCharModal()">
+    <div class="modal-box" style="max-width:600px;" id="char-modal-inner"></div>
+  </div>
+</div>
+
+<!-- ══════════ SUPPORT ══════════ -->
+<div id="page-support" class="page-view" style="display:none;padding-top:var(--nav);">
+  <section style="padding:clamp(60px,8vw,100px) 0 50px;background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(255,111,0,.07),transparent);pointer-events:none;"></div>
+    <div class="wrap tc" style="position:relative;">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:12px;">Power the Universe</div>
+      <h1 class="t-hero">Support <span class="t-gold">The Indian</span></h1>
+      <p class="t-sub t-dim" style="max-width:520px;margin:14px auto 0;">Every contribution fuels more episodes, better art, and a bigger universe. Choose how you want to help.</p>
+      <div id="currency-badge" style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;padding:4px 14px;background:rgba(255,111,0,.08);border:1px solid rgba(255,111,0,.2);border-radius:var(--r100);font-size:.7rem;font-family:var(--F4);color:var(--gold);">
+        <span id="c-flag">🌍</span><span id="c-txt">Detecting location…</span>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">Membership Plans</div>
+      <h2 class="t-sec tc mb48">Choose Your <span class="t-grad">Tier</span></h2>
+      <div class="g3" style="max-width:960px;margin:0 auto;" id="tiers-grid"></div>
+    </div>
+  </section>
+  <!-- Donation -->
+  <section class="sec-sm" style="background:var(--bg2);">
+    <div class="wrap" style="max-width:700px;">
+      <div class="eyebrow tc" style="justify-content:center;margin-bottom:12px;">One-Time Support</div>
+      <h2 class="t-sec tc mb32">Buy The Creator A <span class="t-gold">Cup of Chai ☕</span></h2>
+      <div class="card card-p">
+        <div style="margin-bottom:18px;">
+          <label class="flbl" style="margin-bottom:10px;">Choose Amount</label>
+          <div class="frow fwrap gap8" id="donation-amts">
+            <button class="btn btn-ghost donation-amt" data-usd="2" data-inr="99" onclick="selectAmt(this)">☕ $2 / ₹99</button>
+            <button class="btn btn-gold donation-amt" data-usd="5" data-inr="249" onclick="selectAmt(this)">🍕 $5 / ₹249</button>
+            <button class="btn btn-ghost donation-amt" data-usd="10" data-inr="499" onclick="selectAmt(this)">🎨 $10 / ₹499</button>
+            <button class="btn btn-ghost donation-amt" data-usd="25" data-inr="999" onclick="selectAmt(this)">🏆 $25 / ₹999</button>
+          </div>
+        </div>
+        <div style="margin-bottom:18px;display:flex;flex-direction:column;gap:9px;">
+          <button class="pay-btn pay-stripe" onclick="handlePay('stripe')" style="font-family:var(--F2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="rgba(99,91,255,.8)"/><text y="17" x="6" fill="white" font-size="11" font-family="sans-serif">S</text></svg>
+            Pay with Stripe — Cards & International
+          </button>
+          <button class="pay-btn pay-rzp" onclick="handlePay('razorpay')" style="font-family:var(--F2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
+            <svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="rgba(0,130,255,.8)"/><text y="16" x="4" fill="white" font-size="10" font-family="sans-serif">Rz</text></svg>
+            Razorpay — UPI / Cards / India 🇮🇳
+          </button>
+          <button class="pay-btn pay-pat" onclick="window.open('https://patreon.com','_blank')" style="font-family:var(--F2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
+            <span style="font-size:1rem;">P</span> Support on Patreon
+          </button>
+          <button class="pay-btn pay-bmac" onclick="window.open('https://buymeacoffee.com','_blank')" style="font-family:var(--F2);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">
+            ☕ Buy Me A Coffee
+          </button>
+        </div>
+        <p style="font-size:.7rem;color:var(--muted);text-align:center;">100% goes to creating more episodes. Processed securely by Stripe / Razorpay.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div id="page-about" class="page-view" style="display:none;padding-top:var(--nav);">
+  <section style="padding:clamp(60px,8vw,100px) 0;background:linear-gradient(180deg,var(--bg),var(--bg2));">
+    <div class="wrap" style="max-width:900px;">
+      <div class="eyebrow" style="margin-bottom:12px;">Our Story</div>
+      <h1 class="t-hero mb32">About <span class="t-gold">Rex Comicsverse</span></h1>
+      <div class="g2 rv" style="gap:48px;align-items:center;">
+        <div>
+          <h2 style="font-family:var(--F2);font-size:1rem;font-weight:800;color:var(--gold);margin-bottom:12px;letter-spacing:.1em;text-transform:uppercase;">The Universe</h2>
+          <p class="t-sub t-dim" style="margin-bottom:16px;">Rex Comicsverse was born from a simple belief: India deserves its own cinematic superhero universe. One that draws from the deepest wells of Indian mythology, history, and spirit — and presents it to the world with world-class artistry.</p>
+          <p class="t-sub t-dim" style="margin-bottom:16px;">The Indian is our first hero — a patriot, a warrior, a protector — but he will not be the last. The universe is vast. The stories are waiting.</p>
+          <p class="t-sub t-dim">We are building this platform episode by episode, reader by reader, with your support.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--b0);border-radius:var(--r16);padding:28px;text-align:center;">
+          <div style="font-family:var(--F1);font-size:4rem;color:rgba(255,111,0,.2);margin-bottom:10px;">RC</div>
+          <div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:6px;">The Creator</div>
+          <p style="font-size:.82rem;color:var(--txt2);line-height:1.7;">Artist, writer, dreamer. Building India's greatest comic universe one panel at a time.</p>
+          <div class="frow gap8 mt16" style="justify-content:center;flex-wrap:wrap;">
+            <span class="badge bg">🎨 Illustrator</span>
+            <span class="badge bc">✍️ Writer</span>
+            <span class="badge bgr">🇮🇳 Indian</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<div id="page-contact" class="page-view" style="display:none;padding-top:var(--nav);">
+  <section style="padding:clamp(60px,8vw,100px) 0;background:linear-gradient(180deg,var(--bg),var(--bg2));">
+    <div class="wrap" style="max-width:700px;">
+      <div class="eyebrow" style="margin-bottom:12px;">Get In Touch</div>
+      <h1 class="t-hero mb32">Contact <span class="t-gold">Us</span></h1>
+      <div class="card card-p rv">
+        <form onsubmit="handleContact(event)">
+          <div class="g2 gap16 mb0">
+            <div class="fgrp"><label class="flbl">Your Name</label><input type="text" class="finp" placeholder="Arjun Kumar" required></div>
+            <div class="fgrp"><label class="flbl">Email Address</label><input type="email" class="finp" placeholder="you@email.com" required></div>
+          </div>
+          <div class="fgrp"><label class="flbl">Subject</label><input type="text" class="finp" placeholder="Episode feedback, collab, etc." required></div>
+          <div class="fgrp"><label class="flbl">Message</label><textarea class="finp" placeholder="Tell us what's on your mind…" required></textarea></div>
+          <button type="submit" class="btn btn-gold">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ DASHBOARD ══════════ -->
+<div id="page-dashboard" class="page-view" style="display:none;padding-top:var(--nav);">
+  <div id="dash-view" class="open">
+    <!-- Sidebar -->
+    <div class="dsidebar">
+      <div class="ds-s">
+        <div class="ds-h">Overview</div>
+        <div class="ds-l active" onclick="switchDash('analytics',this)">📊 Analytics</div>
+        <div class="ds-l" onclick="switchDash('earnings',this)">💰 Earnings</div>
+      </div>
+      <div class="ds-s">
+        <div class="ds-h">Content</div>
+        <div class="ds-l" onclick="switchDash('upload',this)">⬆ Upload Episode</div>
+        <div class="ds-l" onclick="switchDash('episodes',this)">📖 Manage Episodes</div>
+      </div>
+      <div class="ds-s">
+        <div class="ds-h">Community</div>
+        <div class="ds-l" onclick="switchDash('comments',this)">💬 Moderate Comments</div>
+      </div>
+      <div class="ds-s">
+        <div class="ds-h">Settings</div>
+        <div class="ds-l" onclick="switchDash('branding',this)">🎨 Branding & Logo</div>
+        <div class="ds-l" onclick="switchDash('payments',this)">💳 Payments</div>
+      </div>
+    </div>
+    <!-- Main -->
+    <div class="dmain">
+      <!-- Analytics -->
+      <div class="dpanel open" id="dp-analytics">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Overview</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Dashboard</h1></div>
+        <div class="dstat-row">
+          <div class="dstat"><div class="dstat-v t-gold" data-count="50412">0</div><div class="dstat-l">Total Readers</div><div class="dstat-c"><span style="color:var(--green);">↑ 12.4%</span> this month</div></div>
+          <div class="dstat"><div class="dstat-v t-gold" data-count="341">0</div><div class="dstat-l">New Today</div><div class="dstat-c"><span style="color:var(--green);">↑ 8.1%</span> vs yesterday</div></div>
+          <div class="dstat"><div class="dstat-v" style="color:var(--cyan);" data-count="24">0</div><div class="dstat-l">Episodes Live</div><div class="dstat-c"><span style="color:var(--gold);">+1</span> this week</div></div>
+          <div class="dstat"><div class="dstat-v" style="color:var(--green);">₹<span data-count="48200">0</span></div><div class="dstat-l">Revenue MTD</div><div class="dstat-c"><span style="color:var(--green);">↑ 18.3%</span> vs last month</div></div>
+        </div>
+        <div class="card mb24">
+          <div class="card-p">
+            <div class="fbetween mb16" style="flex-wrap:wrap;gap:10px;">
+              <div><div style="font-family:var(--F2);font-size:.85rem;font-weight:700;">Episode Views — Last 12 Weeks</div><div style="font-size:.68rem;color:var(--muted);margin-top:2px;">Hover bars for details</div></div>
+            </div>
+            <div class="chart-w" id="views-chart"></div>
+            <div class="fbetween mt8" style="padding:0 3px;"><span style="font-size:.58rem;color:var(--muted);font-family:var(--F4);">12w ago</span><span style="font-size:.58rem;color:var(--muted);font-family:var(--F4);">This week</span></div>
+          </div>
+        </div>
+        <div class="card"><div class="card-p"><div style="font-family:var(--F2);font-size:.85rem;font-weight:700;margin-bottom:13px;">Top Performing Episodes</div><div style="overflow-x:auto;"><table class="dtable" id="top-eps-table"></table></div></div></div>
+      </div>
+      <!-- Earnings -->
+      <div class="dpanel" id="dp-earnings">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Revenue</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Earnings Overview</h1></div>
+        <div class="dstat-row">
+          <div class="dstat"><div class="dstat-v" style="color:var(--green);">₹1,24,800</div><div class="dstat-l">Total Earned (INR)</div><div class="dstat-c"><span style="color:var(--green);">↑ 22%</span> YoY</div></div>
+          <div class="dstat"><div class="dstat-v" style="color:var(--green);">$1,492</div><div class="dstat-l">Total Earned (USD)</div><div class="dstat-c">via Stripe &amp; Patreon</div></div>
+          <div class="dstat"><div class="dstat-v t-gold" data-count="328">0</div><div class="dstat-l">Premium Members</div><div class="dstat-c"><span style="color:var(--green);">+14</span> this week</div></div>
+          <div class="dstat"><div class="dstat-v" style="color:var(--cyan);">$620</div><div class="dstat-l">Pending Payout</div><div class="dstat-c">→ Payoneer → Bank</div></div>
+        </div>
+        <div class="card"><div class="card-p">
+          <div style="font-family:var(--F2);font-size:.85rem;font-weight:700;margin-bottom:16px;">Revenue by Source</div>
+          <div id="rev-sources"></div>
+          <div style="height:1px;background:var(--b0);margin:20px 0;"></div>
+          <div style="font-family:var(--F2);font-size:.8rem;font-weight:700;margin-bottom:11px;">Payout Routing</div>
+          <div class="g2 gap12">
+            <div style="padding:13px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid var(--b0);"><div style="font-size:.68rem;color:var(--muted);margin-bottom:4px;">🌍 International</div><div style="font-family:var(--F3);font-weight:700;font-size:.88rem;">Stripe → Payoneer → Indian Bank</div></div>
+            <div style="padding:13px;background:rgba(0,130,255,.06);border-radius:10px;border:1px solid rgba(0,130,255,.2);"><div style="font-size:.68rem;color:var(--muted);margin-bottom:4px;">🇮🇳 India</div><div style="font-family:var(--F3);font-weight:700;font-size:.88rem;">Razorpay → Direct Bank Transfer</div></div>
+          </div>
+        </div></div>
+      </div>
+      <!-- Upload -->
+      <div class="dpanel" id="dp-upload">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Content</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Upload New Episode</h1></div>
+        <div class="card"><div class="card-p">
+          <form onsubmit="handleUpload(event)">
+            <div class="g2 gap16 mb0">
+              <div class="fgrp"><label class="flbl">Episode Number</label><input type="number" class="finp" placeholder="25" min="1" required></div>
+              <div class="fgrp"><label class="flbl">Story Arc</label><select class="finp"><option>Arc I: The Awakening</option><option>Arc II: Shadow Syndicate</option><option>Arc III: Dharma War</option></select></div>
+            </div>
+            <div class="fgrp"><label class="flbl">Episode Title</label><input type="text" class="finp" placeholder="Dawn of Dharma War" required></div>
+            <div class="fgrp"><label class="flbl">Description</label><textarea class="finp" rows="3" placeholder="Brief teaser shown in episode listing…"></textarea></div>
+            <div class="fgrp">
+              <label class="flbl">Cover Image (JPG/PNG, max 5MB)</label>
+              <div class="upzone" id="cover-upzone">
+                <input type="file" accept="image/*" onchange="previewCover(this)">
+                <div id="cover-ph"><div style="font-size:2.2rem;margin-bottom:9px;">🖼️</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;margin-bottom:4px;">Upload Cover Image</div><div style="font-size:.7rem;color:var(--muted);">600×900px recommended · JPG, PNG, WebP</div></div>
+              </div>
+            </div>
+            <div class="fgrp">
+              <label class="flbl">Comic Panels (multiple PNG/JPG files)</label>
+              <div class="upzone">
+                <input type="file" accept="image/*" multiple onchange="previewPanels(this)">
+                <div id="panels-ph"><div style="font-size:2.2rem;margin-bottom:9px;">📄</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;margin-bottom:4px;">Upload Comic Panels</div><div style="font-size:.7rem;color:var(--muted);">Select multiple · Ordered by filename · Max 100MB</div></div>
+              </div>
+            </div>
+            <div class="g2 gap16 mb0">
+              <div class="fgrp"><label class="flbl">Access Type</label><select class="finp"><option>Free</option><option>Premium Only</option></select></div>
+              <div class="fgrp"><label class="flbl">Publish Date</label><input type="datetime-local" class="finp"></div>
+            </div>
+            <div class="frow gap12 mt24">
+              <button type="submit" class="btn btn-gold">⬆ Publish Episode</button>
+              <button type="button" class="btn btn-ghost" onclick="toast('Draft saved 💾','s')">Save Draft</button>
+            </div>
+          </form>
+        </div></div>
+      </div>
+      <!-- Episodes manage -->
+      <div class="dpanel" id="dp-episodes">
+        <div class="fbetween fwrap gap12 mb22"><div><div class="eyebrow" style="margin-bottom:8px;">Content</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Manage Episodes</h1></div><button class="btn btn-gold" onclick="switchDash('upload',null)">+ New Episode</button></div>
+        <div class="card"><div class="card-p" style="overflow-x:auto;"><table class="dtable" id="eps-mgmt-table"></table></div></div>
+      </div>
+      <!-- Comments moderation -->
+      <div class="dpanel" id="dp-comments">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Community</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Moderate Comments</h1></div>
+        <div class="frow gap8 mb20 fwrap">
+          <button class="btn btn-sm btn-gold" onclick="filterMod('all',this)">All</button>
+          <button class="btn btn-sm btn-ghost" onclick="filterMod('flagged',this)">🚩 Flagged</button>
+          <button class="btn btn-sm btn-ghost" onclick="filterMod('pending',this)">⏳ Pending</button>
+        </div>
+        <div id="mod-list"></div>
+      </div>
+      <!-- Branding & Logo -->
+      <div class="dpanel" id="dp-branding">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Settings</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Branding & Logo</h1></div>
+        <div class="card mb16"><div class="card-p">
+          <h3 style="font-family:var(--F2);font-size:.92rem;font-weight:800;margin-bottom:5px;">Site Logo</h3>
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:16px;">Upload PNG/JPG/SVG (max 2MB). Updates website navbar and Android app splash screen dynamically.</p>
+          <div class="frow gap20 fwrap">
+            <div class="logo-prev" id="logo-prev-box" title="Click to upload">
+              <span id="logo-prev-txt">RC</span>
+              <input type="file" accept="image/*,.svg" onchange="handleLogoUpload(this)">
+            </div>
+            <div>
+              <div style="font-family:var(--F2);font-size:.8rem;font-weight:700;margin-bottom:5px;">Current Logo</div>
+              <div style="font-size:.75rem;color:var(--muted);margin-bottom:11px;">PNG/JPG/SVG · Max 2MB · 512×512px ideal</div>
+              <div class="frow gap8">
+                <label for="logo-file-trigger" class="btn btn-sm btn-gold" style="cursor:pointer;">📷 Choose File</label>
+                <button class="btn btn-sm btn-ghost" onclick="resetLogo()">↺ Reset</button>
+              </div>
+              <input type="file" id="logo-file-trigger" accept="image/*,.svg" onchange="handleLogoUpload(this)" style="display:none;">
+              <div id="logo-status" style="margin-top:8px;font-size:.72rem;color:var(--muted);"></div>
+            </div>
+          </div>
+          <!-- Nav preview -->
+          <div style="margin-top:22px;padding:14px;background:var(--bg);border-radius:10px;border:1px solid var(--b0);">
+            <div style="font-size:.6rem;color:var(--muted);margin-bottom:9px;font-family:var(--F4);letter-spacing:.15em;text-transform:uppercase;">Preview — Navbar</div>
+            <div class="frow gap12">
+              <div id="logo-nav-prev" style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#FF6F00,#FF9100);display:flex;align-items:center;justify-content:center;font-family:var(--F1);font-size:1.3rem;color:#000;overflow:hidden;">RC</div>
+              <span style="font-family:var(--F1);font-size:1.15rem;letter-spacing:.1em;color:var(--txt);">Rex Comicsverse</span>
+            </div>
+          </div>
+        </div></div>
+        <!-- Colors -->
+        <div class="card"><div class="card-p">
+          <h3 style="font-family:var(--F2);font-size:.92rem;font-weight:800;margin-bottom:13px;">Brand Colors</h3>
+          <div class="g2 gap16">
+            <div class="fgrp" style="margin:0;"><label class="flbl">Primary Gold</label><div class="frow gap8"><input type="color" value="#FF6F00" style="width:42px;height:36px;border:1px solid var(--b1);border-radius:6px;background:none;cursor:pointer;" oninput="updateBrandColor('--gold',this.value)"><input type="text" class="finp" value="#FF6F00" style="flex:1;" oninput="updateBrandColor('--gold',this.value)"></div></div>
+            <div class="fgrp" style="margin:0;"><label class="flbl">Accent Cyan</label><div class="frow gap8"><input type="color" value="#00FFFF" style="width:42px;height:36px;border:1px solid var(--b1);border-radius:6px;background:none;cursor:pointer;"><input type="text" class="finp" value="#00FFFF" style="flex:1;"></div></div>
+          </div>
+          <button class="btn btn-gold btn-sm mt16" onclick="toast('Brand colors saved ✅','s')">Save Brand Settings</button>
+        </div></div>
+      </div>
+      <!-- Payments -->
+      <div class="dpanel" id="dp-payments">
+        <div style="margin-bottom:22px;"><div class="eyebrow" style="margin-bottom:8px;">Monetization</div><h1 style="font-family:var(--F2);font-size:1.4rem;font-weight:900;">Payment Integrations</h1></div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card"><div class="card-p"><div class="fbetween fwrap gap12 mb14"><div><div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:3px;"><span style="color:rgba(99,91,255,1);">■</span> Stripe — International</div><div style="font-size:.75rem;color:var(--muted);">Cards globally · USD → Payoneer → Indian bank</div></div><span class="badge bgr">✓ Active</span></div><div class="fgrp" style="margin-bottom:10px;"><label class="flbl">Publishable Key</label><input type="text" class="finp" value="pk_live_••••••••••••••••••" readonly></div><button class="btn btn-sm btn-ghost" onclick="toast('Update Stripe key in backend/config/stripe.js','i')">Update Keys</button></div></div>
+          <div class="card"><div class="card-p"><div class="fbetween fwrap gap12 mb14"><div><div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:3px;"><span style="color:rgba(0,130,255,1);">■</span> Razorpay — India 🇮🇳</div><div style="font-size:.75rem;color:var(--muted);">UPI / Cards / Net Banking · INR → Bank</div></div><span class="badge bc">Setup Required</span></div><div class="fgrp" style="margin-bottom:10px;"><label class="flbl">API Key ID</label><input type="text" class="finp" id="rzp-key" placeholder="rzp_live_YOUR_KEY_HERE"></div><button class="btn btn-sm btn-gold" onclick="saveRzpKey()">Save Key</button></div></div>
+          <div class="card"><div class="card-p"><div class="fbetween fwrap gap12 mb14"><div><div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:3px;"><span style="color:rgba(255,66,77,1);">■</span> Patreon</div><div style="font-size:.75rem;color:var(--muted);">Monthly memberships · International supporters</div></div><span class="badge bg">Connect</span></div><input type="url" class="finp mb8" placeholder="https://patreon.com/yourpage"><button class="btn btn-sm btn-ghost" onclick="toast('Patreon URL saved','s')">Save</button></div></div>
+          <div class="card"><div class="card-p"><div class="fbetween fwrap gap12 mb14"><div><div style="font-family:var(--F2);font-size:.88rem;font-weight:800;margin-bottom:3px;"><span style="color:rgba(255,144,0,1);">■</span> Gumroad — Digital Store</div><div style="font-size:.75rem;color:var(--muted);">Sell PDF comic collections · One-time purchases</div></div><span class="badge bg">Connect</span></div><input type="url" class="finp mb8" placeholder="https://yourname.gumroad.com"><button class="btn btn-sm btn-ghost" onclick="toast('Gumroad URL saved','s')">Save</button></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-pages -->
+
+<!-- Footer (hidden in reader & dashboard) -->
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-g">
+      <div>
+        <div class="f-brand"><span class="t-gold">Rex</span> Comicsverse</div>
+        <p class="f-tag">Home of The Indian — India's greatest superhero universe.<br>Celebrating Bharat's culture through world-class comics.</p>
+        <div class="f-social">
+          <div class="f-soc" title="X/Twitter">𝕏</div>
+          <div class="f-soc" title="Instagram">📸</div>
+          <div class="f-soc" title="YouTube">▶</div>
+          <div class="f-soc" title="Discord">🎮</div>
+          <div class="f-soc" title="Patreon">P</div>
+        </div>
+      </div>
+      <div>
+        <div class="f-heading">Series</div>
+        <div class="f-links">
+          <a onclick="goTo('series')">The Indian</a>
+          <a onclick="goTo('series')">Arc I: Awakening</a>
+          <a onclick="goTo('series')">Arc II: Shadow Syndicate</a>
+          <a onclick="goTo('series')">Arc III: Dharma War</a>
+          <a onclick="goTo('reader')">Read Free</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-heading">Universe</div>
+        <div class="f-links">
+          <a onclick="goTo('characters')">Characters</a>
+          <a onclick="goTo('about')">About</a>
+          <a onclick="goTo('contact')">Contact</a>
+          <a onclick="handleAppDownload()">Android App</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-heading">Support</div>
+        <div class="f-links">
+          <a onclick="goTo('support')">Membership</a>
+          <a onclick="goTo('support')">Donate</a>
+          <a onclick="window.open('https://patreon.com','_blank')">Patreon</a>
+          <a onclick="goTo('dashboard')">Creator Dashboard</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2024 Rex Comicsverse. All rights reserved. Made with ❤️ in India.</span>
+      <div class="frow gap16"><a style="cursor:pointer;transition:.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">Privacy</a><a style="cursor:pointer;transition:.15s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color=''">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ██  AUTH MODAL  ██ -->
+<div class="modal-bg" id="auth-modal" onclick="if(event.target===this)closeModal('auth-modal')">
+  <div class="modal-box">
+    <span class="modal-x" onclick="closeModal('auth-modal')">✕</span>
+    <h2 id="auth-title" style="font-family:var(--F2);font-size:1.15rem;font-weight:800;margin-bottom:5px;">Welcome Back</h2>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:20px;">Join 50,000+ readers of The Indian</p>
+    <div class="auth-tabs">
+      <div class="auth-tab act" id="tab-login" onclick="switchAuthTab('login')">Sign In</div>
+      <div class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Join Free</div>
+    </div>
+    <form id="auth-form" onsubmit="handleAuth(event)">
+      <div id="auth-name-row" class="fgrp hidden"><label class="flbl">Your Name</label><input type="text" class="finp" id="auth-name" placeholder="Arjun Kumar"></div>
+      <div class="fgrp"><label class="flbl">Email</label><input type="email" class="finp" id="auth-email" placeholder="you@email.com" required></div>
+      <div class="fgrp"><label class="flbl">Password</label><input type="password" class="finp" id="auth-pass" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-gold btn-full" id="auth-btn" style="margin-top:6px;">Sign In</button>
+    </form>
+    <div style="margin:16px 0;text-align:center;position:relative;"><div style="height:1px;background:var(--b0);position:absolute;inset:50% 0 auto;"></div><span style="position:relative;background:var(--card);padding:0 12px;font-size:.7rem;color:var(--muted);">or</span></div>
+    <button class="btn btn-ghost btn-full" style="gap:9px;justify-content:center;" onclick="toast('Connect Firebase Auth for Google Sign-In. See SETUP.md.','i')">
+      <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Continue with Google
+    </button>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toasts"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   REX COMICSVERSE — FULL APP SCRIPT
+═══════════════════════════════════════════════════════════ */
+
+/* ── DATA ───────────────────────────────────────────────── */
+const EPISODES = [
+  {id:'ep01',n:1,arc:1,title:'The Calling',        pages:42,views:12400,likes:3200,rating:4.9,isNew:false,free:true,date:'2024-01-15'},
+  {id:'ep02',n:2,arc:1,title:'Bharat Awakens',     pages:38,views:11200,likes:2900,rating:4.8,isNew:false,free:true,date:'2024-01-22'},
+  {id:'ep03',n:3,arc:1,title:'The Shadow Network', pages:45,views:10800,likes:2700,rating:4.9,isNew:false,free:true,date:'2024-01-29'},
+  {id:'ep04',n:4,arc:1,title:'Blood & Dharma',     pages:50,views:13500,likes:3800,rating:5.0,isNew:false,free:true,date:'2024-02-05'},
+  {id:'ep05',n:5,arc:1,title:'Rise of the Shield', pages:46,views:14200,likes:4100,rating:4.9,isNew:false,free:true,date:'2024-02-12'},
+  {id:'ep06',n:6,arc:1,title:'Enemy Within',       pages:52,views:16800,likes:5200,rating:5.0,isNew:false,free:true,date:'2024-02-19'},
+  {id:'ep07',n:7,arc:1,title:"Ashoka's Legacy",    pages:48,views:18200,likes:6000,rating:4.9,isNew:false,free:true,date:'2024-02-26'},
+  {id:'ep08',n:8,arc:1,title:'Dawn of the Shield', pages:55,views:20100,likes:7200,rating:5.0,isNew:false,free:true,date:'2024-03-04'},
+  {id:'ep09',n:9,arc:2,title:'Syndicate Rises',    pages:55,views:18900,likes:5200,rating:5.0,isNew:false,free:true,date:'2024-04-01'},
+  {id:'ep10',n:10,arc:2,title:'The Informant',     pages:50,views:20000,likes:5800,rating:4.9,isNew:false,free:true,date:'2024-04-08'},
+  {id:'ep11',n:11,arc:2,title:'City of Shadows',   pages:58,views:21500,likes:6400,rating:5.0,isNew:false,free:true,date:'2024-04-15'},
+  {id:'ep12',n:12,arc:2,title:'Operation Dharma',  pages:62,views:23000,likes:7000,rating:5.0,isNew:false,free:true,date:'2024-04-22'},
+  {id:'ep22',n:22,arc:2,title:'The Infiltrator',   pages:64,views:29000,likes:9800,rating:5.0,isNew:false,free:true,date:'2024-09-23'},
+  {id:'ep23',n:23,arc:2,title:'The Betrayal',      pages:70,views:34000,likes:12000,rating:5.0,isNew:false,free:true,date:'2024-09-30'},
+  {id:'ep24',n:24,arc:2,title:'Dawn of Dharma War',pages:68,views:41000,likes:15000,rating:5.0,isNew:true, free:true,date:'2024-10-07'},
+];
+
+const CHARACTERS = [
+  {id:'the-indian', name:'The Indian',   realName:'Arjun Bharatveer', role:'Main Hero',      align:'hero',    accent:'#FF6F00',
+   desc:'Born in Varanasi, chosen by Bharat Mata to wield the ancient Bharat Shield. Former army officer and social activist.',
+   bio:'Arjun Bharatveer grew up watching injustice unfold around him in the ghats of Varanasi. A decorated army officer who quit to fight corruption from within, he was chosen by Bharat Mata herself when he discovered an ancient relic by the Ganga. His transformation into The Indian was as painful as it was magnificent. He now wields the Bharat Shield — a divine artifact capable of deflecting anything — and channels the Dharma Flame through his hands. But his greatest weapon is his conviction.',
+   powers:['Bharat Shield','Dharma Flame','Superhuman Strength','Divine Intuition','Supersonic Flight','Regeneration'],
+   first:'Episode 1'},
+  {id:'maya',       name:'Maya Sharma',  realName:'Dr. Maya Sharma',  role:'Ally / Tech',    align:'ally',    accent:'#00FFFF',
+   desc:'Brilliant ISRO scientist. Creator of the AI systems inside the Dharma Suit. Tactical genius.',
+   bio:'Dr. Maya Sharma is arguably the most intelligent person in the Rex Comicsverse universe. A child prodigy who joined ISRO at 19, she built India\'s first quantum communication satellite at 24. When she discovered that the Shadow Syndicate was harvesting her research, she defected and found Arjun. She designed the Dharma Suit\'s AI, its propulsion systems, and its defensive matrix. Behind her cool analytical exterior burns a fierce patriotism that rivals The Indian himself.',
+   powers:['Genius Intellect','Hacking & Cyber Warfare','Dharma Suit Design','Strategic Analysis','Pilot'],
+   first:'Episode 3'},
+  {id:'kalinga',    name:'Kalinga',      realName:'Unknown',           role:'Primary Villain',align:'villain', accent:'#FF3D00',
+   desc:'Ruthless leader of the Shadow Syndicate. Claims divine right to rule. Seeks to plunge India into chaos.',
+   bio:'Kalinga\'s true identity remains unknown. He appeared 10 years ago, built the Shadow Syndicate from a network of corrupt politicians, arms dealers, and ancient cultists, and positioned himself as the new emperor of a dark India. He claims to be the reincarnation of an ancient conqueror and wields shadow energy that can nullify light and hope alike. His philosophical conviction — that India\'s greatness can only be restored through destruction — makes him The Indian\'s most dangerous opposite.',
+   powers:['Shadow Manipulation','Limited Immortality','Army Control','Ancient Sorcery','Shadow Step Teleportation'],
+   first:'Episode 6'},
+  {id:'veer',       name:'Veer Singh',   realName:'Lt. Veer Singh',    role:'Ally',           align:'ally',    accent:'#FF6F00',
+   desc:'Arjun\'s best friend and former army brother. Human. 100% loyal. Formidable fighter.',
+   bio:'Veer Singh and Arjun served together in the 21st Para Special Forces. When Arjun became The Indian, Veer was the only one he trusted with the truth. He provides on-the-ground intelligence, conventional firepower, and an irreplaceable moral anchor. He has no superpowers — just exceptional training, unbreakable loyalty, and the belief that his brother was chosen for a reason.',
+   powers:['Special Forces Trained','Expert Marksmanship','Close Combat','Tactical Command'],
+   first:'Episode 2'},
+  {id:'devi',       name:'Devi',         realName:'Unknown',           role:'Mysterious Ally',align:'ally',    accent:'#00FFFF',
+   desc:'An ageless woman who appears at pivotal moments. Claims to serve Bharat Mata directly.',
+   bio:'Devi appears at the moments of greatest crisis and vanishes without explanation. She has appeared in historical texts from the Maratha Empire, the 1857 uprising, and the Independence movement — always at the side of India\'s greatest defenders. She never explains herself. She only ever says: "Bharat is not finished with her children."',
+   powers:['Temporal Awareness','Reality Perception','Divine Communication','Unknown Combat Mastery'],
+   first:'Episode 5'},
+  {id:'raktabija',  name:'Raktabija',    realName:'Unknown',           role:'Villain',        align:'villain', accent:'#FF3D00',
+   desc:"Kalinga's enforcer. Every wound he sustains spawns a clone. Near-impossible to defeat.",
+   bio:'Raktabija is Kalinga\'s most feared weapon. Derived from ancient genetic experiments that spliced human DNA with mythological records of the demon Raktabija, he regenerates from every wound by spawning fully-formed copies of himself. The Indian\'s first encounter with him ended in a near-death experience. Defeating Raktabija will require understanding the original myth — and the only one who knows the solution is Devi.',
+   powers:['Infinite Clone Regeneration','Shadow Absorption','Enhanced Durability','Berserker Strength'],
+   first:'Episode 11'},
+];
+
+const PANELS = [
+  {t:'narration',c:'The ancient city of Varanasi at dusk. Ghats crowded, temple bells echoing across the sacred Ganga. Smoke from thousands of diyas rises into a burning sky.'},
+  {t:'char',     c:'Arjun, 28, a passionate social activist and former army officer, stands on the riverbank watching chemical waste flow from a drainage pipe into the holy water. His jaw is set. His fists tight.'},
+  {t:'dialogue', c:'ARJUN (caption): "They poison this holy river while worshipping her. A nation that cannot protect its own sacred places — is that a nation worth saving?"'},
+  {t:'action',   c:'An ancient stone at the river\'s edge begins to glow. Faint, golden, pulsing like a heartbeat. Arjun notices it. Nobody else can see it.'},
+  {t:'action',   c:'He reaches down. His fingers close around the stone. The world shatters white.'},
+  {t:'spread',   c:'★ FULL SPREAD: A blinding explosion of orange-gold light. The Ashoka Chakra pattern erupting in all directions. Arjun at the epicentre, rising, arms out, the Bharat Shield spinning into existence at his side.'},
+  {t:'char',     c:'The transformation. The Bharat Shield — impossibly ancient, 24 spokes blazing — hovers beside him. The Dharma Flame ignites in his right hand. Arjun stares at himself in the water\'s reflection.'},
+  {t:'dialogue', c:'VOICE (ethereal, from everywhere and nowhere): "Bharat needs a protector. She chose you, Arjun Bharatveer. The question is: do you choose her?"'},
+  {t:'action',   c:'Five figures in tactical gear materialise from shadows. Weapons raised. Professional. They have been watching for some time.'},
+  {t:'dialogue', c:'LEADER: "Stand down. Surrender the artifact."  ARJUN: "Who are you?"  LEADER: "The people who decide who gets to save this country. And it isn\'t you."'},
+  {t:'action',   c:'The Shield moves. Arjun doesn\'t choose it — his arm throws it on instinct, Bharat\'s will overriding his hesitation. The first blow is not his. It is hers.'},
+  {t:'action',   c:'WHOOM — the Shield returns like a living thing. Three attackers down. Two flee. Arjun stands breathing hard, knees almost buckling, hands trembling.'},
+  {t:'char',     c:'Far above on a rooftop, watching through a rangefinder: a young woman with sharp brilliant eyes. A faint, knowing smile. Maya Sharma takes notes.'},
+  {t:'end',      c:'THE INDIAN · EPISODE 01 · "The Calling" · END'},
+];
+
+const MOD_COMMENTS = [
+  {id:1,author:'Arjun_M',    av:'A',text:'The Shield arrival literally gave me goosebumps. This is everything.',   status:'approved',ep:'ep24',t:'2h ago'},
+  {id:2,author:'ShadowTroll', av:'S',text:'This is propaganda rubbish.',                                             status:'flagged',  ep:'ep23',t:'3h ago'},
+  {id:3,author:'IndiaFan99',  av:'I',text:'The betrayal arc just destroyed me. Cannot believe that twist.',          status:'pending',  ep:'ep23',t:'5h ago'},
+  {id:4,author:'ComicPriya',  av:'P',text:'Maya Sharma is literally the best character in any Indian comic ever.',   status:'approved', ep:'ep22',t:'8h ago'},
+];
+
+/* ── STATE ──────────────────────────────────────────────── */
+const S = {
+  page:     'home',
+  user:     null,
+  authMode: 'login',
+  currency: 'USD',
+  country:  'US',
+  logoUrl:  null,
+  readerEp: 'ep01',
+  liked:    false,
+  likeCount:3200,
+  savedEps: [],
+  donationAmt: 5,
+  comments: [
+    {id:1,author:'Arjun_M',av:'A',text:'The Shield arrival gave me GOOSEBUMPS. This is incredible!! 🔥',t:'2024-10-07T10:22:00',likes:142},
+    {id:2,author:'IndiaRises',av:'I',text:"The way Bharat Mata's voice is written... real chills. Arc 1 is perfect.",t:'2024-10-07T11:44:00',likes:98},
+    {id:3,author:'ComicPriya',av:'P',text:"The woman on the rooftop at the end — Maya Sharma? Can't wait for Ep 2!!",t:'2024-10-07T14:09:00',likes:87},
+  ],
+};
+
+/* ── BOOT ───────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  buildChakra();
+  loadSession();
+  loadLogo();
+  initNav();
+  initScrollReveal();
+  spawnParticles();
+  animateCounters();
+  detectDevice();
+  detectCurrency();
+  renderHomePage();
+  initReadingProgress();
+  goTo('home');
+});
+
+/* ── NAVIGATION ─────────────────────────────────────────── */
+function goTo(page) {
+  document.querySelectorAll('.page-view').forEach(p => p.style.display = 'none');
+  const el = document.getElementById(`page-${page}`);
+  if (el) { el.style.display = 'block'; window.scrollTo(0,0); }
+  S.page = page;
+
+  // Nav active state
+  document.querySelectorAll('.nl[data-page]').forEach(l => l.classList.remove('active'));
+  document.querySelector(`.nl[data-page="${page}"]`)?.classList.add('active');
+
+  // Footer & special pages
+  const footer = document.getElementById('site-footer');
+  if (footer) footer.style.display = ['reader','dashboard'].includes(page) ? 'none' : 'block';
+
+  // Dashboard auth guard
+  if (page === 'dashboard') {
+    if (!S.user) { toast('Sign in to access the dashboard','e'); openAuth('login'); return; }
+    renderDashboard();
+  }
+
+  if (page === 'reader')     renderReader();
+  if (page === 'series')     renderSeriesPage();
+  if (page === 'characters') renderCharactersPage();
+  if (page === 'support')    renderSupportPage();
+}
+
+/* ── MOBILE NAV ─────────────────────────────────────────── */
+function toggleMobile() {
+  const mn = document.getElementById('mnav');
+  const hm = document.getElementById('hamburger');
+  const open = mn.classList.toggle('open');
+  hm.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+/* ── NAVBAR SCROLL ─────────────────────────────────────── */
+function initNav() {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 24);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+}
+
+/* ── SCROLL REVEAL ─────────────────────────────────────── */
+function initScrollReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('vis');
+      io.unobserve(e.target);
+    });
+  }, {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+  const reobserve = () => document.querySelectorAll('.rv,.rvl,.rvr,.stag').forEach(el => io.observe(el));
+  reobserve();
+  new MutationObserver(reobserve).observe(document.body, {childList:true, subtree:true});
+}
+
+/* ── PARTICLES ──────────────────────────────────────────── */
+function spawnParticles() {
+  const host = document.getElementById('particles');
+  if (!host) return;
+  for (let i=0; i<28; i++) {
+    const p = document.createElement('div');
+    const g = Math.random()>.45, sz = Math.random()*3.5+1;
+    p.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      background:${g?`rgba(255,111,0,${Math.random()*.5+.15})`:`rgba(0,255,255,${Math.random()*.4+.1})`};
+      box-shadow:0 0 ${sz*4}px ${g?'rgba(255,111,0,.5)':'rgba(0,255,255,.4)'};
+      --dx:${(Math.random()-.5)*60}px;--dy:${-(Math.random()*100+60)}px;
+      animation:particleDrift ${Math.random()*8+7}s ${Math.random()*6}s ease-in infinite;`;
+    host.appendChild(p);
+  }
+}
+
+/* ── COUNTERS ───────────────────────────────────────────── */
+function animateCounters() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { runCount(e.target); io.unobserve(e.target); } });
+  }, {threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
+}
+function runCount(el) {
+  const tgt = parseInt(el.dataset.count), suf = el.dataset.suffix||'', dur = 1800, st = performance.now();
+  const tick = now => {
+    const p = Math.min((now-st)/dur, 1), v = Math.floor(tgt*(1-Math.pow(1-p,3)));
+    el.textContent = v>=1000 ? (v/1000).toFixed(v>=10000?0:1)+'K' : v;
+    if (p<1) requestAnimationFrame(tick);
+    else el.textContent = tgt>=1000?(tgt/1000).toFixed(0)+'K+':tgt+suf;
+  };
+  requestAnimationFrame(tick);
+}
+
+/* ── TOAST ──────────────────────────────────────────────── */
+function toast(msg, type='i', ms=3600) {
+  const host = document.getElementById('toasts');
+  const icons = {s:'✓', e:'✕', i:'ℹ'};
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = `<span>${icons[type]||'•'}</span><span>${esc(msg)}</span>`;
+  host.appendChild(t);
+  setTimeout(() => { t.style.animation = 'toastIn .3s reverse forwards'; setTimeout(()=>t.remove(),300); }, ms);
+}
+
+/* ── MODAL ──────────────────────────────────────────────── */
+function openModal(id)  { document.getElementById(id)?.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(id) { document.getElementById(id)?.classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if(e.key==='Escape') document.querySelectorAll('.modal-bg.open').forEach(m=>m.classList.remove('open')); document.body.style.overflow=''; });
+
+/* ── AUTH ───────────────────────────────────────────────── */
+function openAuth(mode) { S.authMode = mode; openModal('auth-modal'); switchAuthTab(mode); }
+function switchAuthTab(mode) {
+  S.authMode = mode;
+  const nameRow = document.getElementById('auth-name-row');
+  const btn     = document.getElementById('auth-btn');
+  const title   = document.getElementById('auth-title');
+  const tL      = document.getElementById('tab-login');
+  const tS      = document.getElementById('tab-signup');
+  const a = 'background:rgba(255,111,0,.15);color:var(--gold);', n = 'background:transparent;color:var(--muted);';
+  if (mode==='login') {
+    nameRow?.classList.add('hidden'); if(btn)btn.textContent='Sign In'; if(title)title.textContent='Welcome Back';
+    tL?.setAttribute('style',a); tS?.setAttribute('style',n);
+  } else {
+    nameRow?.classList.remove('hidden'); if(btn)btn.textContent='Create Free Account'; if(title)title.textContent='Join Rex Comicsverse';
+    tL?.setAttribute('style',n); tS?.setAttribute('style',a);
+  }
+}
+async function handleAuth(e) {
+  e.preventDefault();
+  const btn  = document.getElementById('auth-btn');
+  const email= document.getElementById('auth-email').value.trim();
+  const pass = document.getElementById('auth-pass').value;
+  const name = document.getElementById('auth-name')?.value.trim();
+  if (!email||!pass) return;
+  btn.disabled=true; btn.textContent='Please wait…';
+  await delay(800);
+  const user = {email, name: name||email.split('@')[0], id: Date.now().toString()};
+  localStorage.setItem('rc_user', JSON.stringify(user));
+  S.user = user;
+  updateNavUser(user);
+  closeModal('auth-modal');
+  toast(S.authMode==='signup'?`Welcome to the universe, ${user.name}! 🎉`:`Welcome back, ${user.name}! 🔥`,'s');
+  btn.disabled=false; btn.textContent=S.authMode==='login'?'Sign In':'Create Free Account';
+}
+function loadSession() {
+  try { const u=JSON.parse(localStorage.getItem('rc_user')||'null'); if(u){S.user=u;updateNavUser(u);} } catch{}
+}
+function updateNavUser(user) {
+  document.getElementById('nav-signin')?.classList.add('hidden');
+  const av = document.getElementById('nav-av');
+  if (!av) return;
+  av.classList.remove('hidden');
+  if (user.photo) av.innerHTML = `<img src="${user.photo}" alt="avatar">`;
+  else av.textContent = (user.name||user.email||'U')[0].toUpperCase();
+  const cav = document.getElementById('comment-user-av');
+  if (cav) cav.textContent = av.textContent;
+}
+function handleAvatarClick() {
+  if (!S.user) { openAuth('login'); return; }
+  toast(`Signed in as ${S.user.name||S.user.email}`,'i');
+}
+function signOut() {
+  localStorage.removeItem('rc_user');
+  S.user = null;
+  document.getElementById('nav-av')?.classList.add('hidden');
+  document.getElementById('nav-signin')?.classList.remove('hidden');
+  toast('Signed out','i');
+}
+
+/* ── LOGO ───────────────────────────────────────────────── */
+function loadLogo() {
+  const saved = localStorage.getItem('rc_logo_url');
+  if (saved) { S.logoUrl = saved; applyLogo(saved); }
+}
+function applyLogo(url) {
+  document.querySelectorAll('.logo-mark, #logo-mark-nav').forEach(el => {
+    el.innerHTML = `<img src="${url}" alt="Logo" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">`;
+  });
+}
+function handleLogoUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const status = document.getElementById('logo-status');
+  if (file.size > 2*1024*1024) { toast('Logo must be under 2MB','e'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    const url = e.target.result;
+    S.logoUrl = url;
+    localStorage.setItem('rc_logo_url', url);
+    applyLogo(url);
+    // Update dashboard preview
+    const prevBox = document.getElementById('logo-prev-box');
+    const prevTxt = document.getElementById('logo-prev-txt');
+    const navPrev = document.getElementById('logo-nav-prev');
+    if (prevTxt) prevTxt.style.display = 'none';
+    if (prevBox) { const img = document.createElement('img'); img.src=url; img.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;'; prevBox.prepend(img); }
+    if (navPrev) navPrev.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
+    if (status) { status.style.color='var(--green)'; status.textContent='✓ Logo updated across website and app!'; }
+    toast('Logo updated! Changes are live across the platform 🎨','s');
+  };
+  reader.readAsDataURL(file);
+}
+function resetLogo() {
+  localStorage.removeItem('rc_logo_url');
+  S.logoUrl = null;
+  document.querySelectorAll('.logo-mark, #logo-mark-nav').forEach(el => el.innerHTML = 'RC');
+  const navPrev = document.getElementById('logo-nav-prev');
+  if (navPrev) navPrev.textContent = 'RC';
+  const prevTxt = document.getElementById('logo-prev-txt');
+  if (prevTxt) prevTxt.style.display = '';
+  toast('Logo reset to default','i');
+}
+
+/* ── ASHOKA CHAKRA ──────────────────────────────────────── */
+function buildChakra() {
+  const g = document.getElementById('chakra-spokes');
+  if (!g) return;
+  for (let i=0;i<24;i++) {
+    const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+    Object.assign(l,{}); l.setAttribute('x1','110'); l.setAttribute('y1','10'); l.setAttribute('x2','110'); l.setAttribute('y2','35');
+    l.setAttribute('transform',`rotate(${i*15} 110 110)`);
+    g.appendChild(l);
+  }
+}
+
+/* ── DEVICE DETECTION ───────────────────────────────────── */
+function detectDevice() {
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  if (!isAndroid) return;
+  document.getElementById('hero-app-btn')?.style.setProperty('display','inline-flex');
+  const banner = document.getElementById('app-banner-strip');
+  if (banner) banner.style.display='block';
+}
+function handleAppDownload() {
+  const url = /Chrome/.test(navigator.userAgent)
+    ? 'https://play.google.com/store/apps/details?id=com.rexcomicsverse'
+    : '#';
+  toast('Android app coming to Play Store! Sign up for beta access.','i');
+  // window.open(url, '_blank');
+}
+
+/* ── CURRENCY ───────────────────────────────────────────── */
+async function detectCurrency() {
+  try {
+    const r = await fetch('https://ipapi.co/json/');
+    const d = await r.json();
+    S.country  = d.country_code||'US';
+    S.currency = d.country_code==='IN'?'INR':'USD';
+    const flag = document.getElementById('c-flag');
+    const txt  = document.getElementById('c-txt');
+    if (flag) flag.textContent = d.country_code==='IN'?'🇮🇳':'🌍';
+    if (txt)  txt.textContent  = d.country_code==='IN'?'Prices in INR · India 🇮🇳':'Prices in USD · International';
+  } catch {}
+}
+function price(usd) { return S.currency==='INR'?`₹${Math.round(usd*84)}`:`$${usd.toFixed(2)}`; }
+
+/* ── HOME PAGE ──────────────────────────────────────────── */
+function renderHomePage() {
+  renderEpsGrid('eps-grid-home', EPISODES.slice(-4).reverse());
+  renderCharsGrid('chars-home', CHARACTERS.slice(0,3));
+}
+
+/* ── SERIES PAGE ────────────────────────────────────────── */
+function renderSeriesPage() {
+  renderEpsGrid('eps-grid-series', EPISODES);
+}
+
+/* ── EPISODE CARD ───────────────────────────────────────── */
+function renderEpsGrid(id, eps) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = eps.map(ep => epCardHTML(ep)).join('');
+}
+function epCardHTML(ep) {
+  return `
+  <div class="ccard" onclick="openEpisode('${ep.id}')">
+    <div class="cthumb">
+      <div class="cthumb-ph">
+        <div style="font-family:var(--F1);font-size:4.2rem;line-height:1;background:linear-gradient(180deg,#FF6F00,rgba(255,111,0,.15));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">${String(ep.n).padStart(2,'0')}</div>
+        <div style="font-size:.52rem;letter-spacing:.18em;color:rgba(255,255,255,.1);font-family:var(--F4);text-transform:uppercase;">Episode Art</div>
+      </div>
+      <div class="cthumb-ov"><button class="btn btn-sm btn-gold">Read Now →</button></div>
+      <div class="cbadges">
+        ${ep.isNew?'<span class="badge bnew">NEW</span>':''}
+        <span class="badge ${ep.free?'bgr':'bg'}">${ep.free?'FREE':'PREMIUM'}</span>
+      </div>
+    </div>
+    <div class="cbody">
+      <div class="c-sname">Arc ${ep.arc} · Ep ${String(ep.n).padStart(2,'0')}</div>
+      <div class="c-title">${esc(ep.title)}</div>
+      <div class="c-meta"><span class="c-rating">★ ${ep.rating}</span><span>${(ep.views/1000).toFixed(1)}K</span><span>${fmtDate(ep.date)}</span></div>
+    </div>
+  </div>`;
+}
+function openEpisode(id) {
+  S.readerEp = id;
+  goTo('reader');
+}
+
+/* ── CHARACTERS PAGE ────────────────────────────────────── */
+function renderCharactersPage() {
+  renderCharsGrid('chars-full', CHARACTERS);
+}
+function renderCharsGrid(id, chars) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = chars.map(c => charCardHTML(c)).join('');
+}
+function charCardHTML(c) {
+  const rc = c.align==='hero'?'var(--gold)':c.align==='villain'?'var(--red)':'var(--cyan)';
+  return `
+  <div class="charcard rv" style="border-top:3px solid ${c.accent};" onclick="openCharModal('${c.id}')">
+    <div class="charcard-img">
+      <div class="charcard-ph" style="background:linear-gradient(160deg,#141824,#0B0C10);">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,${c.accent}22,transparent);"></div>
+        <div style="font-family:var(--F1);font-size:5rem;line-height:1;color:${c.accent};opacity:.14;position:relative;">${c.name.split(' ').map(w=>w[0]).join('')}</div>
+        <div style="font-size:.52rem;color:rgba(255,255,255,.09);letter-spacing:.18em;text-transform:uppercase;font-family:var(--F4);position:relative;">Character Art</div>
+      </div>
+    </div>
+    <div class="charcard-body">
+      <div class="char-role" style="color:${rc};">${esc(c.role)} · <span style="color:var(--muted);">${esc(c.align)}</span></div>
+      <div class="char-name">${esc(c.name)}</div>
+      <div class="char-desc">${esc(c.desc)}</div>
+      <div class="ptags">${c.powers.slice(0,3).map(p=>`<span class="ptag">${esc(p)}</span>`).join('')}${c.powers.length>3?`<span class="ptag">+${c.powers.length-3}</span>`:''}</div>
+    </div>
+  </div>`;
+}
+function openCharModal(id) {
+  const c = CHARACTERS.find(x=>x.id===id);
+  if (!c) return;
+  const rc = c.align==='hero'?'var(--gold)':c.align==='villain'?'var(--red)':'var(--cyan)';
+  document.getElementById('char-modal-inner').innerHTML = `
+    <button class="modal-x" onclick="closeCharModal()">✕</button>
+    <div style="margin-bottom:20px;">
+      <span class="badge ${c.align==='hero'?'bg':c.align==='villain'?'br':'bc'} mb8">${c.role}</span>
+      <h2 style="font-family:var(--F1);font-size:2.5rem;letter-spacing:.05em;margin-bottom:4px;">${esc(c.name)}</h2>
+      <div style="font-family:var(--F2);font-size:.72rem;letter-spacing:.16em;color:${rc};text-transform:uppercase;">${esc(c.realName)} · First appears ${esc(c.first)}</div>
+    </div>
+    <p style="font-size:.86rem;color:var(--txt2);line-height:1.8;margin-bottom:18px;">${esc(c.bio)}</p>
+    <div><div style="font-family:var(--F2);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${rc};margin-bottom:9px;">Abilities</div><div class="ptags">${c.powers.map(p=>`<span class="ptag" style="cursor:default;">${esc(p)}</span>`).join('')}</div></div>
+  `;
+  openModal('char-modal');
+}
+function closeCharModal() { closeModal('char-modal'); }
+
+/* ── SUPPORT PAGE ───────────────────────────────────────── */
+function renderSupportPage() {
+  const grid = document.getElementById('tiers-grid');
+  if (!grid) return;
+  const tiers = [
+    {icon:'📖',name:'Free Reader',    price_usd:0,   price_inr:0,   period:'forever',featured:false,
+     feats:['All episodes free','Like & comment','Email newsletter'],
+     nfeats:['Early access','Bonus content','Discord'],
+     btn:'Join Free',bstyle:'btn-outline',action:"openAuth('signup')"},
+    {icon:'⚡',name:'Dharma Fan',     price_usd:4.99,price_inr:399, period:'per month',featured:true,
+     feats:['Everything in Free','3-day early access','Bonus panels & art','Exclusive Discord','Creator Q&A'],
+     nfeats:['PDF downloads'],
+     btn:'Subscribe Now',bstyle:'btn-gold',action:"handlePay('stripe')"},
+    {icon:'🛡',name:'Patriot Hero',   price_usd:9.99,price_inr:799, period:'per month',featured:false,
+     feats:['Everything in Dharma Fan','7-day early access','PDF downloads','Name in credits','Vote on story','1:1 creator call/year'],
+     nfeats:[],
+     btn:'Become a Hero',bstyle:'btn-cyan',action:"handlePay('stripe')"},
+  ];
+  grid.innerHTML = tiers.map(t => `
+  <div class="tier ${t.featured?'feat':''}">
+    <div style="font-size:2.4rem;margin-bottom:9px;">${t.icon}</div>
+    <h3 style="font-family:var(--F2);font-size:.95rem;font-weight:800;margin-bottom:3px;">${t.name}</h3>
+    <div class="tier-price">${t.price_usd===0?'₹0':(S.currency==='INR'?`₹${t.price_inr}`:`$${t.price_usd}`)}</div>
+    <div class="tier-period">${t.period}</div>
+    <div class="tier-feats">
+      ${t.feats.map(f=>`<div class="tier-feat"><span class="feat-y">✓</span>${f}</div>`).join('')}
+      ${t.nfeats.map(f=>`<div class="tier-feat" style="color:var(--muted);"><span class="feat-n">✕</span>${f}</div>`).join('')}
+    </div>
+    <button class="btn ${t.bstyle} btn-full" onclick="${t.action}">${t.btn}</button>
+  </div>`).join('');
+}
+function selectAmt(btn) {
+  document.querySelectorAll('.donation-amt').forEach(b=>b.className='btn btn-ghost donation-amt');
+  btn.className='btn btn-gold donation-amt';
+  S.donationAmt = parseInt(btn.dataset.usd);
+}
+function handlePay(provider) {
+  if (!S.user) { openAuth('signup'); return; }
+  const msgs = {
+    stripe:   `🔗 Integrate Stripe.js with your publishable key. Amount: $${S.donationAmt}`,
+    razorpay: `🔗 Integrate Razorpay checkout with your key. Amount: ₹${S.donationAmt*84}`,
+  };
+  toast(msgs[provider]||'Payment integration — see SETUP.md','i');
+  // Real integration:
+  // Stripe: loadStripe(KEY).then(s => s.redirectToCheckout({sessionId}))
+  // Razorpay: new Razorpay({key,amount,currency:'INR',...}).open()
+}
+
+/* ── READER ─────────────────────────────────────────────── */
+function renderReader() {
+  const ep = EPISODES.find(e=>e.id===S.readerEp) || EPISODES[0];
+  const idx = EPISODES.indexOf(ep);
+
+  // Header info
+  const arcInfo  = document.getElementById('reader-arc-info');
+  const epTitle  = document.getElementById('reader-ep-title');
+  if (arcInfo)  arcInfo.textContent  = `Arc ${ep.arc} · Episode ${String(ep.n).padStart(2,'0')}`;
+  if (epTitle)  epTitle.textContent  = ep.title;
+
+  // Ep nav
+  const prev = EPISODES[idx-1], next = EPISODES[idx+1];
+  const prevTitle = document.getElementById('prev-ep-title');
+  const nextTitle = document.getElementById('next-ep-title');
+  const prevBtn   = document.getElementById('prev-ep');
+  const nextBtn   = document.getElementById('next-ep');
+  if (prevTitle) prevTitle.textContent = prev ? `Ep ${prev.n}: ${prev.title}` : '—';
+  if (nextTitle) nextTitle.textContent = next ? `Ep ${next.n}: ${next.title}` : '—';
+  if (prevBtn)   { prevBtn.style.opacity = prev?'1':'.35'; prevBtn.style.pointerEvents = prev?'all':'none'; }
+  if (nextBtn)   { nextBtn.style.opacity = next?'1':'.35'; nextBtn.style.pointerEvents = next?'all':'none'; }
+
+  // Render panels
+  const wrap = document.getElementById('panels-container');
+  if (wrap) wrap.innerHTML = PANELS.map((p,i) => panelHTML(p,i)).join('');
+
+  // Render comments
+  renderComments();
+
+  // Reset progress
+  const rbar = document.getElementById('rbar');
+  const rpct  = document.getElementById('rpct');
+  if (rbar) rbar.style.width='0%';
+  if (rpct) rpct.textContent='0%';
+}
+function panelHTML(p, i) {
+  const isSpread = p.t==='spread', isEnd = p.t==='end';
+  const ar = isSpread ? 'aspect-ratio:16/7' : isEnd ? 'aspect-ratio:16/5' : '';
+  const extraBg = isSpread ? 'background:radial-gradient(ellipse at 50% 50%,rgba(255,111,0,.12),rgba(8,13,20,.95));' : isEnd?'background:linear-gradient(135deg,#0d1422,#080d14);':'';
+  return `
+  <div class="panel" style="${ar}">
+    <div class="panel-ph" style="${extraBg}">
+      ${isSpread ? `
+        <svg viewBox="0 0 300 110" style="position:absolute;width:82%;opacity:.06;" fill="none">
+          <circle cx="150" cy="55" r="50" stroke="#FF6F00" stroke-width="1.5"/>
+          <circle cx="150" cy="55" r="6" fill="#FF6F00"/>
+          ${Array.from({length:24},(_,k)=>`<line x1="150" y1="5" x2="150" y2="20" stroke="#FF6F00" stroke-width="1" transform="rotate(${k*15} 150 55)"/>`).join('')}
+        </svg>
+        <div class="panel-txt" style="font-size:clamp(.95rem,2vw,1.25rem);font-weight:600;position:relative;z-index:1;">${esc(p.c)}</div>
+      ` : isEnd ? `
+        <div style="text-align:center;position:relative;z-index:1;">
+          <div style="font-family:var(--F1);font-size:2.5rem;letter-spacing:.1em;background:linear-gradient(135deg,#FF6F00,#FFB300);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">End of Episode</div>
+          <div style="font-family:var(--F2);font-size:.72rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:6px;">The Indian · Episode ${EPISODES.find(e=>e.id===S.readerEp)?.n||'01'}</div>
+          <div class="frow gap12 mt16" style="justify-content:center;flex-wrap:wrap;">
+            <button class="btn btn-gold btn-sm" onclick="navEp('next')">Next Episode →</button>
+            <button class="btn btn-outline btn-sm" onclick="shareContent('The Indian')">Share 📤</button>
+          </div>
+        </div>
+      ` : `
+        <div class="panel-num">Panel ${String(i+1).padStart(2,'0')}</div>
+        <div class="panel-txt">${esc(p.c)}</div>
+        <div class="panel-hint">Replace with comic artwork · Upload in Creator Dashboard</div>
+      `}
+    </div>
+  </div>`;
+}
+function initReadingProgress() {
+  const rbar = document.getElementById('rbar');
+  const rpct  = document.getElementById('rpct');
+  const ctrl  = document.getElementById('rctrl');
+  let lastY=0, hideTimer;
+  window.addEventListener('scroll', () => {
+    if (S.page !== 'reader') return;
+    const h = document.documentElement.scrollHeight - innerHeight;
+    const pct = h>0 ? Math.round((scrollY/h)*100) : 0;
+    if (rbar) rbar.style.width = pct+'%';
+    if (rpct) rpct.textContent = pct+'%';
+    if (scrollY > lastY+10) ctrl?.classList.add('hide');
+    else if (lastY > scrollY+5) ctrl?.classList.remove('hide');
+    lastY = scrollY;
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => ctrl?.classList.remove('hide'), 2500);
+  }, {passive:true});
+}
+function navEp(dir) {
+  const idx = EPISODES.findIndex(e=>e.id===S.readerEp);
+  const tgt = dir==='next' ? EPISODES[idx+1] : EPISODES[idx-1];
+  if (!tgt) { toast(dir==='next'?'You\'re on the latest episode! 🔥':'That\'s the first episode!','i'); return; }
+  S.readerEp = tgt.id;
+  renderReader();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function toggleLike() {
+  if (!S.user) { openAuth('signup'); return; }
+  S.liked = !S.liked;
+  S.likeCount += S.liked?1:-1;
+  const btn = document.getElementById('like-btn');
+  const cnt = document.getElementById('like-count');
+  if (btn) btn.style.color = S.liked?'var(--red)':'';
+  if (cnt) cnt.textContent = (S.likeCount/1000).toFixed(1)+'K';
+}
+function saveEp() {
+  if (!S.user) { openAuth('signup'); return; }
+  const id = S.readerEp;
+  const saved = S.savedEps.includes(id);
+  if (saved) S.savedEps = S.savedEps.filter(x=>x!==id);
+  else S.savedEps.push(id);
+  const btn = document.getElementById('save-ep-btn');
+  if (btn) btn.innerHTML = saved?'🔖 Save':'✅ Saved';
+  toast(saved?'Removed from library':'Added to library 📚','s');
+}
+function shareContent(title) {
+  if (navigator.share) navigator.share({title, url:location.href});
+  else { navigator.clipboard?.writeText(location.href); toast('Link copied! 📋','s'); }
+}
+function renderComments() {
+  const list = document.getElementById('comments-list');
+  const cnt  = document.getElementById('comment-count');
+  if (!list) return;
+  if (cnt) cnt.textContent = `(${S.comments.length})`;
+  list.innerHTML = S.comments.map(c=>`
+  <div style="display:flex;gap:11px;padding:14px 0;border-bottom:1px solid var(--b0);">
+    <div class="nav-av" style="flex-shrink:0;width:34px;height:34px;font-size:.78rem;">${c.av}</div>
+    <div style="flex:1;">
+      <div class="frow gap9 mb4"><span style="font-family:var(--F2);font-size:.72rem;font-weight:700;">${esc(c.author)}</span><span style="font-size:.66rem;color:var(--muted);font-family:var(--F4);">${timeAgo(c.t)}</span></div>
+      <div style="font-size:.86rem;color:var(--txt2);line-height:1.7;margin-bottom:7px;">${esc(c.text)}</div>
+      <div class="frow gap12"><span style="font-size:.7rem;color:var(--muted);cursor:pointer;font-family:var(--F4);transition:.15s;" onmouseover="this.style.color='var(--gold)'" onmouseleave="this.style.color='var(--muted)'" onclick="likeComment(${c.id},this)">♥ ${c.likes}</span><span style="font-size:.7rem;color:var(--muted);cursor:pointer;font-family:var(--F4);">Reply</span></div>
+    </div>
+  </div>`).join('');
+}
+function postComment() {
+  if (!S.user) { openAuth('signup'); return; }
+  const inp = document.getElementById('comment-input');
+  const txt = inp?.value.trim();
+  if (!txt) return;
+  S.comments.unshift({id:Date.now(),author:S.user.name||'Reader',av:(S.user.name||'R')[0].toUpperCase(),text:txt,t:new Date().toISOString(),likes:0});
+  renderComments();
+  inp.value = '';
+  toast('Comment posted! 💬','s');
+}
+function likeComment(id, el) {
+  const c = S.comments.find(x=>x.id===id);
+  if (c) { c.likes++; el.textContent=`♥ ${c.likes}`; el.style.color='var(--red)'; }
+}
+
+/* ── DASHBOARD ──────────────────────────────────────────── */
+function renderDashboard() {
+  renderViewsChart();
+  renderTopEps();
+  renderEpsMgmt();
+  renderRevSources();
+  renderModComments();
+  animateCounters();
+}
+function switchDash(name, el) {
+  document.querySelectorAll('.dpanel').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.ds-l').forEach(l=>l.classList.remove('active'));
+  document.getElementById(`dp-${name}`)?.classList.add('open');
+  if (el) el.classList.add('active');
+  else document.querySelector(`.ds-l[onclick*="${name}"]`)?.classList.add('active');
+}
+function renderViewsChart() {
+  const el = document.getElementById('views-chart');
+  if (!el) return;
+  const data=[4200,5100,4800,6200,7800,8400,9200,11000,14200,18000,28000,41000];
+  const mx=Math.max(...data);
+  el.innerHTML=data.map((v,i)=>`
+  <div class="bar" style="height:${(v/mx)*166}px;" title="Week ${i+1}: ${(v/1000).toFixed(1)}K views">
+    <div class="bar-tip">${(v/1000).toFixed(1)}K</div>
+  </div>`).join('');
+}
+function renderTopEps() {
+  const tbl = document.getElementById('top-eps-table');
+  if (!tbl) return;
+  const rows = [...EPISODES].sort((a,b)=>b.views-a.views).slice(0,6);
+  tbl.innerHTML = `<thead><tr>${['Ep','Title','Arc','Views','Likes','Rating','Status'].map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${
+    rows.map(ep=>`<tr>
+      <td style="color:var(--gold);font-weight:700;font-family:var(--F2);">${String(ep.n).padStart(2,'0')}</td>
+      <td style="font-weight:600;">${esc(ep.title)}</td>
+      <td>Arc ${ep.arc}</td><td>${(ep.views/1000).toFixed(1)}K</td><td>${(ep.likes/1000).toFixed(1)}K</td>
+      <td style="color:var(--gold);">★ ${ep.rating}</td>
+      <td><span class="badge bgr">✓ Live</span></td>
+    </tr>`).join('')
+  }</tbody>`;
+}
+function renderEpsMgmt() {
+  const tbl = document.getElementById('eps-mgmt-table');
+  if (!tbl) return;
+  tbl.innerHTML=`<thead><tr>${['Ep','Title','Arc','Views','Access','Date','Actions'].map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${
+    [...EPISODES].reverse().map(ep=>`<tr>
+      <td style="color:var(--gold);font-weight:700;font-family:var(--F2);">${String(ep.n).padStart(2,'0')}</td>
+      <td style="font-weight:600;">${esc(ep.title)}</td>
+      <td>Arc ${ep.arc}</td><td>${(ep.views/1000).toFixed(1)}K</td>
+      <td><span class="badge ${ep.free?'bgr':'bg'}">${ep.free?'Free':'Premium'}</span></td>
+      <td style="font-size:.78rem;">${fmtDate(ep.date)}</td>
+      <td><button class="btn btn-sm btn-ghost" onclick="toast('Edit Ep ${ep.n}','i')">✏ Edit</button></td>
+    </tr>`).join('')
+  }</tbody>`;
+}
+function renderRevSources() {
+  const el = document.getElementById('rev-sources');
+  if (!el) return;
+  const srcs=[
+    {n:'Razorpay (India)',   pct:52,val:'₹64,896',  col:'rgba(0,130,255,.7)'},
+    {n:'Stripe (Global)',    pct:28,val:'₹34,944',  col:'rgba(99,91,255,.7)'},
+    {n:'Patreon',            pct:12,val:'₹14,976',  col:'rgba(255,66,77,.7)'},
+    {n:'Gumroad (Store)',    pct:8, val:'₹9,984',   col:'rgba(255,144,0,.7)'},
+  ];
+  el.innerHTML=srcs.map(s=>`
+  <div class="rev-bar-w">
+    <div class="rev-bar-t"><span class="rev-bar-n">${s.n}</span><span class="rev-bar-v">${s.val} (${s.pct}%)</span></div>
+    <div class="rev-bar-bg"><div class="rev-bar-f" style="width:${s.pct}%;background:${s.col};"></div></div>
+  </div>`).join('');
+}
+function renderModComments(filter='all') {
+  const el = document.getElementById('mod-list');
+  if (!el) return;
+  const items = filter==='all' ? MOD_COMMENTS : MOD_COMMENTS.filter(c=>c.status===filter);
+  el.innerHTML = items.map(c=>`
+  <div style="background:var(--card);border:1px solid var(--b0);border-radius:var(--r12);padding:15px;margin-bottom:10px;">
+    <div class="fbetween fwrap gap8 mb6">
+      <div class="frow gap8"><strong style="font-family:var(--F2);font-size:.78rem;">${esc(c.author)}</strong>
+        <span class="badge ${c.status==='approved'?'bgr':c.status==='flagged'?'br':'bg'}">${c.status}</span>
+        <span style="font-size:.66rem;color:var(--muted);font-family:var(--F4);">Ep: ${c.ep} · ${c.t}</span>
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--txt2);margin-bottom:10px;">${esc(c.text)}</p>
+    <div class="frow gap8">
+      <button class="btn btn-sm btn-ghost" style="color:var(--green);" onclick="toast('Comment approved ✓','s')">✓ Approve</button>
+      <button class="btn btn-sm btn-ghost" style="color:var(--red);" onclick="toast('Comment deleted','i')">✕ Delete</button>
+      <button class="btn btn-sm btn-ghost" onclick="toast('Flagged for review','i')">🚩 Flag</button>
+    </div>
+  </div>`).join('')||'<p style="color:var(--muted);">No comments in this filter.</p>';
+}
+function filterMod(f, btn) {
+  document.querySelectorAll('#dp-comments .btn-sm').forEach(b=>{b.className='btn btn-sm btn-ghost'});
+  if(btn) btn.className='btn btn-sm btn-gold';
+  renderModComments(f);
+}
+function handleUpload(e) {
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.disabled=true; btn.textContent='Publishing…';
+  setTimeout(()=>{toast('Episode published! 🎉','s');btn.disabled=false;btn.textContent='⬆ Publish Episode';e.target.reset();document.getElementById('cover-ph').innerHTML='<div style="font-size:2.2rem;margin-bottom:9px;">🖼️</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;margin-bottom:4px;">Upload Cover Image</div><div style="font-size:.7rem;color:var(--muted);">600×900px recommended</div>';},1200);
+}
+function previewCover(input) {
+  const f=input.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=e=>{document.getElementById('cover-ph').innerHTML=`<img src="${e.target.result}" style="max-height:170px;border-radius:8px;margin-bottom:7px;"><div style="font-size:.7rem;color:var(--green);">✓ ${f.name}</div>`;};
+  r.readAsDataURL(f);
+}
+function previewPanels(input) {
+  const files=input.files;
+  document.getElementById('panels-ph').innerHTML=`<div style="font-size:1.8rem;margin-bottom:7px;">📄</div><div style="font-family:var(--F2);font-size:.8rem;font-weight:700;color:var(--green);margin-bottom:4px;">✓ ${files.length} panel${files.length>1?'s':''} selected</div><div style="font-size:.7rem;color:var(--muted);">${[...files].map(f=>f.name).slice(0,3).join(', ')}${files.length>3?'…':''}</div>`;
+}
+function saveRzpKey() {
+  const key=document.getElementById('rzp-key').value;
+  if (!key) return;
+  localStorage.setItem('rc_rzp_key',key);
+  toast('Razorpay key saved ✅','s');
+}
+function updateBrandColor(prop, val) { document.documentElement.style.setProperty(prop,val); }
+
+/* ── FORM HANDLERS ──────────────────────────────────────── */
+function handleNewsletter(e) {
+  e.preventDefault();
+  const btn=e.target.querySelector('button');
+  btn.disabled=true; btn.textContent='Subscribing…';
+  setTimeout(()=>{toast("You're in the universe now! 🚀",'s');e.target.reset();btn.disabled=false;btn.textContent='Subscribe Free';},800);
+}
+function handleContact(e) {
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.disabled=true; btn.textContent='Sending…';
+  setTimeout(()=>{toast("Message sent! We'll reply within 48h 💬",'s');e.target.reset();btn.disabled=false;btn.textContent='Send Message →';},1000);
+}
+
+/* ── UTILS ──────────────────────────────────────────────── */
+const esc = s => String(s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+const delay = ms => new Promise(r=>setTimeout(r,ms));
+function fmtDate(d) { return new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }
+function timeAgo(d) {
+  const s=Math.floor((Date.now()-new Date(d))/1000);
+  if(s<60) return 'just now';
+  if(s<3600) return `${Math.floor(s/60)}m ago`;
+  if(s<86400) return `${Math.floor(s/3600)}h ago`;
+  if(s<604800) return `${Math.floor(s/86400)}d ago`;
+  return fmtDate(d);
+}
+</script>
+</body>
+</html>

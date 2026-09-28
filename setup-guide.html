@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rex Comicsverse — Setup Guide for S22 Ultra</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700;900&family=Exo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0C10; --bg2: #0E1019; --surf: #141824; --card: #181E2E;
+  --gold: #FF6F00; --cyan: #00FFFF; --green: #00E676; --red: #FF3D00;
+  --txt: #EEF2FF; --txt2: #9AA5BE; --muted: #4A5568;
+  --F1: 'Bebas Neue', sans-serif;
+  --F2: 'Orbitron', sans-serif;
+  --F3: 'Exo 2', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg); color: var(--txt); font-family: var(--F3);
+  line-height: 1.6; font-size: 16px;
+  background-image: radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255,111,0,.07), transparent 55%);
+}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::selection { background: var(--gold); color: #000; }
+
+/* NAV */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,12,16,.96); border-bottom: 1px solid rgba(255,111,0,.15);
+  backdrop-filter: blur(20px); padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.topbar-logo { font-family: var(--F1); font-size: 1.3rem; letter-spacing: .1em; }
+.topbar-logo span { color: var(--gold); }
+.progress-info { font-family: var(--F2); font-size: .58rem; font-weight: 700;
+  color: var(--gold); letter-spacing: .12em; text-transform: uppercase; }
+
+/* HERO */
+.hero {
+  padding: clamp(40px,8vw,80px) 20px clamp(30px,5vw,60px);
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,111,0,.06), transparent); }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,111,0,.1); border: 1px solid rgba(255,111,0,.25);
+  border-radius: 100px; padding: 5px 16px; margin-bottom: 20px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+}
+.hero h1 { font-family: var(--F1); font-size: clamp(2.5rem,7vw,4rem);
+  letter-spacing: .05em; text-transform: uppercase; line-height: .95; margin-bottom: 14px; }
+.hero h1 span { color: var(--gold); }
+.hero p { color: var(--txt2); max-width: 580px; margin: 0 auto;
+  font-size: clamp(.88rem,2vw,1rem); line-height: 1.8; }
+
+/* PROGRESS BAR */
+.progress-strip {
+  background: var(--surf); border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 0; overflow: hidden;
+}
+.progress-track {
+  display: flex; overflow-x: auto; padding: 12px 20px; gap: 6px;
+  scrollbar-width: none;
+}
+.progress-track::-webkit-scrollbar { display: none; }
+.prog-step {
+  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+  padding: 5px 12px; border-radius: 100px; font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; font-family: var(--F2);
+  transition: .2s; cursor: pointer;
+}
+.prog-step.done   { background: rgba(0,230,118,.12); color: var(--green); border: 1px solid rgba(0,230,118,.25); }
+.prog-step.active { background: rgba(255,111,0,.18); color: var(--gold); border: 1px solid rgba(255,111,0,.4); }
+.prog-step.todo   { background: rgba(255,255,255,.04); color: var(--muted); border: 1px solid rgba(255,255,255,.06); }
+
+/* MAIN */
+.main { max-width: 780px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* PHASE */
+.phase {
+  margin: 40px 0 0;
+  background: var(--card); border: 1px solid rgba(255,255,255,.06);
+  border-radius: 18px; overflow: hidden;
+}
+.phase-header {
+  padding: 20px 22px; display: flex; align-items: center; gap: 14px;
+  cursor: pointer; user-select: none;
+  background: linear-gradient(90deg, rgba(255,111,0,.05), transparent);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.phase-icon {
+  width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.phase-icon.gold   { background: rgba(255,111,0,.15); box-shadow: 0 0 18px rgba(255,111,0,.2); }
+.phase-icon.cyan   { background: rgba(0,255,255,.12); box-shadow: 0 0 18px rgba(0,255,255,.15); }
+.phase-icon.green  { background: rgba(0,230,118,.12); box-shadow: 0 0 18px rgba(0,230,118,.15); }
+.phase-icon.red    { background: rgba(255,61,0,.12);  box-shadow: 0 0 18px rgba(255,61,0,.15); }
+.phase-icon.purple { background: rgba(180,100,255,.12);box-shadow: 0 0 18px rgba(180,100,255,.15); }
+.phase-num {
+  font-family: var(--F2); font-size: .6rem; font-weight: 900;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+}
+.phase-title { font-family: var(--F2); font-size: clamp(.85rem,2vw,1rem); font-weight: 900; }
+.phase-sub { font-size: .75rem; color: var(--txt2); margin-top: 2px; }
+.phase-toggle { margin-left: auto; font-size: 1rem; color: var(--muted); transition: transform .3s; }
+.phase-toggle.open { transform: rotate(180deg); }
+.phase-body { display: none; padding: 0 22px 22px; }
+.phase-body.open { display: block; }
+
+/* STEP */
+.step {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(255,111,0,.18); border: 1px solid rgba(255,111,0,.3);
+  font-family: var(--F2); font-size: .6rem; font-weight: 900; color: var(--gold);
+  flex-shrink: 0; margin-right: 8px;
+}
+.step-title {
+  font-family: var(--F2); font-size: .82rem; font-weight: 700;
+  color: var(--txt); margin-bottom: 8px; display: flex; align-items: center;
+}
+.step p { font-size: .88rem; color: var(--txt2); line-height: 1.8; margin-bottom: 10px; }
+.step p:last-child { margin-bottom: 0; }
+.step strong { color: var(--txt); }
+
+/* CODE BLOCK */
+.code {
+  background: #000; border: 1px solid rgba(255,111,0,.2); border-radius: 10px;
+  padding: 14px 16px; font-family: monospace; font-size: .82rem;
+  color: #00FFFF; line-height: 1.7; overflow-x: auto; margin: 10px 0;
+  position: relative; white-space: pre-wrap; word-break: break-all;
+}
+.copy-btn {
+  position: absolute; top: 8px; right: 8px;
+  background: rgba(255,111,0,.15); border: 1px solid rgba(255,111,0,.3);
+  border-radius: 6px; padding: 4px 10px; font-size: .65rem; font-weight: 700;
+  font-family: var(--F2); color: var(--gold); cursor: pointer; letter-spacing: .1em;
+  transition: .15s;
+}
+.copy-btn:hover { background: rgba(255,111,0,.3); }
+.copy-btn.copied { background: rgba(0,230,118,.15); border-color: rgba(0,230,118,.3); color: var(--green); }
+
+/* TIP BOXES */
+.tip {
+  border-radius: 10px; padding: 13px 15px; margin: 12px 0;
+  font-size: .84rem; line-height: 1.75; display: flex; gap: 10px;
+}
+.tip-icon { flex-shrink: 0; font-size: 1.1rem; margin-top: 1px; }
+.tip.info   { background: rgba(0,255,255,.06); border: 1px solid rgba(0,255,255,.18); color: var(--txt2); }
+.tip.warn   { background: rgba(255,111,0,.06); border: 1px solid rgba(255,111,0,.22); color: var(--txt2); }
+.tip.good   { background: rgba(0,230,118,.06); border: 1px solid rgba(0,230,118,.2);  color: var(--txt2); }
+.tip.danger { background: rgba(255,61,0,.06);  border: 1px solid rgba(255,61,0,.2);   color: var(--txt2); }
+.tip strong { color: var(--txt); }
+
+/* BUTTON LINK */
+.action-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: 8px; font-family: var(--F2);
+  font-size: .7rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; cursor: pointer; text-decoration: none;
+  transition: .2s; margin: 8px 6px 8px 0;
+}
+.btn-gold { background: linear-gradient(135deg,#FF6F00,#FF9100); color: #000; box-shadow: 0 4px 18px rgba(255,111,0,.35); }
+.btn-gold:hover { box-shadow: 0 0 22px rgba(255,111,0,.6); }
+.btn-cyan { background: linear-gradient(135deg,#00FFFF,#00BCD4); color: #000; }
+.btn-outline { background: transparent; color: var(--txt); border: 1px solid rgba(255,255,255,.15); }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* SCREENSHOT MOCK */
+.screen-mock {
+  background: #000; border: 2px solid rgba(255,111,0,.2); border-radius: 14px;
+  overflow: hidden; margin: 14px 0; position: relative;
+}
+.screen-mock-bar {
+  background: rgba(255,111,0,.08); border-bottom: 1px solid rgba(255,111,0,.15);
+  padding: 8px 14px; font-size: .65rem; color: var(--muted); font-family: monospace;
+  display: flex; align-items: center; gap: 8px;
+}
+.screen-dot { width: 8px; height: 8px; border-radius: 50%; }
+.screen-body { padding: 16px; font-size: .82rem; color: var(--txt2); line-height: 1.8; }
+
+/* CHECKLIST */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: .86rem; color: var(--txt2); line-height: 1.6;
+}
+.checklist li::before {
+  content: '□'; color: rgba(255,111,0,.4); font-size: 1rem; flex-shrink: 0; margin-top: 1px;
+}
+.checklist li strong { color: var(--txt); }
+
+/* BADGE */
+.badge {
+  display: inline-flex; align-items: center; padding: 2px 9px;
+  border-radius: 100px; font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; font-family: var(--F2);
+}
+.badge-free  { background: rgba(0,230,118,.12); color: var(--green); border: 1px solid rgba(0,230,118,.25); }
+.badge-paid  { background: rgba(255,111,0,.12); color: var(--gold);  border: 1px solid rgba(255,111,0,.25); }
+.badge-hard  { background: rgba(255,61,0,.1);   color: #FF6D00;      border: 1px solid rgba(255,61,0,.25); }
+
+/* DIVIDER */
+.divider { height: 1px; background: linear-gradient(90deg,transparent,rgba(255,111,0,.2),transparent); margin: 28px 0; }
+
+/* LINK */
+a.link { color: var(--cyan); text-decoration: none; font-weight: 600; }
+a.link:hover { text-decoration: underline; }
+
+/* TABLE */
+.info-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .84rem; }
+.info-table th { text-align: left; padding: 9px 12px; background: rgba(255,111,0,.07);
+  font-family: var(--F2); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); border-bottom: 1px solid rgba(255,111,0,.15); }
+.info-table td { padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,.04); color: var(--txt2); }
+.info-table tr:hover td { background: rgba(255,255,255,.02); }
+
+/* FOOTER */
+.guide-footer {
+  background: var(--surf); border-top: 1px solid rgba(255,255,255,.06);
+  padding: 30px 20px; text-align: center;
+  font-size: .82rem; color: var(--muted);
+}
+
+/* ANIMATIONS */
+@keyframes glow { 0%,100%{opacity:.7} 50%{opacity:1} }
+.pulse { animation: glow 2.5s ease infinite; }
+
+@media(max-width:480px) {
+  .phase-header { padding: 16px; }
+  .phase-body { padding: 0 16px 16px; }
+  .step { padding: 15px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo"><span>Rex</span> Comicsverse</div>
+  <div class="progress-info">📱 S22 Ultra Setup Guide</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge pulse">🚀 Zero Experience Required</div>
+  <h1>Your <span>Step-by-Step</span><br>Launch Guide</h1>
+  <p>Everything you need to go from the HTML file on your phone to a <strong>live website with real payments</strong> — using only your Samsung Galaxy S22 Ultra.</p>
+</div>
+
+<!-- PHASE PROGRESS STRIP -->
+<div class="progress-strip">
+  <div class="progress-track">
+    <div class="prog-step active" onclick="scrollToPhase(1)">1 · Save File</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(2)">2 · GitHub</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(3)">3 · Go Live</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(4)">4 · Firebase</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(5)">5 · Payments</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(6)">6 · Domain</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(7)">7 · Android</div>
+    <div class="prog-step todo"   onclick="scrollToPhase(8)">8 · Play Store</div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ═══════════════════════════════════════════
+     PHASE 1 — SAVE THE FILE
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-1">
+  <div class="phase-header" onclick="togglePhase(1)">
+    <div class="phase-icon gold">💾</div>
+    <div>
+      <div class="phase-num">Phase 1 · Start Here</div>
+      <div class="phase-title">Save the HTML File on Your Phone</div>
+      <div class="phase-sub">Takes 2 minutes · Zero apps needed</div>
+    </div>
+    <div class="phase-toggle open" id="toggle-1">▼</div>
+  </div>
+  <div class="phase-body open" id="body-1">
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Open the HTML file in Chrome</div>
+      <p>Claude gave you a file called <strong>rexcomicsverse.html</strong>. Long-press the download link above → tap <strong>"Download"</strong> → it saves to your Downloads folder.</p>
+      <div class="tip info">
+        <span class="tip-icon">ℹ️</span>
+        <div>On S22 Ultra: open <strong>My Files app</strong> → Downloads → you'll see <strong>rexcomicsverse.html</strong></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Preview it on your phone</div>
+      <p>In My Files, tap the HTML file → choose <strong>Open with Chrome</strong>. You'll see your full Rex Comicsverse website running locally on your phone.</p>
+      <div class="tip good">
+        <span class="tip-icon">✅</span>
+        <div><strong>It should look beautiful!</strong> Dark theme, gold accents, animated hero section, all pages. If it does — great, move to Phase 2.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> What you have right now</div>
+      <ul class="checklist">
+        <li><strong>Complete website</strong> — Home, Series, Reader, Characters, Support, About, Contact</li>
+        <li><strong>Creator Dashboard</strong> — Logo upload, episode manager, analytics, payments</li>
+        <li><strong>Comic Reader</strong> — 14 story panels, progress bar, comments</li>
+        <li><strong>Auth system</strong> — Sign In / Sign Up modal</li>
+        <li><strong>Payment buttons</strong> — Stripe, Razorpay, Patreon, Buy Me A Coffee</li>
+        <li><strong>Android detection</strong> — App download button shows on Android</li>
+      </ul>
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <div>Right now it only works <strong>on your phone locally</strong>. Phase 2 makes it live on the internet for everyone.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 2 — GITHUB ACCOUNT
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-2">
+  <div class="phase-header" onclick="togglePhase(2)">
+    <div class="phase-icon cyan">🐙</div>
+    <div>
+      <div class="phase-num">Phase 2 · Free · 10 Minutes</div>
+      <div class="phase-title">Create a GitHub Account</div>
+      <div class="phase-sub">GitHub hosts your website for free forever</div>
+    </div>
+    <div class="phase-toggle" id="toggle-2">▼</div>
+  </div>
+  <div class="phase-body" id="body-2">
+
+    <div class="tip info">
+      <span class="tip-icon">💡</span>
+      <div><strong>What is GitHub?</strong> It's like Google Drive for code. You upload your HTML file there and GitHub makes it a live website — completely free, no credit card needed.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Open Chrome on your S22 Ultra</div>
+      <p>Go to:</p>
+      <div class="code">https://github.com</div>
+      <p>Tap <strong>"Sign up"</strong> (top right)</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Fill in the signup form</div>
+      <ul class="checklist">
+        <li>Enter your <strong>email address</strong></li>
+        <li>Create a <strong>password</strong> (write it down!)</li>
+        <li>Choose a <strong>username</strong> — use something like <strong>rexcomicsverse</strong> or your name</li>
+        <li>Complete the <strong>puzzle verification</strong></li>
+        <li>Tap <strong>"Create account"</strong></li>
+      </ul>
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <div>Your username will be part of your website URL. For example if you choose <strong>rexcomics</strong>, your site will be at <strong>rexcomics.github.io</strong></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Verify your email</div>
+      <p>GitHub sends a code to your email. Open your email app, copy the 6-digit code, paste it in GitHub. You're in!</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Create a new Repository</div>
+      <p>A repository is like a folder that holds your website files. Once logged in:</p>
+      <ul class="checklist">
+        <li>Tap the <strong>green "New" button</strong> or the <strong>+ icon</strong> at the top right</li>
+        <li>Repository name: type exactly <strong>rexcomicsverse.github.io</strong></li>
+        <li>Make sure it says <strong>Public</strong> (not Private)</li>
+        <li>Tick the box that says <strong>"Add a README file"</strong></li>
+        <li>Scroll down → tap <strong>"Create repository"</strong></li>
+      </ul>
+      <div class="tip good">
+        <span class="tip-icon">✅</span>
+        <div><strong>Important:</strong> The repository name MUST exactly match your username + .github.io — for example if your username is <strong>rexcomics</strong>, the name must be <strong>rexcomics.github.io</strong></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">5</span> Upload your HTML file</div>
+      <p>You're now inside your repository. Follow these taps:</p>
+      <ul class="checklist">
+        <li>Tap <strong>"Add file"</strong> button</li>
+        <li>Tap <strong>"Upload files"</strong></li>
+        <li>Tap <strong>"choose your files"</strong></li>
+        <li>Navigate to <strong>Downloads</strong> folder → select <strong>rexcomicsverse.html</strong></li>
+        <li>Wait for upload to complete (you'll see the filename appear)</li>
+        <li>⚠️ IMPORTANT: Rename it — in the filename box, change it to <strong>index.html</strong></li>
+        <li>Scroll down → tap <strong>"Commit changes"</strong> (green button)</li>
+      </ul>
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <div>The file MUST be named <strong>index.html</strong> — not rexcomicsverse.html. This tells GitHub "this is my homepage".</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 3 — GO LIVE
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-3">
+  <div class="phase-header" onclick="togglePhase(3)">
+    <div class="phase-icon green">🌍</div>
+    <div>
+      <div class="phase-num">Phase 3 · Free · 5 Minutes</div>
+      <div class="phase-title">Make It Live on the Internet</div>
+      <div class="phase-sub">Enable GitHub Pages — your free hosting</div>
+    </div>
+    <div class="phase-toggle" id="toggle-3">▼</div>
+  </div>
+  <div class="phase-body" id="body-3">
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Go to your repository Settings</div>
+      <p>Inside your repository page (github.com/yourusername/yourusername.github.io):</p>
+      <ul class="checklist">
+        <li>Tap the <strong>⚙️ Settings</strong> tab (you may need to scroll the tab bar)</li>
+        <li>Scroll down the settings page until you see <strong>"Pages"</strong> in the left menu</li>
+        <li>Tap <strong>"Pages"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Enable GitHub Pages</div>
+      <ul class="checklist">
+        <li>Under <strong>"Source"</strong>, tap the dropdown that says "None"</li>
+        <li>Select <strong>"main"</strong> (or "master")</li>
+        <li>Leave folder as <strong>"/ (root)"</strong></li>
+        <li>Tap <strong>"Save"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Wait 2 minutes then visit your site</div>
+      <p>GitHub takes about 1–2 minutes to build your site. Then open a new tab and go to:</p>
+      <div class="code">https://YOURUSERNAME.github.io</div>
+      <p>Replace YOURUSERNAME with your actual GitHub username.</p>
+      <div class="tip good">
+        <span class="tip-icon">🎉</span>
+        <div><strong>Your website is now LIVE on the internet!</strong> Anyone in the world can visit it. Share the link with friends to test it.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> How to update your site in future</div>
+      <p>Whenever you want to change something:</p>
+      <ul class="checklist">
+        <li>Go to github.com → your repository</li>
+        <li>Tap <strong>index.html</strong> → tap the <strong>✏️ pencil edit icon</strong></li>
+        <li>Make changes → scroll down → tap <strong>"Commit changes"</strong></li>
+        <li>Wait 2 minutes → your live site is updated automatically</li>
+      </ul>
+      <div class="tip info">
+        <span class="tip-icon">💡</span>
+        <div>For bigger edits, download the file → edit it on your phone using a code editor app like <a href="https://play.google.com/store/apps/details?id=com.acode.editor" class="link" target="_blank">Acode</a> (free on Play Store) → re-upload to GitHub</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 4 — FIREBASE (AUTH + DATABASE)
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-4">
+  <div class="phase-header" onclick="togglePhase(4)">
+    <div class="phase-icon gold">🔥</div>
+    <div>
+      <div class="phase-num">Phase 4 · Free · 20 Minutes</div>
+      <div class="phase-title">Set Up Firebase</div>
+      <div class="phase-sub">Real login system + database for readers</div>
+    </div>
+    <div class="phase-toggle" id="toggle-4">▼</div>
+  </div>
+  <div class="phase-body" id="body-4">
+
+    <div class="tip info">
+      <span class="tip-icon">💡</span>
+      <div><strong>What is Firebase?</strong> It's Google's free backend. It handles: <strong>user accounts</strong> (sign in / sign up), <strong>storing comments</strong>, <strong>saving reader preferences</strong>, and <strong>file storage</strong> for your comic images. Free up to 50,000 users/month.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Create a Firebase project</div>
+      <p>Open Chrome → go to:</p>
+      <div class="code">https://console.firebase.google.com</div>
+      <p>Sign in with your <strong>Google account</strong> → tap <strong>"Create a project"</strong></p>
+      <ul class="checklist">
+        <li>Project name: <strong>rex-comicsverse</strong></li>
+        <li>Tap Continue → disable Google Analytics (not needed) → tap <strong>"Create project"</strong></li>
+        <li>Wait 30 seconds → tap <strong>"Continue"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Enable Authentication (Login system)</div>
+      <ul class="checklist">
+        <li>In your project dashboard, tap the <strong>🔨 Build</strong> menu on the left</li>
+        <li>Tap <strong>"Authentication"</strong></li>
+        <li>Tap <strong>"Get started"</strong></li>
+        <li>Under "Sign-in method", tap <strong>"Email/Password"</strong></li>
+        <li>Toggle the first switch to <strong>Enable</strong></li>
+        <li>Tap <strong>"Save"</strong></li>
+      </ul>
+      <div class="tip info">
+        <span class="tip-icon">💡</span>
+        <div>To also enable <strong>Google Sign-In</strong>: go back to Sign-in methods → tap "Google" → enable it → add your support email → Save.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Enable Firestore (Database)</div>
+      <ul class="checklist">
+        <li>Tap <strong>Build → Firestore Database</strong></li>
+        <li>Tap <strong>"Create database"</strong></li>
+        <li>Choose <strong>"Start in test mode"</strong> (you can secure it later)</li>
+        <li>Select a location close to India: choose <strong>asia-south1 (Mumbai)</strong></li>
+        <li>Tap <strong>"Enable"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Enable Storage (for comic images)</div>
+      <ul class="checklist">
+        <li>Tap <strong>Build → Storage</strong></li>
+        <li>Tap <strong>"Get started"</strong></li>
+        <li>Choose <strong>"Start in test mode"</strong></li>
+        <li>Select <strong>asia-south1 (Mumbai)</strong> → tap Done</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">5</span> Get your Firebase config keys</div>
+      <p>This is the important step — you need to copy these keys into your HTML file.</p>
+      <ul class="checklist">
+        <li>Tap the <strong>⚙️ gear icon</strong> → <strong>"Project settings"</strong></li>
+        <li>Scroll down to <strong>"Your apps"</strong> section</li>
+        <li>Tap the <strong>&lt;/&gt; (Web)</strong> icon</li>
+        <li>App nickname: <strong>Rex Comicsverse Web</strong></li>
+        <li>Tap <strong>"Register app"</strong></li>
+        <li>You'll see a block of code like this:</li>
+      </ul>
+      <div class="code">const firebaseConfig = {
+  apiKey: "AIzaSy...",
+  authDomain: "rex-comicsverse.firebaseapp.com",
+  projectId: "rex-comicsverse",
+  storageBucket: "rex-comicsverse.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abc123"
+};</div>
+      <p><strong>Screenshot this entire block</strong> — you'll need it in Phase 4 Step 6.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">6</span> Add Firebase to your HTML file</div>
+      <p>Now go to GitHub → tap your <strong>index.html</strong> → tap the ✏️ pencil icon to edit it.</p>
+      <p>Press <strong>Ctrl+F</strong> (or use Chrome's find) to search for:</p>
+      <div class="code">YOUR_FIREBASE_API_KEY</div>
+      <p>Replace all the placeholder values with the real values from your Firebase config. There are 6 values to replace:</p>
+
+      <table class="info-table">
+        <thead><tr><th>Find this</th><th>Replace with</th></tr></thead>
+        <tbody>
+          <tr><td>YOUR_FIREBASE_API_KEY</td><td>Your actual apiKey value</td></tr>
+          <tr><td>YOUR_PROJECT.firebaseapp.com</td><td>Your authDomain</td></tr>
+          <tr><td>YOUR_PROJECT_ID</td><td>Your projectId</td></tr>
+          <tr><td>YOUR_PROJECT.appspot.com</td><td>Your storageBucket</td></tr>
+          <tr><td>YOUR_SENDER_ID</td><td>Your messagingSenderId</td></tr>
+          <tr><td>YOUR_APP_ID</td><td>Your appId</td></tr>
+        </tbody>
+      </table>
+      <p>After replacing all 6, scroll down and tap <strong>"Commit changes"</strong>. Firebase is now connected!</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 5 — PAYMENTS
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-5">
+  <div class="phase-header" onclick="togglePhase(5)">
+    <div class="phase-icon red">💳</div>
+    <div>
+      <div class="phase-num">Phase 5 · 30 Minutes</div>
+      <div class="phase-title">Set Up Payments</div>
+      <div class="phase-sub">Razorpay for India + Stripe for international</div>
+    </div>
+    <div class="phase-toggle" id="toggle-5">▼</div>
+  </div>
+  <div class="phase-body" id="body-5">
+
+    <div class="tip warn">
+      <span class="tip-icon">⚠️</span>
+      <div>You need to be <strong>18+ years old</strong> and have a <strong>bank account</strong> to receive payments. Both Razorpay and Stripe require identity verification (Aadhaar/PAN for Razorpay).</div>
+    </div>
+
+    <div style="margin: 16px 0;">
+      <h3 style="font-family: var(--F2); font-size: .85rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; letter-spacing: .1em; text-transform: uppercase;">🇮🇳 RAZORPAY — For Indian Readers (UPI, Cards, Net Banking)</h3>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">1</span> Create Razorpay account</div>
+        <p>Open Chrome → go to <strong>razorpay.com</strong> → tap <strong>"Sign up"</strong></p>
+        <ul class="checklist">
+          <li>Fill in your name, email, phone number, business name</li>
+          <li>For "Business Type" select <strong>"Individual"</strong> or <strong>"Proprietorship"</strong></li>
+          <li>Verify your phone with OTP</li>
+          <li>Verify your email</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">2</span> Complete KYC (identity verification)</div>
+        <p>Razorpay needs to verify you before you can receive money:</p>
+        <ul class="checklist">
+          <li>Go to <strong>Dashboard → Account & Settings → KYC</strong></li>
+          <li>Upload your <strong>PAN card</strong> photo</li>
+          <li>Upload your <strong>Aadhaar card</strong> (front + back)</li>
+          <li>Add your <strong>bank account</strong> details (account number + IFSC)</li>
+          <li>Approval takes <strong>1–3 business days</strong></li>
+        </ul>
+        <div class="tip good">
+          <span class="tip-icon">✅</span>
+          <div>Once approved, money from Indian readers goes directly to your bank account every 2 days!</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">3</span> Get your Razorpay Key ID</div>
+        <ul class="checklist">
+          <li>In Razorpay Dashboard → tap <strong>Settings → API Keys</strong></li>
+          <li>Tap <strong>"Generate Test Key"</strong> first (for testing)</li>
+          <li>Copy the <strong>Key ID</strong> — it starts with <strong>rzp_test_</strong></li>
+          <li>Go to your Rex Comicsverse site → tap <strong>Creator Dashboard</strong></li>
+          <li>Go to <strong>Payment Integrations</strong> → paste the key → tap Save</li>
+        </ul>
+        <div class="tip info">
+          <span class="tip-icon">💡</span>
+          <div>Use <strong>rzp_test_</strong> key while testing. Once KYC is approved, generate a <strong>rzp_live_</strong> key for real payments.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin: 16px 0;">
+      <h3 style="font-family: var(--F2); font-size: .85rem; font-weight: 700; color: var(--cyan); margin-bottom: 16px; letter-spacing: .1em; text-transform: uppercase;">🌍 STRIPE — For International Readers (USD, EUR, GBP)</h3>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">1</span> Create Stripe account</div>
+        <p>Go to <strong>stripe.com</strong> → tap <strong>"Start now"</strong></p>
+        <ul class="checklist">
+          <li>Enter email and password</li>
+          <li>Verify your email</li>
+          <li>Fill in your personal details and business info</li>
+          <li>Add your bank account for payouts</li>
+        </ul>
+        <div class="tip warn">
+          <span class="tip-icon">⚠️</span>
+          <div>Stripe India requires a <strong>registered business</strong> (GST number or at minimum PAN). If you're an individual, use <strong>Stripe Atlas</strong> or set up a simple proprietorship.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">2</span> Alternative: Use Gumroad instead</div>
+        <p>If Stripe India is complex for now, <strong>Gumroad</strong> is much simpler for international payments:</p>
+        <ul class="checklist">
+          <li>Go to <strong>gumroad.com</strong> → Sign up free</li>
+          <li>Create a product: "The Indian — Premium Membership" → set price $4.99/month</li>
+          <li>Get your product link</li>
+          <li>In your Dashboard → Payment Integrations → paste your Gumroad URL</li>
+          <li>Gumroad deposits to PayPal or bank every Friday</li>
+        </ul>
+        <div class="tip good">
+          <span class="tip-icon">✅</span>
+          <div>Gumroad takes only 10% commission and works immediately — no business registration needed. Best option to start fast.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="margin: 16px 0;">
+      <h3 style="font-family: var(--F2); font-size: .85rem; font-weight: 700; color: var(--gold); margin-bottom: 16px; letter-spacing: .1em; text-transform: uppercase;">❤️ PATREON — Monthly Memberships</h3>
+
+      <div class="step">
+        <div class="step-title"><span class="step-num">1</span> Set up Patreon</div>
+        <p>Go to <strong>patreon.com</strong> → tap <strong>"Create on Patreon"</strong></p>
+        <ul class="checklist">
+          <li>Sign up → choose <strong>"Comics"</strong> as category</li>
+          <li>Create 3 tiers matching your site: Free (₹0), Dharma Fan ($4.99), Patriot Hero ($9.99)</li>
+          <li>Add descriptions and perks to each tier</li>
+          <li>Connect your bank for payouts (Patreon pays monthly)</li>
+          <li>Copy your Patreon page URL</li>
+          <li>Go to your Rex Comicsverse Dashboard → Payment Integrations → paste URL → Save</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--F2); font-size: .82rem; font-weight: 700; color: var(--txt2); margin-bottom: 12px; letter-spacing: .1em; text-transform: uppercase;">💰 How Money Flows to You</h3>
+
+    <table class="info-table">
+      <thead><tr><th>Reader Location</th><th>Payment Method</th><th>Reaches You Via</th><th>Time</th></tr></thead>
+      <tbody>
+        <tr><td>🇮🇳 India</td><td>Razorpay (UPI/Cards)</td><td>Direct Bank Transfer</td><td>1–2 days</td></tr>
+        <tr><td>🌍 International</td><td>Gumroad</td><td>PayPal or Bank</td><td>Weekly</td></tr>
+        <tr><td>🌍 International</td><td>Stripe</td><td>Payoneer → Indian Bank</td><td>7 days</td></tr>
+        <tr><td>🌍 Both</td><td>Patreon</td><td>Payoneer → Indian Bank</td><td>Monthly</td></tr>
+        <tr><td>🌍 Both</td><td>Buy Me A Coffee</td><td>Stripe → Bank</td><td>Instant</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip info">
+      <span class="tip-icon">💡</span>
+      <div><strong>Set up Payoneer free</strong> at payoneer.com — it gives you a US/EU bank account number that Stripe, Patreon, and Gumroad can pay into. Payoneer then transfers to your Indian bank account. Takes 3–5 business days to set up.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 6 — CUSTOM DOMAIN
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-6">
+  <div class="phase-header" onclick="togglePhase(6)">
+    <div class="phase-icon purple">🌐</div>
+    <div>
+      <div class="phase-num">Phase 6 · ~₹800/year</div>
+      <div class="phase-title">Get a Custom Domain Name</div>
+      <div class="phase-sub">rexcomicsverse.com instead of github.io</div>
+    </div>
+    <div class="phase-toggle" id="toggle-6">▼</div>
+  </div>
+  <div class="phase-body" id="body-6">
+
+    <div class="tip info">
+      <span class="tip-icon">💡</span>
+      <div>Optional but highly recommended. <strong>rexcomicsverse.com</strong> looks far more professional than yourusername.github.io. Costs about ₹800–1000/year (~$10).</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Buy a domain from Hostinger (easiest for India)</div>
+      <p>Go to <strong>hostinger.in</strong> (or <strong>namecheap.com</strong> for cheaper international prices)</p>
+      <ul class="checklist">
+        <li>Search for <strong>rexcomicsverse.com</strong></li>
+        <li>If taken, try <strong>rexcomics.in</strong> or <strong>theindiancomic.com</strong></li>
+        <li>Add to cart → pay (UPI/cards accepted)</li>
+        <li>.in domains are cheap (~₹500/year) and great for Indian platforms</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Connect domain to GitHub Pages</div>
+      <ul class="checklist">
+        <li>In your domain provider dashboard, find <strong>DNS Settings</strong></li>
+        <li>Add 4 new <strong>A records</strong> pointing to GitHub's IPs:</li>
+      </ul>
+      <div class="code">185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153</div>
+      <p>Also add a <strong>CNAME record</strong>:</p>
+      <div class="code">Name: www
+Value: YOURUSERNAME.github.io</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Tell GitHub your domain</div>
+      <ul class="checklist">
+        <li>GitHub → your repository → ⚙️ Settings → Pages</li>
+        <li>Under <strong>"Custom domain"</strong> type your domain: <strong>rexcomicsverse.com</strong></li>
+        <li>Tap Save → wait 10–30 minutes</li>
+        <li>Tick <strong>"Enforce HTTPS"</strong> (makes it secure)</li>
+      </ul>
+      <div class="tip good">
+        <span class="tip-icon">🎉</span>
+        <div>After DNS propagates (up to 24 hours), your site is live at <strong>rexcomicsverse.com</strong>!</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 7 — ANDROID APP
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-7">
+  <div class="phase-header" onclick="togglePhase(7)">
+    <div class="phase-icon cyan">📱</div>
+    <div>
+      <div class="phase-num">Phase 7 · Free → Then ₹2,000/year</div>
+      <div class="phase-title">Create Your Android App</div>
+      <div class="phase-sub">Two methods — Easy way and Full way</div>
+    </div>
+    <div class="phase-toggle" id="toggle-7">▼</div>
+  </div>
+  <div class="phase-body" id="body-7">
+
+    <div class="tip info">
+      <span class="tip-icon">💡</span>
+      <div>You have <strong>two options</strong>. Start with Option A (10 minutes, free) to get an app working immediately. Option B is the full native app (weeks, but better experience).</div>
+    </div>
+
+    <h3 style="font-family: var(--F2); font-size: .82rem; color: var(--green); margin: 16px 0 12px; letter-spacing: .1em; text-transform: uppercase;">✅ OPTION A — Convert Website to App (10 Minutes, Free)</h3>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Use PWABuilder — make your website an app</div>
+      <p>Go to:</p>
+      <div class="code">https://www.pwabuilder.com</div>
+      <ul class="checklist">
+        <li>Enter your website URL: <strong>https://yourusername.github.io</strong></li>
+        <li>Tap <strong>"Start"</strong></li>
+        <li>It will analyze your site (takes 30 seconds)</li>
+        <li>Tap <strong>"Package for stores"</strong></li>
+        <li>Choose <strong>Android</strong></li>
+        <li>Tap <strong>"Generate"</strong></li>
+        <li>Download the <strong>.apk file</strong></li>
+      </ul>
+      <div class="tip good">
+        <span class="tip-icon">✅</span>
+        <div>You now have an <strong>.apk file</strong> that anyone can install on their Android phone! Share it via WhatsApp, Telegram, or your website's download button.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Add a manifest file to your website first</div>
+      <p>Before PWABuilder, add this to your index.html inside the &lt;head&gt; tag. Edit your file on GitHub and add:</p>
+      <div class="code">&lt;link rel="manifest" href="manifest.json"&gt;
+&lt;meta name="mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</div>
+      <p>Then create a new file in GitHub called <strong>manifest.json</strong> with this content:</p>
+      <div class="code" id="manifest-code">{
+  "name": "Rex Comicsverse",
+  "short_name": "RexComics",
+  "description": "The Indian — India's greatest superhero comic",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0C10",
+  "theme_color": "#FF6F00",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}</div>
+      <button class="copy-btn" onclick="copyCode('manifest-code',this)">COPY</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family: var(--F2); font-size: .82rem; color: var(--cyan); margin: 16px 0 12px; letter-spacing: .1em; text-transform: uppercase;">🔧 OPTION B — Full Native Android App (Advanced)</h3>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> What you need</div>
+      <table class="info-table">
+        <thead><tr><th>Tool</th><th>Where to Get</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Android Studio</td><td>developer.android.com/studio</td><td>Free</td></tr>
+          <tr><td>A laptop or PC</td><td>—</td><td>Required (Android Studio doesn't run on phone)</td></tr>
+          <tr><td>JDK 17</td><td>adoptium.net</td><td>Free</td></tr>
+          <tr><td>Google Play Developer</td><td>play.google.com/console</td><td>$25 one-time (~₹2,100)</td></tr>
+        </tbody>
+      </table>
+      <div class="tip warn">
+        <span class="tip-icon">⚠️</span>
+        <div>The full Android app requires a PC or laptop. You can do everything else on your S22 Ultra, but compiling the app requires Android Studio on a computer. <strong>Use Option A first</strong> — it works great and gets you on Play Store too.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Quick workaround — use a cloud PC</div>
+      <p>No laptop? Use a <strong>free cloud computer</strong> from your S22 Ultra browser:</p>
+      <ul class="checklist">
+        <li>Go to <strong>github.dev</strong> (free browser-based code editor)</li>
+        <li>Or use <strong>Replit.com</strong> (free online IDE) to edit your Kotlin code</li>
+        <li>Or ask a friend with a PC to run Android Studio for 1 hour just to build the APK</li>
+        <li>Or use <strong>Codemagic.io</strong> (builds Android apps in the cloud, free tier available)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHASE 8 — PLAY STORE
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-8">
+  <div class="phase-header" onclick="togglePhase(8)">
+    <div class="phase-icon green">▶️</div>
+    <div>
+      <div class="phase-num">Phase 8 · $25 One-Time Fee</div>
+      <div class="phase-title">Publish to Google Play Store</div>
+      <div class="phase-sub">Make your app available for all Android users</div>
+    </div>
+    <div class="phase-toggle" id="toggle-8">▼</div>
+  </div>
+  <div class="phase-body" id="body-8">
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Create Play Console account</div>
+      <p>Open Chrome → go to:</p>
+      <div class="code">https://play.google.com/console</div>
+      <ul class="checklist">
+        <li>Sign in with Google account</li>
+        <li>Pay the one-time <strong>$25 registration fee</strong> (~₹2,100)</li>
+        <li>Fill in developer profile (name, email, phone, address)</li>
+        <li>This is a one-time fee — you can publish unlimited apps forever</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Create your app listing</div>
+      <ul class="checklist">
+        <li>Tap <strong>"Create app"</strong></li>
+        <li>App name: <strong>Rex Comicsverse</strong></li>
+        <li>Default language: <strong>English (India)</strong></li>
+        <li>App type: <strong>App</strong></li>
+        <li>Category: <strong>Comics</strong></li>
+        <li>Free or paid: <strong>Free</strong> (recommended to start)</li>
+        <li>Tap <strong>"Create app"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Fill in Store Listing</div>
+      <ul class="checklist">
+        <li><strong>Short description</strong> (80 chars): "The Indian — India's greatest patriot superhero comic. Free to read!"</li>
+        <li><strong>Full description</strong>: Describe your comic, characters, what makes it special</li>
+        <li><strong>App icon</strong>: 512×512px PNG — your RC logo or The Indian character art</li>
+        <li><strong>Feature graphic</strong>: 1024×500px banner image</li>
+        <li><strong>Screenshots</strong>: Take 2–8 screenshots of your website on your S22 Ultra</li>
+      </ul>
+      <div class="tip info">
+        <span class="tip-icon">💡</span>
+        <div>Take screenshots directly on your S22 Ultra by pressing <strong>Volume Down + Power button</strong>. Screenshot your website pages in Chrome and upload them as app screenshots.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Upload your APK / AAB file</div>
+      <ul class="checklist">
+        <li>Go to <strong>Release → Production</strong></li>
+        <li>Tap <strong>"Create new release"</strong></li>
+        <li>Upload your <strong>.aab or .apk</strong> file (from PWABuilder or Android Studio)</li>
+        <li>Add release notes: "First release of Rex Comicsverse — The Indian superhero comic platform"</li>
+        <li>Tap <strong>"Review release"</strong></li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">5</span> Submit for review</div>
+      <ul class="checklist">
+        <li>Complete the <strong>content rating questionnaire</strong> (takes 5 minutes)</li>
+        <li>Set target audience: <strong>13+</strong> or <strong>Everyone</strong></li>
+        <li>Fill in privacy policy URL (create a simple one at privacypolicygenerator.info)</li>
+        <li>Tap <strong>"Submit for review"</strong></li>
+        <li>Google reviews take <strong>3–7 days</strong> for first submission</li>
+      </ul>
+      <div class="tip good">
+        <span class="tip-icon">🎉</span>
+        <div>Once approved, your app is <strong>live on the Play Store</strong>! Search "Rex Comicsverse" on Play Store and there it is.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BONUS — UPLOAD YOUR COMIC ART
+═══════════════════════════════════════════ -->
+<div class="phase" id="phase-bonus">
+  <div class="phase-header" onclick="togglePhase('bonus')">
+    <div class="phase-icon gold">🎨</div>
+    <div>
+      <div class="phase-num">Bonus — Do This Anytime</div>
+      <div class="phase-title">Upload Your Comic Art & Logo</div>
+      <div class="phase-sub">Replace placeholders with real artwork</div>
+    </div>
+    <div class="phase-toggle" id="toggle-bonus">▼</div>
+  </div>
+  <div class="phase-body" id="body-bonus">
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Upload your logo right now</div>
+      <p>Your Rex Comicsverse site has a <strong>Logo Upload</strong> feature built in:</p>
+      <ul class="checklist">
+        <li>Open your live site → tap <strong>Creator Dashboard</strong></li>
+        <li>Go to <strong>Branding & Logo</strong></li>
+        <li>Tap the logo box → choose your logo image from Gallery</li>
+        <li>It updates the navbar instantly and saves to your phone</li>
+        <li>PNG/JPG/SVG accepted, max 2MB, ideally 512×512px</li>
+      </ul>
+      <div class="tip info">
+        <span class="tip-icon">💡</span>
+        <div>Design a free logo on your S22 Ultra using <strong>Canva app</strong> (free) → download as PNG → upload to your dashboard.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Add real comic panel images</div>
+      <p>Right now the reader shows text descriptions as placeholders. To add real art:</p>
+      <ul class="checklist">
+        <li>Create your comic panels as PNG/JPG images (standard: 800px wide)</li>
+        <li>Upload them to <strong>Firebase Storage</strong> (Phase 4) or <strong>Imgur</strong> (free)</li>
+        <li>Get the image URL</li>
+        <li>In your index.html, find the PANELS array and replace panel text with img URLs</li>
+        <li>Or use the <strong>Dashboard → Upload Episode</strong> feature to manage it visually</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Free tools for creating comic art on S22 Ultra</div>
+      <table class="info-table">
+        <thead><tr><th>App</th><th>Best For</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>IbisPaint X</td><td>Drawing comic panels on touchscreen</td><td>Free</td></tr>
+          <tr><td>MediBang Paint</td><td>Professional comic layout & tones</td><td>Free</td></tr>
+          <tr><td>Canva</td><td>Cover art, logos, banners</td><td>Free</td></tr>
+          <tr><td>Adobe Firefly</td><td>AI-generated art for backgrounds</td><td>Free (25 credits/month)</td></tr>
+          <tr><td>Clip Studio Paint</td><td>Best comic app on Android</td><td>~₹3,500 one-time</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     QUICK REFERENCE
+═══════════════════════════════════════════ -->
+<div style="margin-top: 40px; background: var(--card); border: 1px solid rgba(255,111,0,.15); border-radius: 18px; padding: 22px;">
+  <h2 style="font-family: var(--F2); font-size: .95rem; font-weight: 900; color: var(--gold); margin-bottom: 16px; letter-spacing: .1em; text-transform: uppercase;">📌 Quick Reference — All Links</h2>
+  <table class="info-table">
+    <thead><tr><th>Service</th><th>URL</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>GitHub (hosting)</td><td>github.com</td><td class=""><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>Firebase (backend)</td><td>console.firebase.google.com</td><td><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>Razorpay (India payments)</td><td>razorpay.com</td><td><span class="badge badge-free">FREE + 2% fee</span></td></tr>
+      <tr><td>Gumroad (intl store)</td><td>gumroad.com</td><td><span class="badge badge-free">FREE + 10% fee</span></td></tr>
+      <tr><td>Patreon</td><td>patreon.com</td><td><span class="badge badge-free">FREE + 8% fee</span></td></tr>
+      <tr><td>Payoneer (intl payouts)</td><td>payoneer.com</td><td><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>PWABuilder (APK)</td><td>pwabuilder.com</td><td><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>Play Console</td><td>play.google.com/console</td><td><span class="badge badge-paid">$25 once</span></td></tr>
+      <tr><td>Domain (.com)</td><td>namecheap.com / hostinger.in</td><td><span class="badge badge-paid">₹800/year</span></td></tr>
+      <tr><td>Canva (design)</td><td>canva.com</td><td><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>IbisPaint (comics)</td><td>Play Store</td><td><span class="badge badge-free">FREE</span></td></tr>
+      <tr><td>Acode (code editor)</td><td>Play Store</td><td><span class="badge badge-free">FREE</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TOTAL COST -->
+<div style="margin-top: 24px; background: linear-gradient(135deg, rgba(0,230,118,.06), rgba(255,111,0,.04)); border: 1px solid rgba(0,230,118,.2); border-radius: 16px; padding: 22px;">
+  <h2 style="font-family: var(--F2); font-size: .9rem; font-weight: 900; color: var(--green); margin-bottom: 14px; letter-spacing: .1em; text-transform: uppercase;">💰 Total Cost to Launch Everything</h2>
+  <table class="info-table">
+    <thead><tr><th>Item</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Website hosting (GitHub Pages)</td><td style="color:var(--green);">₹0 FREE forever</td></tr>
+      <tr><td>Auth + Database (Firebase free tier)</td><td style="color:var(--green);">₹0 FREE up to 50K users</td></tr>
+      <tr><td>Payment processing (Razorpay/Gumroad)</td><td style="color:var(--green);">₹0 upfront (they take % per transaction)</td></tr>
+      <tr><td>Android APK (PWABuilder)</td><td style="color:var(--green);">₹0 FREE</td></tr>
+      <tr><td>Domain name (.in or .com)</td><td style="color:var(--gold);">₹500–1,000/year</td></tr>
+      <tr><td>Google Play Console (one-time)</td><td style="color:var(--gold);">~₹2,100 once</td></tr>
+      <tr><td><strong>TOTAL to launch</strong></td><td style="color:var(--txt);font-weight:700;font-family:var(--F2);">₹2,600–3,100 (first year)<br>Then ₹500–1,000/year after</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- DONE MESSAGE -->
+<div style="margin-top: 28px; text-align: center; padding: 36px 20px; background: var(--card); border-radius: 18px; border: 1px solid rgba(255,111,0,.2);">
+  <div style="font-size: 2.5rem; margin-bottom: 12px;">🇮🇳</div>
+  <h2 style="font-family: var(--F1); font-size: clamp(1.8rem,5vw,2.5rem); letter-spacing: .05em; margin-bottom: 12px;">You Can Do This.</h2>
+  <p style="color: var(--txt2); font-size: .9rem; line-height: 1.8; max-width: 500px; margin: 0 auto;">
+    Thousands of successful apps and websites were started by people who knew nothing about coding.
+    The Indian deserves to be read by millions. <strong style="color: var(--txt);">Start with Phase 1 right now.</strong>
+    Each phase is one day's work. In one week you'll have a live website, payment system, and Android app.
+  </p>
+  <div style="margin-top: 20px;">
+    <a href="#phase-1" class="action-btn btn-gold" onclick="scrollToPhase(1)">Start Phase 1 →</a>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<div class="guide-footer">
+  Rex Comicsverse Setup Guide · Made for S22 Ultra · All tools mentioned are free or low-cost<br>
+  <span style="color: var(--gold);">Jai Hind 🇮🇳</span>
+</div>
+
+<script>
+function togglePhase(n) {
+  const body = document.getElementById(`body-${n}`);
+  const toggle = document.getElementById(`toggle-${n}`);
+  if (!body) return;
+  const isOpen = body.classList.toggle('open');
+  if (toggle) toggle.classList.toggle('open', isOpen);
+}
+function scrollToPhase(n) {
+  const el = document.getElementById(`phase-${n}`);
+  if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); togglePhase(n); }
+}
+function copyCode(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent.trim()).then(() => {
+    btn.textContent = 'COPIED!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+// Open first phase by default
+document.getElementById('body-1').classList.add('open');
+document.getElementById('toggle-1').classList.add('open');
+</script>
+</body>
+</html>
