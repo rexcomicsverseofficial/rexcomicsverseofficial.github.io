@@ -49,6 +49,24 @@
     }
   }
 
+  /**
+   * Download link for the newest APK that actually exists: the latest release's .apk
+   * (RexComicsverse.apk when present). Falls back to the releases page, so a website
+   * visitor never lands on a 404 before the first release is published.
+   */
+  async function latestApkUrl(fetchFn) {
+    const fallback = `https://github.com/${REPO}/releases`;
+    try {
+      const r = await fetchFn(LATEST, { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' });
+      if (!r.ok) return fallback;
+      const apks = ((await r.json()).assets || []).filter(a => /\.apk$/i.test(a.name));
+      const best = apks.find(a => a.name === 'RexComicsverse.apk') || apks[0];
+      return best ? best.browser_download_url : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
   function showBar(doc, version) {
     let bar = doc.getElementById('app-update-bar');
     if (!bar) {
@@ -83,7 +101,7 @@
     return current;
   }
 
-  const api = { REPO, LATEST, APK_URL, isNewer, installedVersion, newerVersion, start };
+  const api = { REPO, LATEST, APK_URL, isNewer, installedVersion, newerVersion, latestApkUrl, start };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else {
     root.RexUpdates = api;

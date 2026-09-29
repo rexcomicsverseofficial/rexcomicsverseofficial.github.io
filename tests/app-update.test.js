@@ -45,3 +45,12 @@ test('newerVersion reads the GitHub release tag', async () => {
 test('the download link always points at the newest APK', () => {
   assert.match(U.APK_URL, /releases\/latest\/download\/RexComicsverse\.apk$/);
 });
+
+test('website download uses the newest APK that exists, never a 404', async () => {
+  const release = assets => async () => ({ ok: true, json: async () => ({ assets }) });
+  const a = (name) => ({ name, browser_download_url: 'https://dl/' + name });
+  assert.strictEqual(await U.latestApkUrl(release([a('RexComicsverse-v1.0.5.apk'), a('RexComicsverse.apk')])), 'https://dl/RexComicsverse.apk');
+  assert.strictEqual(await U.latestApkUrl(release([a('rex-comicsverse.apk'), a('assetlinks.json')])), 'https://dl/rex-comicsverse.apk');
+  assert.match(await U.latestApkUrl(release([a('assetlinks.json')])), /\/releases$/);
+  assert.match(await U.latestApkUrl(async () => { throw new Error('offline'); }), /\/releases$/);
+});
