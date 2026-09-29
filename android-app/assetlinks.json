@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.rexcomicsverse.app",
+    "sha256_cert_fingerprints": ["F9:1D:80:85:1E:5F:7D:F5:8E:6F:F0:FE:E1:40:9E:B4:9C:31:07:6F:81:A7:7F:E4:38:93:02:B4:30:FC:A5:B3"]
+  }
+}]

@@ -52,9 +52,8 @@ bash setup.sh
 ---
 
 ## 📱 Android App
-1. Go to pwabuilder.com
-2. Enter your GitHub Pages URL
-3. Download APK → Share on WhatsApp!
+The Android app project lives in [`android-app/`](android-app/README.md).
+GitHub Actions builds a signed APK automatically. Download it from the **Releases** page and share it on WhatsApp!
 
 ---
 

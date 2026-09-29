@@ -1,18 +1,18 @@
 {
+  "id": "./",
   "name": "Rex Comicsverse",
   "short_name": "RexComics",
   "description": "The Indian — India's Greatest Patriot Superhero Comic",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0B0C10",
   "theme_color": "#FF6F00",
   "orientation": "portrait",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
-  ],
-  "screenshots": [
-    { "src": "screenshot1.png", "sizes": "1080x1920", "type": "image/png" }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "categories": ["entertainment", "comics"],
   "lang": "en-IN"

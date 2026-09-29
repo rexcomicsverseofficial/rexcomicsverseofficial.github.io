@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Website this app wraps (Trusted Web Activity)
+def twaHost = 'rexraja89-oss.github.io'
+def twaLaunchUrl = 'https://rexraja89-oss.github.io/rexcomicsverse/'
+
+// CI passes the build number so every APK can install over the previous one
+def buildNumber = (System.getenv('BUILD_NUMBER') ?: '1').toInteger()
+
+android {
+    namespace 'com.rexcomicsverse.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.rexcomicsverse.app'
+        minSdk 21
+        targetSdk 35
+        versionCode buildNumber
+        versionName "1.0.${buildNumber}"
+
+        resValue 'string', 'hostName', twaHost
+        // ?app= tells the site it runs inside the app and which version, so it can offer updates (app-update.js)
+        resValue 'string', 'launchUrl', "${twaLaunchUrl}?app=1.0.${buildNumber}"
+        resValue 'string', 'assetStatements',
+            "[{ \"relation\": [\"delegate_permission/common.handle_all_urls\"], \"target\": {\"namespace\": \"web\", \"site\": \"https://${twaHost}\"}}]"
+        resValue 'string', 'providerAuthority', 'com.rexcomicsverse.app.fileprovider'
+    }
+
+    signingConfigs {
+        release {
+            // Supplied by the GitHub Actions workflow (see android-app/README.md)
+            storeFile file(System.getenv('KEYSTORE_FILE') ?: 'release.keystore')
+            storePassword System.getenv('KEYSTORE_PASSWORD')
+            keyAlias System.getenv('KEY_ALIAS') ?: 'rexcomics'
+            keyPassword System.getenv('KEY_PASSWORD') ?: System.getenv('KEYSTORE_PASSWORD')
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+}
