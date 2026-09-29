@@ -3,8 +3,8 @@ plugins {
 }
 
 // Website this app wraps (Trusted Web Activity)
-def twaHost = 'rexraja89-oss.github.io'
-def twaLaunchUrl = 'https://rexraja89-oss.github.io/rexcomicsverse/'
+def twaHost = 'rexcomicsverseofficial.github.io'
+def twaLaunchUrl = 'https://rexcomicsverseofficial.github.io/'
 
 // CI passes the build number so every APK can install over the previous one
 def buildNumber = (System.getenv('BUILD_NUMBER') ?: '1').toInteger()

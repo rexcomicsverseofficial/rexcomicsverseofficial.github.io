@@ -8,7 +8,7 @@
  * Site content (characters, episodes, art) updates by itself; only the app shell needs this.
  */
 (function (root) {
-  const REPO = 'rexraja89-oss/rexcomicsverse';
+  const REPO = 'rexcomicsverseofficial/rexcomicsverseofficial.github.io';
   const LATEST = `https://api.github.com/repos/${REPO}/releases/latest`;
   // Always the newest build: CI attaches RexComicsverse.apk to every release on main.
   const APK_URL = `https://github.com/${REPO}/releases/latest/download/RexComicsverse.apk`;

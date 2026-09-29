@@ -1,13 +1,13 @@
 # Rex Comicsverse — Android App
 
-A Trusted Web Activity (TWA) wrapper for https://rexraja89-oss.github.io/rexcomicsverse/.
+A Trusted Web Activity (TWA) wrapper for https://rexcomicsverseofficial.github.io/.
 This is the same kind of app PWABuilder generates: a small native shell that opens
 the website full-screen in Chrome, so site updates show up in the app instantly.
 
 - Package name: `com.rexcomicsverse.app`
 - Built automatically by `.github/workflows/android-apk.yml` on every push that touches `android-app/`
 - Versions are `1.0.<build number>`; every build on `main` becomes release `v1.0.<n>`
-- Newest APK, always: https://github.com/rexraja89-oss/rexcomicsverse/releases/latest/download/RexComicsverse.apk
+- Newest APK, always: https://github.com/rexcomicsverseofficial/rexcomicsverseofficial.github.io/releases/latest/download/RexComicsverse.apk
 - Installed apps check for new versions by themselves and show an **UPDATE TO vX** bar (`app-update.js`)
 
 ## One-time setup: signing key secrets
@@ -26,17 +26,12 @@ update the app on the Play Store. Never commit them to git.
 Until the secrets are added, CI signs with a throwaway key (the build log shows a warning) and does not publish a release.
 CI checks every build against the fingerprint in `.github/signing-cert-sha256.txt`.
 
-## Remove the browser address bar (Digital Asset Links)
+## Full screen, no address bar (Digital Asset Links)
 
-To make the app run full-screen with no URL bar, Android has to verify that you own the site.
-Publish `assetlinks.json` (in this folder, and attached to every Release) at:
-
-    https://rexraja89-oss.github.io/.well-known/assetlinks.json
-
-That URL is the root of your GitHub Pages domain. It is served by a repo named
-**`rexraja89-oss.github.io`**, not by this repo. Create that repo if needed, add the file at
-`.well-known/assetlinks.json`, and add an empty `.nojekyll` file so GitHub Pages serves the
-dot-folder.
+Android checks https://rexcomicsverseofficial.github.io/.well-known/assetlinks.json to confirm the app and the site
+belong together. That file lives in this repo (`.well-known/assetlinks.json`, served thanks to
+`.nojekyll`) and holds the permanent signing key's SHA-256. If the key ever changes, update it
+together with `.github/signing-cert-sha256.txt`.
 
 ## Build locally (optional)
 

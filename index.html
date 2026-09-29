@@ -1627,7 +1627,7 @@ async function handleAppDownload() {
   // synchronously, so mobile browsers don't block it as a pop-up.
   const tab = window.open('', '_blank');
   const url = window.RexUpdates ? await RexUpdates.latestApkUrl(window.fetch.bind(window))
-                                : 'https://github.com/rexraja89-oss/rexcomicsverse/releases';
+                                : 'https://github.com/rexcomicsverseofficial/rexcomicsverseofficial.github.io/releases';
   if (tab) tab.location = url; else location.href = url;
   toast('Downloading the Rex Comicsverse app… open the file to install.','i');
 }
