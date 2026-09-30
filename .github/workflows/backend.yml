@@ -5,7 +5,7 @@ name: Deploy membership backend
 # Needs the SUPABASE_ACCESS_TOKEN secret. Razorpay secrets are optional until payments go live.
 on:
   push:
-    branches: [ main, 'claude/**' ]
+    branches: [ main ]
     paths:
       - 'supabase/**'
       - 'scripts/smoke-test.mjs'
