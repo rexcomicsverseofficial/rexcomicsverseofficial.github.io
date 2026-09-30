@@ -14,6 +14,9 @@ on:
 
 concurrency: backend
 
+permissions:
+  contents: write # to commit supabase-config.js (the site's public connection settings)
+
 env:
   PROJECT_REF: egtttbclxhmuhzhfpjto
   SITE_URL: https://rexcomicsverseofficial.github.io
@@ -59,10 +62,15 @@ jobs:
         echo "SUPABASE_URL=https://$PROJECT_REF.supabase.co" >> "$GITHUB_ENV"
         echo "SUPABASE_ANON_KEY=$anon" >> "$GITHUB_ENV"
         echo "SUPABASE_SERVICE_KEY=$service" >> "$GITHUB_ENV"
-        # The anon key is public by design (it ships in the website); printed so it can go in supabase-config.js.
-        echo "::notice title=anon key::$anon"
-        if ! grep -q "$anon" supabase-config.js 2>/dev/null; then
-          echo "::warning title=supabase-config.js is out of date::Put this anon key in supabase-config.js: $anon"
+        # The anon key is public by design (it ships in the website): keep supabase-config.js in step with it.
+        printf '%s\n' "// Public connection settings for the membership backend. Written by backend.yml; the anon key is safe to publish." \
+          "window.REX_SUPABASE = { url: 'https://$PROJECT_REF.supabase.co', anonKey: '$anon' };" > supabase-config.js
+        if ! git diff --quiet -- supabase-config.js || ! git ls-files --error-unmatch supabase-config.js >/dev/null 2>&1; then
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add supabase-config.js
+          git commit -m "Update supabase-config.js from the Supabase project"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
         fi
 
     - name: Reserve the creator's account
