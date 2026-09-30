@@ -1,0 +1,2 @@
+// Public connection settings for the membership backend. Written by backend.yml; the anon key is safe to publish.
+window.REX_SUPABASE = { url: 'https://egtttbclxhmuhzhfpjto.supabase.co', anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVndHR0YmNseGhtdWh6aGZwanRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3MzIxNzMsImV4cCI6MjEwNjMwODE3M30.7zh2cXPNTcAuLWnV2QozZ6m09htfZeArmKWr2SUKxK0' };
