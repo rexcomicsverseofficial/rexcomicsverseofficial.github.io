@@ -1,0 +1,101 @@
+name: Deploy membership backend
+
+# Sets up the Supabase project behind the site: database tables and access rules, sign-up
+# settings, the creator's reserved account, the payment functions, then a live self-test.
+# Needs the SUPABASE_ACCESS_TOKEN secret. Razorpay secrets are optional until payments go live.
+on:
+  push:
+    branches: [ main, 'claude/**' ]
+    paths:
+      - 'supabase/**'
+      - 'scripts/smoke-test.mjs'
+      - '.github/workflows/backend.yml'
+  workflow_dispatch:
+
+concurrency: backend
+
+env:
+  PROJECT_REF: egtttbclxhmuhzhfpjto
+  SITE_URL: https://rexcomicsverseofficial.github.io
+  CREATOR_EMAIL: rexraja89@gmail.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Apply database schema and access rules
+      run: |
+        set -euo pipefail
+        jq -n --rawfile q supabase/schema.sql '{query: $q}' > /tmp/q.json
+        code=$(curl -sS -o /tmp/out.json -w '%{http_code}' -X POST \
+          "https://api.supabase.com/v1/projects/$PROJECT_REF/database/query" \
+          -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H 'Content-Type: application/json' --data @/tmp/q.json)
+        cat /tmp/out.json; echo
+        [ "$code" -lt 300 ] || { echo "::error title=Schema failed::HTTP $code $(head -c 400 /tmp/out.json)"; exit 1; }
+
+    - name: Sign-up settings (instant accounts, links back to the site)
+      run: |
+        set -euo pipefail
+        body=$(jq -n --arg s "$SITE_URL" '{site_url: $s, uri_allow_list: ($s + "/**,http://localhost:8080/**"),
+                 external_email_enabled: true, mailer_autoconfirm: true, disable_signup: false}')
+        code=$(curl -sS -o /tmp/out.json -w '%{http_code}' -X PATCH \
+          "https://api.supabase.com/v1/projects/$PROJECT_REF/config/auth" \
+          -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" -H 'Content-Type: application/json' -d "$body")
+        [ "$code" -lt 300 ] || { echo "::error title=Auth settings failed::HTTP $code $(head -c 400 /tmp/out.json)"; exit 1; }
+
+    - name: Read the project's API keys
+      run: |
+        set -euo pipefail
+        curl -sS "https://api.supabase.com/v1/projects/$PROJECT_REF/api-keys?reveal=true" \
+          -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" > /tmp/keys.json
+        anon=$(jq -r '[.[] | select(.name=="anon")][0].api_key // empty' /tmp/keys.json)
+        service=$(jq -r '[.[] | select(.name=="service_role")][0].api_key // empty' /tmp/keys.json)
+        [ -n "$anon" ] && [ -n "$service" ] || { echo "::error::Could not read API keys: $(jq -c '[.[]|{name,type}]' /tmp/keys.json)"; exit 1; }
+        echo "::add-mask::$service"
+        echo "SUPABASE_URL=https://$PROJECT_REF.supabase.co" >> "$GITHUB_ENV"
+        echo "SUPABASE_ANON_KEY=$anon" >> "$GITHUB_ENV"
+        echo "SUPABASE_SERVICE_KEY=$service" >> "$GITHUB_ENV"
+        # The anon key is public by design (it ships in the website); printed so it can go in supabase-config.js.
+        echo "::notice title=anon key::$anon"
+        if ! grep -q "$anon" supabase-config.js 2>/dev/null; then
+          echo "::warning title=supabase-config.js is out of date::Put this anon key in supabase-config.js: $anon"
+        fi
+
+    - name: Reserve the creator's account
+      run: |
+        set -euo pipefail
+        code=$(curl -sS -o /tmp/out.json -w '%{http_code}' -X POST "$SUPABASE_URL/auth/v1/admin/users" \
+          -H "apikey: $SUPABASE_SERVICE_KEY" -H "Authorization: Bearer $SUPABASE_SERVICE_KEY" \
+          -H 'Content-Type: application/json' -d "{\"email\":\"$CREATOR_EMAIL\",\"email_confirm\":true}")
+        # 422 = already registered, which is what we want
+        [ "$code" -lt 300 ] || [ "$code" = 422 ] || { echo "::error::Creator account: HTTP $code $(cat /tmp/out.json)"; exit 1; }
+        echo "creator account: HTTP $code"
+
+    - uses: supabase/setup-cli@v1
+      with:
+        version: latest
+
+    - name: Deploy payment functions
+      run: supabase functions deploy create-subscription razorpay-webhook --project-ref "$PROJECT_REF" --no-verify-jwt --use-api
+
+    - name: Payment keys (only once Razorpay is approved)
+      env:
+        RAZORPAY_KEY_ID: ${{ secrets.RAZORPAY_KEY_ID }}
+        RAZORPAY_KEY_SECRET: ${{ secrets.RAZORPAY_KEY_SECRET }}
+        RAZORPAY_WEBHOOK_SECRET: ${{ secrets.RAZORPAY_WEBHOOK_SECRET }}
+      run: |
+        if [ -n "$RAZORPAY_KEY_ID" ] && [ -n "$RAZORPAY_KEY_SECRET" ] && [ -n "$RAZORPAY_WEBHOOK_SECRET" ]; then
+          supabase secrets set --project-ref "$PROJECT_REF" RAZORPAY_KEY_ID="$RAZORPAY_KEY_ID" \
+            RAZORPAY_KEY_SECRET="$RAZORPAY_KEY_SECRET" RAZORPAY_WEBHOOK_SECRET="$RAZORPAY_WEBHOOK_SECRET"
+        else
+          echo "::notice title=Payments not live yet::Add RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET and RAZORPAY_WEBHOOK_SECRET to switch on memberships."
+        fi
+
+    - name: Live self-test (access rules)
+      run: |
+        npm i --no-save --silent @supabase/supabase-js@2
+        node scripts/smoke-test.mjs
